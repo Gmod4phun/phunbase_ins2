@@ -1,0 +1,33 @@
+SWEP.Sequences = {
+	base_idle = "base_idle",
+	base_ready = "base_ready",
+	base_draw = "base_draw",
+	base_holster = "base_holster",
+	base_down = "base_down",
+	base_crawl = "base_crawl",
+	base_fire = "base_fire_start",
+	base_fire_cock = "base_fire_end",
+	base_firelast = "base_fire_last",
+	base_dryfire = "base_dryfire",
+	base_reload_start = "base_reload_start",
+	base_reload_start_empty = "base_reload_start",
+	base_reload_insert = "base_reload_insert",
+	base_reload_end = "base_reload_end",
+	base_reload_end_empty = "base_reload_end_empty",
+	base_sprint = "base_sprint",
+	
+	empty_idle = "base_idle",
+	empty_draw = "base_draw",
+	empty_holster = "base_holster",
+	empty_down = "base_down",
+	empty_crawl = "base_crawl",
+	empty_sprint = "base_sprint",
+	
+	iron_down = "iron_down",
+	empty_iron_down = "empty_iron_down",
+	
+	iron_fire = "iron_fire_start",
+	iron_fire_cock = "iron_fire_end",
+	iron_firelast = "iron_fire_last",
+	iron_dryfire = "iron_dryfire",
+}

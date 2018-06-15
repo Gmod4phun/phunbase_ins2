@@ -1,0 +1,17 @@
+"VertexLitGeneric"
+{
+	$basetexture "gmod4phun\ins2\arms\us_hands_l_color"
+	$bumpmap "gmod4phun\ins2\arms\us_hands_l_normals"
+	$rimmask 1
+	$phong "1"
+	$phongboost ".2"
+	$phongexponent "10"
+	$phongTint "[.4 .5 .8]"
+	$phongfresnelranges "[.1 1 .10]"
+	$rimlight "1"
+	$rimlightexponent "20"
+	$rimlightboost ".3"
+	$halflambert "0"
+	$ambientocclusion "1"
+	$lightwarptexture "gmod4phun\ins2\arms\skin_warp"
+}

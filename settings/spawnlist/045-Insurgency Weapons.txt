@@ -1,0 +1,491 @@
+"TableToKeyValues"
+{
+	"parentid"		"0"
+	"icon"		"icon16/heart.png"
+	"id"		"45"
+	"contents"
+	{
+		"1"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_38rev.mdl"
+		}
+		"2"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_ak74.mdl"
+		}
+		"3"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_akm.mdl"
+		}
+		"4"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_aks74u.mdl"
+		}
+		"5"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_anm14.mdl"
+		}
+		"6"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_at4.mdl"
+		}
+		"7"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_beretta.mdl"
+		}
+		"8"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_c4_sec.mdl"
+		}
+		"9"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_f1.mdl"
+		}
+		"10"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_fal.mdl"
+		}
+		"11"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_galil.mdl"
+		}
+		"12"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_galil_sar.mdl"
+		}
+		"13"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_gurkha.mdl"
+		}
+		"14"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_hands_ins_h.mdl"
+		}
+		"15"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_hands_ins_l.mdl"
+		}
+		"16"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_hands_ins_m.mdl"
+		}
+		"17"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_hands_sec_h.mdl"
+		}
+		"18"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_hands_sec_l.mdl"
+		}
+		"19"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_hands_sec_m.mdl"
+		}
+		"20"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_hands_vip.mdl"
+		}
+		"21"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_ied_ins.mdl"
+		}
+		"22"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_l1a1.mdl"
+		}
+		"23"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m14.mdl"
+		}
+		"24"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m16a3.mdl"
+		}
+		"25"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m18.mdl"
+		}
+		"26"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m1911.mdl"
+		}
+		"27"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m1a1.mdl"
+		}
+		"28"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m249.mdl"
+		}
+		"29"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m40a1.mdl"
+		}
+		"30"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m45.mdl"
+		}
+		"31"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m4a1.mdl"
+		}
+		"32"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m590.mdl"
+		}
+		"33"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m67.mdl"
+		}
+		"34"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_m84.mdl"
+		}
+		"35"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_makarov.mdl"
+		}
+		"36"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_marinebayonet.mdl"
+		}
+		"37"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_mini14.mdl"
+		}
+		"38"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_mk18.mdl"
+		}
+		"39"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_molotov.mdl"
+		}
+		"40"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_mosin.mdl"
+		}
+		"41"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_mp40.mdl"
+		}
+		"42"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_mp5kpdw.mdl"
+		}
+		"43"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_p2a1.mdl"
+		}
+		"44"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_rpg.mdl"
+		}
+		"45"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_rpk.mdl"
+		}
+		"46"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_sks.mdl"
+		}
+		"47"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_sterling.mdl"
+		}
+		"48"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_toz.mdl"
+		}
+		"49"
+		{
+			"type"	"model"
+			"model"	"models/weapons/v_ump45.mdl"
+		}
+		"50"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_1911.mdl"
+		}
+		"51"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_38rev.mdl"
+		}
+		"52"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_ak74.mdl"
+		}
+		"53"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_akm.mdl"
+		}
+		"54"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_aks74u.mdl"
+		}
+		"55"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_anm14.mdl"
+		}
+		"56"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_at4.mdl"
+		}
+		"57"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_at4_projectile.mdl"
+		}
+		"58"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_c4.mdl"
+		}
+		"59"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_det_ins.mdl"
+		}
+		"60"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_f1.mdl"
+		}
+		"61"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_fal.mdl"
+		}
+		"62"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_flare_projectile.mdl"
+		}
+		"63"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_galil.mdl"
+		}
+		"64"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_galil_sar.mdl"
+		}
+		"65"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_gren_spoon.mdl"
+		}
+		"66"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_gurkha.mdl"
+		}
+		"67"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_ied.mdl"
+		}
+		"68"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_l1a1.mdl"
+		}
+		"69"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m14.mdl"
+		}
+		"70"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m16.mdl"
+		}
+		"71"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m18.mdl"
+		}
+		"72"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m1a1.mdl"
+		}
+		"73"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m249.mdl"
+		}
+		"74"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m40.mdl"
+		}
+		"75"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m45.mdl"
+		}
+		"76"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m4a1.mdl"
+		}
+		"77"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m590.mdl"
+		}
+		"78"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m67.mdl"
+		}
+		"79"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m84.mdl"
+		}
+		"80"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_m9.mdl"
+		}
+		"81"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_makarov.mdl"
+		}
+		"82"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_marinebayonet.mdl"
+		}
+		"83"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_mini14.mdl"
+		}
+		"84"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_mk18.mdl"
+		}
+		"85"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_molotov.mdl"
+		}
+		"86"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_mosin.mdl"
+		}
+		"87"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_mp40.mdl"
+		}
+		"88"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_mp5k.mdl"
+		}
+		"89"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_p2a1.mdl"
+		}
+		"90"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_rpg7.mdl"
+		}
+		"91"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_rpg7_projectile.mdl"
+		}
+		"92"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_rpk.mdl"
+		}
+		"93"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_sks.mdl"
+		}
+		"94"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_sterling.mdl"
+		}
+		"95"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_toz.mdl"
+		}
+		"96"
+		{
+			"type"	"model"
+			"model"	"models/weapons/w_ump45.mdl"
+		}
+	}
+	"name"		"Insurgency Weapons"
+	"version"		"3"
+}

@@ -1,0 +1,14 @@
+UnlitGeneric
+{
+	"$basetexture"			"gmod4phun\ins2\arms\watch_dig_sec_dm"
+	"$selfillum"			"0"
+	"Proxies"
+	{
+		"TextureScroll"
+		{
+			"texturescrollvar" "$baseTextureTransform"
+			"texturescrollrate" "0.0166666666"
+			"texturescrollangle" "0.00"
+		}
+	}
+}

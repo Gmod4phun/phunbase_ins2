@@ -1,0 +1,15 @@
+vertexlitgeneric
+{
+	"$basetexture"			"gmod4phun\ins2\arms\sleeve_black_dm"	
+	"$bumpmap"   			"gmod4phun\ins2\arms\sleeve_normal"
+	
+	$normalmapalphaenvmapmask 	1
+
+	$phong 				1
+	$phongboost 			.2
+	$phongexponent			15
+	$phongalbedoboost 		8
+	$phongtint 			"[0.7 0.8 1]"
+	
+	
+}

@@ -1,0 +1,18 @@
+vertexlitgeneric
+{
+	"$basetexture"			"gmod4phun\ins2\arms\t_base_fingerless_glove_color"	
+	"$bumpmap"			"gmod4phun\ins2\arms\t_base_fingerless_glove_normal"
+	"$phongexponenttexture"		"gmod4phun\ins2\arms\t_base_fingerless_glove_exp"
+	
+ 	$envmap 			env_cubemap
+	$envmaptint 			"[ .01 .01 .02 ]"
+	$normalmapalphaenvmapmask 	1
+
+	$phong 				1
+	$phongboost 			.4
+	$phongalbedoboost 		15
+	$phongtint 			"[0.7 0.8 1]"
+	
+	$phongfresnelranges 		"[1 1 3]"
+	
+}

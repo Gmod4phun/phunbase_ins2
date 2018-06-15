@@ -1,0 +1,891 @@
+"TableToKeyValues"
+{
+	"parentid"		"0"
+	"icon"		"icon16/heart.png"
+	"id"		"44"
+	"contents"
+	{
+		"1"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_bipod_ar.mdl"
+		}
+		"2"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_bipod_fal.mdl"
+		}
+		"3"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_bipod_galil.mdl"
+		}
+		"4"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_bipod_m14.mdl"
+		}
+		"5"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_bipod_m40.mdl"
+		}
+		"6"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_bipod_mosin.mdl"
+		}
+		"7"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_bipod_sks.mdl"
+		}
+		"8"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_carryhandle_m16.mdl"
+		}
+		"9"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_carryhandle_m4.mdl"
+		}
+		"10"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_flashlight_band.mdl"
+		}
+		"11"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_flashlight_ins_shotgun.mdl"
+		}
+		"12"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_flashlight_m9.mdl"
+		}
+		"13"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_flashlight_mak.mdl"
+		}
+		"14"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_flashlight_rail.mdl"
+		}
+		"15"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_flashlight_sec_shotgun.mdl"
+		}
+		"16"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_flashlight_sterling.mdl"
+		}
+		"17"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_foregrip_ins.mdl"
+		}
+		"18"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_foregrip_ins2.mdl"
+		}
+		"19"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_foregrip_sec.mdl"
+		}
+		"20"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_foregrip_sec2.mdl"
+		}
+		"21"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_gl_gp25.mdl"
+		}
+		"22"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_gl_m203.mdl"
+		}
+		"23"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_01.mdl"
+		}
+		"24"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_02.mdl"
+		}
+		"25"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_band.mdl"
+		}
+		"26"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_ins_shotgun.mdl"
+		}
+		"27"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_m9.mdl"
+		}
+		"28"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_mak.mdl"
+		}
+		"29"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_pistol.mdl"
+		}
+		"30"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_rail.mdl"
+		}
+		"31"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_sec_shotgun.mdl"
+		}
+		"32"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_laser_sterling.mdl"
+		}
+		"33"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_1911_15.mdl"
+		}
+		"34"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_1911_8.mdl"
+		}
+		"35"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_fal_20.mdl"
+		}
+		"36"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_fal_l1a1_30.mdl"
+		}
+		"37"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_galil_35.mdl"
+		}
+		"38"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_galil_75.mdl"
+		}
+		"39"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_l1a1_20.mdl"
+		}
+		"40"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_m1a1_15.mdl"
+		}
+		"41"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_m1a1_30.mdl"
+		}
+		"42"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_m45_15.mdl"
+		}
+		"43"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_m45_8.mdl"
+		}
+		"44"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_makarov_15.mdl"
+		}
+		"45"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_magazine_makarov_8.mdl"
+		}
+		"46"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_02.mdl"
+		}
+		"47"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_04.mdl"
+		}
+		"48"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_05.mdl"
+		}
+		"49"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_06.mdl"
+		}
+		"50"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_07.mdl"
+		}
+		"51"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_fal.mdl"
+		}
+		"52"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_l1a1.mdl"
+		}
+		"53"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_m1a1.mdl"
+		}
+		"54"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_m40.mdl"
+		}
+		"55"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_mosin.mdl"
+		}
+		"56"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_modkit_sterling.mdl"
+		}
+		"57"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_mount_galil.mdl"
+		}
+		"58"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_aimp2x.mdl"
+		}
+		"59"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_aimp2x_l.mdl"
+		}
+		"60"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_aimp2x_m.mdl"
+		}
+		"61"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_aimpoint.mdl"
+		}
+		"62"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_aimpoint_l.mdl"
+		}
+		"63"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_aimpoint_m.mdl"
+		}
+		"64"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_elcan.mdl"
+		}
+		"65"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_elcan_l.mdl"
+		}
+		"66"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_elcan_m.mdl"
+		}
+		"67"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_eotech.mdl"
+		}
+		"68"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_eotech_l.mdl"
+		}
+		"69"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_eotech_m.mdl"
+		}
+		"70"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_eotech_xl.mdl"
+		}
+		"71"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_kobra.mdl"
+		}
+		"72"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_kobra_l.mdl"
+		}
+		"73"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_kobra_m.mdl"
+		}
+		"74"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_kobra_xl.mdl"
+		}
+		"75"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_m40.mdl"
+		}
+		"76"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_m40_l.mdl"
+		}
+		"77"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_m40_lense_test.mdl"
+		}
+		"78"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_m40_test.mdl"
+		}
+		"79"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_mosin.mdl"
+		}
+		"80"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_mosin_l.mdl"
+		}
+		"81"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_mosin_m.mdl"
+		}
+		"82"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_po4x24.mdl"
+		}
+		"83"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_po4x24_l.mdl"
+		}
+		"84"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_optic_po4x24_m.mdl"
+		}
+		"85"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_projectile_gp25.mdl"
+		}
+		"86"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_projectile_m203.mdl"
+		}
+		"87"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_projectile_rpg_01.mdl"
+		}
+		"88"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_speedloader_rev.mdl"
+		}
+		"89"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard2_m16a4.mdl"
+		}
+		"90"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard2_m4a1.mdl"
+		}
+		"91"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard2_mk18.mdl"
+		}
+		"92"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard3_m16a4.mdl"
+		}
+		"93"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard3_m4a1.mdl"
+		}
+		"94"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard3_mk18.mdl"
+		}
+		"95"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard4_m4a1.mdl"
+		}
+		"96"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard5_m4a1.mdl"
+		}
+		"97"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard6_m4a1.mdl"
+		}
+		"98"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_ak74.mdl"
+		}
+		"99"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_akm.mdl"
+		}
+		"100"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_aks74u.mdl"
+		}
+		"101"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_fal.mdl"
+		}
+		"102"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_galil.mdl"
+		}
+		"103"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_l1a1.mdl"
+		}
+		"104"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_m16.mdl"
+		}
+		"105"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_m16a4.mdl"
+		}
+		"106"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_m1a1.mdl"
+		}
+		"107"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_m40.mdl"
+		}
+		"108"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_m4a1.mdl"
+		}
+		"109"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_m590.mdl"
+		}
+		"110"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_mk18.mdl"
+		}
+		"111"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_standard_sterling.mdl"
+		}
+		"112"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_suppressor_12ga.mdl"
+		}
+		"113"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_suppressor_ak.mdl"
+		}
+		"114"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_suppressor_aks.mdl"
+		}
+		"115"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_suppressor_ins.mdl"
+		}
+		"116"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_suppressor_pistol.mdl"
+		}
+		"117"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_suppressor_sec.mdl"
+		}
+		"118"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_suppressor_sec2.mdl"
+		}
+		"119"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_suppressor_sterling.mdl"
+		}
+		"120"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_woodgrips_ak74.mdl"
+		}
+		"121"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_woodgrips_akm.mdl"
+		}
+		"122"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/a_woodgrips_aks74u.mdl"
+		}
+		"123"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_aimpoint.mdl"
+		}
+		"124"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_bipod_galil.mdl"
+		}
+		"125"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_bipod_m40.mdl"
+		}
+		"126"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_bipod_mosin.mdl"
+		}
+		"127"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_elcan.mdl"
+		}
+		"128"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_eotech.mdl"
+		}
+		"129"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_flipup1.mdl"
+		}
+		"130"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_flipup2.mdl"
+		}
+		"131"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_flipup3.mdl"
+		}
+		"132"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_flipup_m40.mdl"
+		}
+		"133"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_foregrip_aks74u.mdl"
+		}
+		"134"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_foregrip_ins.mdl"
+		}
+		"135"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_foregrip_sec1.mdl"
+		}
+		"136"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_foregrip_sec2.mdl"
+		}
+		"137"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_foregrip_wood_1.mdl"
+		}
+		"138"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_foregrip_wood_2.mdl"
+		}
+		"139"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_gp25.mdl"
+		}
+		"140"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_ins_foregrip.mdl"
+		}
+		"141"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_kobra.mdl"
+		}
+		"142"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_laser_ins.mdl"
+		}
+		"143"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_laser_sec.mdl"
+		}
+		"144"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_m203.mdl"
+		}
+		"145"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magaim.mdl"
+		}
+		"146"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_1911_15.mdl"
+		}
+		"147"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_1911_8.mdl"
+		}
+		"148"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_galil_35.mdl"
+		}
+		"149"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_galil_75.mdl"
+		}
+		"150"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_m1a1_15.mdl"
+		}
+		"151"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_m1a1_30.mdl"
+		}
+		"152"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_m45_15.mdl"
+		}
+		"153"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_m45_8.mdl"
+		}
+		"154"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_makarov_15.mdl"
+		}
+		"155"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_magazine_makarov_8.mdl"
+		}
+		"156"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_modkit_4.mdl"
+		}
+		"157"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_modkit_5.mdl"
+		}
+		"158"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_modkit_6.mdl"
+		}
+		"159"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_modkit_7.mdl"
+		}
+		"160"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_modkit_m1a1.mdl"
+		}
+		"161"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_modkit_mosin.mdl"
+		}
+		"162"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_modkit_sterling.mdl"
+		}
+		"163"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_mount_galil.mdl"
+		}
+		"164"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_po.mdl"
+		}
+		"165"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_scope_m40.mdl"
+		}
+		"166"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_scope_mosin.mdl"
+		}
+		"167"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_sil_ins1.mdl"
+		}
+		"168"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_sil_pistol.mdl"
+		}
+		"169"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_sil_sec1.mdl"
+		}
+		"170"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_sil_sec2.mdl"
+		}
+		"171"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_sil_sterling.mdl"
+		}
+		"172"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_standard_ak74.mdl"
+		}
+		"173"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_standard_akm.mdl"
+		}
+		"174"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_standard_aks74u.mdl"
+		}
+		"175"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_standard_m1a1.mdl"
+		}
+		"176"
+		{
+			"type"	"model"
+			"model"	"models/weapons/upgrades/w_standard_sterling.mdl"
+		}
+	}
+	"name"		"Insurgency Attachments"
+	"version"		"3"
+}
