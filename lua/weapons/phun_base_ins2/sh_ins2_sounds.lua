@@ -49,3 +49,45 @@ PHUNBASE:addRegularSound("PB_INS2_SHELL_FLARE", {"weapons/bullets/shells/concret
 PHUNBASE:addRegularSound("PB_INS2_SHELL_M203", {"weapons/bullets/shells/concrete/m203_shell_concrete_01.wav", "weapons/bullets/shells/concrete/m203_shell_concrete_02.wav", "weapons/bullets/shells/concrete/m203_shell_concrete_03.wav", "weapons/bullets/shells/concrete/m203_shell_concrete_04.wav"}, 65)
 PHUNBASE:addRegularSound("PB_INS2_SHELL_LINK", {"weapons/bullets/shells/concrete/m249_link_concrete_01.wav", "weapons/bullets/shells/concrete/m249_link_concrete_02.wav", "weapons/bullets/shells/concrete/m249_link_concrete_03.wav", "weapons/bullets/shells/concrete/m249_link_concrete_04.wav", "weapons/bullets/shells/concrete/m249_link_concrete_05.wav", "weapons/bullets/shells/concrete/m249_link_concrete_06.wav", "weapons/bullets/shells/concrete/m249_link_concrete_07.wav", "weapons/bullets/shells/concrete/m249_link_concrete_08.wav"}, 65)
 PHUNBASE:addRegularSound("PB_INS2_SHELL_12G", {"weapons/bullets/shells/concrete/shotgun_shell_concrete_01.wav", "weapons/bullets/shells/concrete/shotgun_shell_concrete_02.wav", "weapons/bullets/shells/concrete/shotgun_shell_concrete_03.wav", "weapons/bullets/shells/concrete/shotgun_shell_concrete_04.wav", "weapons/bullets/shells/concrete/shotgun_shell_concrete_05.wav", "weapons/bullets/shells/concrete/shotgun_shell_concrete_06.wav"}, 65)
+
+
+// PROJECTILES / THROWABLES
+
+PHUNBASE:addRegularSound("PB_INS2_FRAG_ENT_BOUNCE", {"weapons/m67/m67_bounce_01.wav", "weapons/m67/m67_bounce_02.wav", "weapons/m67/m67_bounce_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_FRAG_ENT_DETONATE", {"weapons/m67/m67_detonate_01.wav", "weapons/m67/m67_detonate_02.wav", "weapons/m67/m67_detonate_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_FRAG_ENT_DETONATE_D1", {"weapons/m67/m67_detonate_dist_01.wav", "weapons/m67/m67_detonate_dist_02.wav", "weapons/m67/m67_detonate_dist_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_FRAG_ENT_DETONATE_D2", {"weapons/m67/m67_detonate_far_dist_01.wav", "weapons/m67/m67_detonate_far_dist_02.wav", "weapons/m67/m67_detonate_far_dist_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_FRAG_ENT_DETONATE_WATER", {"weapons/m67/water/m67_water_detonate_01.wav", "weapons/m67/water/m67_water_detonate_02.wav", "weapons/m67/water/m67_water_detonate_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_FRAG_ENT_DETONATE_WATER_D1", {"weapons/m67/water/m67_water_detonate_dist_01.wav", "weapons/m67/water/m67_water_detonate_dist_02.wav", "weapons/m67/water/m67_water_detonate_dist_03.wav"})
+
+PHUNBASE:addFireSound("PB_INS2_M84_ENT_DETONATE", "weapons/m84/m84_detonate.wav")
+PHUNBASE:addFireSound("PB_INS2_M84_ENT_DETONATE_D1", "weapons/m84/m84_detonate_dist.wav")
+PHUNBASE:addFireSound("PB_INS2_M84_ENT_DETONATE_D2", "weapons/m84/m84_detonate_far_dist.wav")
+
+-- PHUNBASE:addFireSound("PB_INS2_ANM14_ENT_DETONATE", "weapons/anm14/an_m14_detonate.wav")
+PHUNBASE:addFireSound("PB_INS2_ANM14_ENT_DETONATE", "weapons/anm14/an_m14_burn.wav")
+
+-- PHUNBASE:addFireSound("PB_INS2_MOLOTOV_ENT_DETONATE", "weapons/molotov/molotov_detonate.wav")
+PHUNBASE:addFireSound("PB_INS2_MOLOTOV_ENT_DETONATE", "weapons/molotov/molotov_burn.wav")
+-- PHUNBASE:addFireSound("PB_INS2_MOLOTOV_ENT_DETONATE_D1", "weapons/molotov/molotov_burn_loop.wav")
+-- PHUNBASE:addFireSound("PB_INS2_MOLOTOV_ENT_DETONATE_D2", "weapons/molotov/molotov_burn_loop_end.wav")
+
+PHUNBASE:addFireSound("PB_INS2_M18_ENT_DETONATE", "weapons/m18/m18_detonate.wav")
+
+PHUNBASE:addFireSound("PB_INS2_RPG_ENT_DETONATE", {"weapons/at4/at4rpg_detonate_01.wav", "weapons/at4/at4rpg_detonate_02.wav", "weapons/at4/at4rpg_detonate_03.wav"}, 1, 100, CHAN_STATIC)
+PHUNBASE:addFireSound("PB_INS2_RPG_ENT_DETONATE_D1", {"weapons/at4/at4rpg_detonate_dist_01.wav", "weapons/at4/at4rpg_detonate_dist_02.wav", "weapons/at4/at4rpg_detonate_dist_03.wav"}, 1, 100, CHAN_STATIC)
+PHUNBASE:addFireSound("PB_INS2_RPG_ENT_DETONATE_D2", {"weapons/at4/at4rpg_detonate_far_dist_01.wav", "weapons/at4/at4rpg_detonate_far_dist_02.wav", "weapons/at4/at4rpg_detonate_far_dist_03.wav"}, 1, 100, CHAN_STATIC)
+PHUNBASE:addFireSound("PB_INS2_RPG_ENT_DETONATE_WATER", {"weapons/at4/water/at4rpg_water_detonate_01.wav", "weapons/at4/water/at4rpg_water_detonate_02.wav", "weapons/at4/water/at4rpg_water_detonate_03.wav"}, 1, 100, CHAN_STATIC)
+PHUNBASE:addFireSound("PB_INS2_RPG_ENT_DETONATE_WATER_D1", {"weapons/at4/water/at4rpg_water_detonate_dist_01.wav", "weapons/at4/water/at4rpg_water_detonate_dist_02.wav", "weapons/at4/water/at4rpg_water_detonate_dist_03.wav"}, 1, 100, CHAN_STATIC)
+
+PHUNBASE:addFireSound("PB_INS2_C4_ENT_DETONATE", {"weapons/c4/c4_detonate_01.wav", "weapons/c4/c4_detonate_02.wav", "weapons/c4/c4_detonate_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_C4_ENT_DETONATE_D1", {"weapons/c4/c4_detonate_dist_01.wav", "weapons/c4/c4_detonate_dist_02.wav", "weapons/c4/c4_detonate_dist_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_C4_ENT_DETONATE_D2", {"weapons/c4/c4_detonate_far_dist_01.wav", "weapons/c4/c4_detonate_far_dist_02.wav", "weapons/c4/c4_detonate_far_dist_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_C4_ENT_DETONATE_WATER", {"weapons/c4/water/c4_water_detonate_01.wav", "weapons/c4/water/c4_water_detonate_02.wav", "weapons/c4/water/c4_water_detonate_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_C4_ENT_DETONATE_WATER_D1", {"weapons/c4/water/c4_water_detonate_dist_01.wav", "weapons/c4/water/c4_water_detonate_dist_02.wav", "weapons/c4/water/c4_water_detonate_dist_03.wav"})
+
+PHUNBASE:addFireSound("PB_INS2_IED_ENT_DETONATE", {"weapons/ied/ied_detonate_01.wav", "weapons/ied/ied_detonate_02.wav", "weapons/ied/ied_detonate_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_IED_ENT_DETONATE_D1", {"weapons/ied/ied_detonate_dist_01.wav", "weapons/ied/ied_detonate_dist_02.wav", "weapons/ied/ied_detonate_dist_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_IED_ENT_DETONATE_D2", {"weapons/ied/ied_detonate_far_dist_01.wav", "weapons/ied/ied_detonate_far_dist_02.wav", "weapons/ied/ied_detonate_far_dist_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_IED_ENT_DETONATE_WATER", {"weapons/ied/water/ied_water_detonate_01.wav", "weapons/ied/water/ied_water_detonate_02.wav", "weapons/ied/water/ied_water_detonate_03.wav"})
+PHUNBASE:addFireSound("PB_INS2_IED_ENT_DETONATE_WATER_D1", {"weapons/ied/water/ied_water_detonate_dist_01.wav", "weapons/ied/water/ied_water_detonate_dist_02.wav", "weapons/ied/water/ied_water_detonate_dist_03.wav"})

@@ -17,8 +17,8 @@ SWEP.FireSoundSuppressed = "PB_INS2_M4A1_FIRE_SUPPRESSED"
 SWEP.Sounds = {
 	base_ready = {
 		{time = 0/30, sound = "PB_INS2_UNIVERSAL_DRAW"},
-		{time = 17/30, sound = "PB_INS2_M4A1_BOLTBACK"},
-		{time = 26/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
+		{time = 23/30, sound = "PB_INS2_M4A1_BOLTBACK"},
+		{time = 36/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
 	},
 
 	base_draw = {
@@ -43,18 +43,18 @@ SWEP.Sounds = {
 	},
 
 	base_reload = {
-		{time = 16/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_M4A1_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_M4A1_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_M4A1_HIT"},
+		{time = 13/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
+		{time = 15/30, sound = "PB_INS2_M4A1_MAGOUT"},
+		{time = 60/30, sound = "PB_INS2_M4A1_MAGIN"},
+		{time = 79/30, sound = "PB_INS2_M4A1_HIT"},
 	},
 
 	base_reloadempty = {
-		{time = 16/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_M4A1_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_M4A1_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_M4A1_HIT"},
-		{time = 112/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
+		{time = 13/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
+		{time = 15/30, sound = "PB_INS2_M4A1_MAGOUT"},
+		{time = 64/30, sound = "PB_INS2_M4A1_MAGIN"},
+		{time = 83/30, sound = "PB_INS2_M4A1_HIT"},
+		{time = 109/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
 	},
 
 	iron_dryfire = {
@@ -62,13 +62,13 @@ SWEP.Sounds = {
 	},
 
 	iron_fireselect = {
-		{time = 8/30, sound = "PB_INS2_M4A1_FIRESELECT"},
+		{time = 12/30, sound = "PB_INS2_M4A1_FIRESELECT"},
 	},
 
 	foregrip_ready = {
 		{time = 0/30, sound = "PB_INS2_UNIVERSAL_DRAW"},
-		{time = 17/30, sound = "PB_INS2_M4A1_BOLTBACK"},
-		{time = 26/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
+		{time = 23/30, sound = "PB_INS2_M4A1_BOLTBACK"},
+		{time = 36/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
 	},
 
 	foregrip_draw = {
@@ -97,28 +97,28 @@ SWEP.Sounds = {
 	},
 
 	foregrip_iron_fireselect = {
-		{time = 8/30, sound = "PB_INS2_M4A1_FIRESELECT"},
+		{time = 12/30, sound = "PB_INS2_M4A1_FIRESELECT"},
 	},
 
 	foregrip_reload = {
-		{time = 16/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_M4A1_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_M4A1_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_M4A1_HIT"},
+		{time = 13/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
+		{time = 15/30, sound = "PB_INS2_M4A1_MAGOUT"},
+		{time = 60/30, sound = "PB_INS2_M4A1_MAGIN"},
+		{time = 79/30, sound = "PB_INS2_M4A1_HIT"},
 	},
 
 	foregrip_reloadempty = {
-		{time = 16/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_M4A1_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_M4A1_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_M4A1_HIT"},
-		{time = 112/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
+		{time = 13/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
+		{time = 15/30, sound = "PB_INS2_M4A1_MAGOUT"},
+		{time = 64/30, sound = "PB_INS2_M4A1_MAGIN"},
+		{time = 83/30, sound = "PB_INS2_M4A1_HIT"},
+		{time = 109/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
 	},
 
 	gl_ready = {
 		{time = 0/30, sound = "PB_INS2_UNIVERSAL_DRAW"},
-		{time = 17/30, sound = "PB_INS2_M4A1_BOLTBACK"},
-		{time = 26/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
+		{time = 23/30, sound = "PB_INS2_M4A1_BOLTBACK"},
+		{time = 36/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
 	},
 
 	gl_draw = {
@@ -143,18 +143,18 @@ SWEP.Sounds = {
 	},
 
 	gl_reload = {
-		{time = 16/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_M4A1_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_M4A1_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_M4A1_HIT"},
+		{time = 13/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
+		{time = 15/30, sound = "PB_INS2_M4A1_MAGOUT"},
+		{time = 60/30, sound = "PB_INS2_M4A1_MAGIN"},
+		{time = 79/30, sound = "PB_INS2_M4A1_HIT"},
 	},
 
 	gl_reloadempty = {
-		{time = 16/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_M4A1_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_M4A1_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_M4A1_HIT"},
-		{time = 112/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
+		{time = 13/30, sound = "PB_INS2_M4A1_MAGRELEASE"},
+		{time = 15/30, sound = "PB_INS2_M4A1_MAGOUT"},
+		{time = 64/30, sound = "PB_INS2_M4A1_MAGIN"},
+		{time = 83/30, sound = "PB_INS2_M4A1_HIT"},
+		{time = 106/30, sound = "PB_INS2_M4A1_BOLTRELEASE"},
 	},
 
 	gl_iron_dryfire = {
@@ -162,7 +162,7 @@ SWEP.Sounds = {
 	},
 
 	gl_iron_fireselect = {
-		{time = 8/30, sound = "PB_INS2_M4A1_FIRESELECT"},
+		{time = 12/30, sound = "PB_INS2_M4A1_FIRESELECT"},
 	},
 
 	glsetup_in = {
@@ -197,9 +197,9 @@ SWEP.Sounds = {
 	glsetup_reload = {
 		{time = 0/30, sound = "PB_INS2_GL_BEGINRELOAD"},
 		{time = 23/30, sound = "PB_INS2_M203_OPENBARREL"},
-		-- {time = 32/30, sound = "", callback = m203},
+		-- {time = 35/30, sound = "", callback = m203},
+        {time = 44/30, sound = "PB_INS2_m203_GrenadeDrop"},
 		{time = 57/30, sound = "PB_INS2_M203_INSERTGRENADE"},
-		-- {time = 44/30, sound = "PB_INS2_m203_GrenadeDrop"},
 		{time = 84/30, sound = "PB_INS2_M203_CLOSEBARREL"},
 	},
 

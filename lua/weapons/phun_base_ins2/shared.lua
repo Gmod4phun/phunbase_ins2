@@ -93,6 +93,7 @@ SWEP.MuzzleAttachmentName = "muzzle"
 SWEP.MuzzleAttachmentName_L = "muzzle_left"
 SWEP.MuzzleAttachmentName_R = "muzzle_right"
 SWEP.MuzzleEffect = {"smoke_trail"}
+SWEP.MuzzleEffectSuppressed = {"smoke_trail"}
 
 SWEP.ShellVelocity = {X = 0, Y = 0, Z = 0}
 SWEP.ShellAngularVelocity = {Pitch_Min = 0, Pitch_Max = 0, Yaw_Min = 0, Yaw_Max = 0, Roll_Min = 0, Roll_Max = 0}

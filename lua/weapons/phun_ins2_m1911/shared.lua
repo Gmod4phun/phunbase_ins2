@@ -12,10 +12,10 @@ SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
 SWEP.AimViewModelFOV = 60
-SWEP.ViewModel = "models/weapons/v_m1911.mdl"
-SWEP.WorldModel = "models/weapons/w_m45.mdl"
+SWEP.ViewModel = "models/gmod4phun/ins2/weapons/v_m1911.mdl"
+SWEP.WorldModel = "models/gmod4phun/ins2/weapons/w_m1911.mdl"
 
-SWEP.CustomWorldModel = "models/weapons/w_m45.mdl"
+SWEP.CustomWorldModel = SWEP.WorldModel
 SWEP.CustomWorldModelPos = Vector(-1.25,4.75,1.5)
 SWEP.CustomWorldModelAng = Angle(0,0,180)
 
@@ -100,16 +100,26 @@ SWEP.ReloadTime_Empty = 2.85
 SWEP.ViewModelMovementScale = 0.75
 
 // shell-related stuff
-SWEP.ShellVelocity = {X = 65, Y = 0, Z = -15}
-SWEP.ShellAngularVelocity = {Pitch_Min = -500, Pitch_Max = 200, Yaw_Min = 0, Yaw_Max = 1000, Roll_Min = -200, Roll_Max = 100}
-SWEP.ShellViewAngleAlign = {Forward = 0, Right = 0, Up = -90}
+SWEP.ShellVelocity = {X = 80, Y = -30, Z = -15}
+SWEP.ShellAngularVelocity = {Pitch_Min = -2500, Pitch_Max = -2000, Yaw_Min = 150, Yaw_Max = 200, Roll_Min = 10, Roll_Max = 20}
+SWEP.ShellViewAngleAlign = {Forward = 0, Right = 0, Up = 180}
 SWEP.ShellAttachmentName = "shell"
 SWEP.ShellDelay = 0.065
-SWEP.ShellScale = 0.6
-SWEP.ShellModel = "models/phunbase/shells/45acp.mdl"
+SWEP.ShellScale = 0.66
+SWEP.ShellModel = "models/gmod4phun/ins2/shells/45acp.mdl"
 
 SWEP.MuzzleAttachmentName = "muzzle"
-SWEP.MuzzleEffect = {"weapon_muzzle_flash_smoke_small2", "PistolGlow", "muzzle_lee_simple_pistol", "muzzle_fire_pistol", "muzzle_sparks_pistol", "smoke_trail"}
+
+SWEP.MuzzleEffect = {
+    "pb_ins2_muzzleflash_m9_1p_core",
+    "pb_ins2_muzzleflash_m9_1p_glow",
+    "pb_ins2_muzzleflash_m9_1p_sparks",
+    "muzzle_lee_pistol",
+    "muzzle_smoke_trail",
+    "smoke_trail",
+}
+
+SWEP.MuzzleEffectSuppressed = {"muzzle_lee_silenced"}
 
 local icon_merge_models = {
 	"models/gmod4phun/ins2/upgrades/a_magazine_1911_8.mdl"

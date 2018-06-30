@@ -43,16 +43,16 @@ SWEP.Sounds = {
 	},
 
 	base_fire_cock_1 = {
-		{time = 1/24, sound = "PB_INS2_M590_PUMPBACK"},
-		{time = 2/24, sound = "", callback = shell},
-		{time = 5/24, sound = "PB_INS2_M590_PUMPFORWARD"},
+		{time = 3/35, sound = "PB_INS2_M590_PUMPBACK"},
+		{time = 4/35, sound = "", callback = shell},
+		{time = 11/35, sound = "PB_INS2_M590_PUMPFORWARD"},
 		// pumpedrdy @ 6 ""},
 	},
 
 	base_fire_cock_2 = {
-		{time = 1/24, sound = "PB_INS2_M590_PUMPBACK"},
-		{time = 2/24, sound = "", callback = shell},
-		{time = 5/24, sound = "PB_INS2_M590_PUMPFORWARD"},
+		{time = 3/35, sound = "PB_INS2_M590_PUMPBACK"},
+		{time = 4/35, sound = "", callback = shell},
+		{time = 11/35, sound = "PB_INS2_M590_PUMPFORWARD"},
 		// pumpedrdy @ 6 ""},
 	},
 
@@ -124,16 +124,16 @@ SWEP.Sounds = {
 	},
 
 	foregrip_fire_cock_1 = {
-		{time = 1/24, sound = "PB_INS2_M590_PUMPBACK"},
-		{time = 2/24, sound = "", callback = shell},
-		{time = 5/24, sound = "PB_INS2_M590_PUMPFORWARD"},
+		{time = 3/45, sound = "PB_INS2_M590_PUMPBACK"},
+		{time = 4/45, sound = "", callback = shell},
+		{time = 11/45, sound = "PB_INS2_M590_PUMPFORWARD"},
 		// pumpedrdy @ 6 ""},
 	},
 
 	foregrip_fire_cock_2 = {
-		{time = 1/24, sound = "PB_INS2_M590_PUMPBACK"},
-		{time = 2/24, sound = "", callback = shell},
-		{time = 5/24, sound = "PB_INS2_M590_PUMPFORWARD"},
+		{time = 3/45, sound = "PB_INS2_M590_PUMPBACK"},
+		{time = 4/45, sound = "", callback = shell},
+		{time = 11/45, sound = "PB_INS2_M590_PUMPFORWARD"},
 		// pumpedrdy @ 6 ""},
 	},
 
@@ -168,14 +168,14 @@ SWEP.Sounds = {
 	},
 
 	foregrip_iron_fire_cock_1 = {
-		{time = 3/35, sound = "PB_INS2_M590_PUMPBACK", callback = shell},
-		{time = 11/35, sound = "PB_INS2_M590_PUMPFORWARD"},
+		{time = 3/45, sound = "PB_INS2_M590_PUMPBACK", callback = shell},
+		{time = 11/45, sound = "PB_INS2_M590_PUMPFORWARD"},
 		// pumpedrdy @ 12 ""},
 	},
 
 	foregrip_iron_fire_cock_2 = {
-		{time = 3/35, sound = "PB_INS2_M590_PUMPBACK", callback = shell},
-		{time = 11/35, sound = "PB_INS2_M590_PUMPFORWARD"},
+		{time = 3/45, sound = "PB_INS2_M590_PUMPBACK", callback = shell},
+		{time = 11/45, sound = "PB_INS2_M590_PUMPFORWARD"},
 		// pumpedrdy @ 12 ""},
 	},
 

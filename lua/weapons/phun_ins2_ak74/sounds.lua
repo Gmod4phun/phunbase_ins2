@@ -14,11 +14,14 @@ PHUNBASE:addReloadSound("PB_INS2_AK74_RATTLE", "weapons/ak74/handling/ak74_rattl
 SWEP.FireSound = "PB_INS2_AK74_FIRE"
 SWEP.FireSoundSuppressed = "PB_INS2_AK74_FIRE_SUPPRESSED"
 
+SWEP.GrenadeLauncherFireSound = "PB_INS2_GP30_FIRE"
+
 SWEP.Sounds = {
 	base_ready = {
 		{time = 0/30, sound = "PB_INS2_UNIVERSAL_DRAW"},
-		{time = 17/30, sound = "PB_INS2_AK74_BOLTBACK"},
-		{time = 26/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
+        {time = 18/30, sound = "PB_INS2_AK74_FIRESELECT"},
+		{time = 31/30, sound = "PB_INS2_AK74_BOLTBACK"},
+		{time = 39/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
 	},
 
 	base_draw = {
@@ -30,8 +33,8 @@ SWEP.Sounds = {
 	},
 
 	base_crawl = {
-		{time = 0/30, sound = "PB_INS2_UNIVERSAL_LEFTCRAWL"},
-		{time = 22/30, sound = "PB_INS2_UNIVERSAL_RIGHTCRAWL"},
+		{time = 16/30, sound = "PB_INS2_UNIVERSAL_LEFTCRAWL"},
+		{time = 37/30, sound = "PB_INS2_UNIVERSAL_RIGHTCRAWL"},
 	},
 
 	base_dryfire = {
@@ -39,22 +42,25 @@ SWEP.Sounds = {
 	},
 
 	base_fireselect = {
-		{time = 8/30, sound = "PB_INS2_AK74_FIRESELECT"},
+		{time = 12/30, sound = "PB_INS2_AK74_FIRESELECT"},
 	},
 
 	base_reload = {
 		{time = 16/30, sound = "PB_INS2_AK74_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_AK74_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_AK74_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_AK74_HIT"},
+		{time = 19/30, sound = "PB_INS2_AK74_MAGOUT"},
+        {time = 21/30, sound = "PB_INS2_AK74_MAGOUTRATTLE"},
+		{time = 60/30, sound = "PB_INS2_AK74_MAGIN"},
+		{time = 86/30, sound = "PB_INS2_AK74_RATTLE"},
 	},
 
 	base_reloadempty = {
 		{time = 16/30, sound = "PB_INS2_AK74_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_AK74_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_AK74_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_AK74_HIT"},
-		{time = 112/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
+		{time = 19/30, sound = "PB_INS2_AK74_MAGOUT"},
+        {time = 21/30, sound = "PB_INS2_AK74_MAGOUTRATTLE"},
+		{time = 60/30, sound = "PB_INS2_AK74_MAGIN"},
+		{time = 90/30, sound = "PB_INS2_AK74_RATTLE"},
+		{time = 104/30, sound = "PB_INS2_AK74_BOLTBACK"},
+		{time = 110/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
 	},
 
 	iron_dryfire = {
@@ -62,13 +68,14 @@ SWEP.Sounds = {
 	},
 
 	iron_fireselect = {
-		{time = 8/30, sound = "PB_INS2_AK74_FIRESELECT"},
+		{time = 12/30, sound = "PB_INS2_AK74_FIRESELECT"},
 	},
 
 	foregrip_ready = {
 		{time = 0/30, sound = "PB_INS2_UNIVERSAL_DRAW"},
-		{time = 17/30, sound = "PB_INS2_AK74_BOLTBACK"},
-		{time = 26/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
+		{time = 18/30, sound = "PB_INS2_AK74_FIRESELECT"},
+		{time = 31/30, sound = "PB_INS2_AK74_BOLTBACK"},
+		{time = 39/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
 	},
 
 	foregrip_draw = {
@@ -80,8 +87,8 @@ SWEP.Sounds = {
 	},
 
 	foregrip_crawl = {
-		{time = 0/30, sound = "PB_INS2_UNIVERSAL_LEFTCRAWL"},
-		{time = 22/30, sound = "PB_INS2_UNIVERSAL_RIGHTCRAWL"},
+		{time = 16/30, sound = "PB_INS2_UNIVERSAL_LEFTCRAWL"},
+		{time = 37/30, sound = "PB_INS2_UNIVERSAL_RIGHTCRAWL"},
 	},
 
 	foregrip_dryfire = {
@@ -89,7 +96,7 @@ SWEP.Sounds = {
 	},
 
 	foregrip_fireselect = {
-		{time = 8/30, sound = "PB_INS2_AK74_FIRESELECT"},
+		{time = 12/30, sound = "PB_INS2_AK74_FIRESELECT"},
 	},
 
 	foergrip_iron_dryfire = {
@@ -97,28 +104,32 @@ SWEP.Sounds = {
 	},
 
 	foregrip_iron_fireselect = {
-		{time = 8/30, sound = "PB_INS2_AK74_FIRESELECT"},
+		{time = 12/30, sound = "PB_INS2_AK74_FIRESELECT"},
 	},
 
 	foregrip_reload = {
 		{time = 16/30, sound = "PB_INS2_AK74_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_AK74_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_AK74_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_AK74_HIT"},
+		{time = 19/30, sound = "PB_INS2_AK74_MAGOUT"},
+		{time = 21/30, sound = "PB_INS2_AK74_MAGOUTRATTLE"},
+		{time = 60/30, sound = "PB_INS2_AK74_MAGIN"},
+		{time = 86/30, sound = "PB_INS2_AK74_RATTLE"},
 	},
 
 	foregrip_reloadempty = {
 		{time = 16/30, sound = "PB_INS2_AK74_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_AK74_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_AK74_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_AK74_HIT"},
-		{time = 112/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
+		{time = 19/30, sound = "PB_INS2_AK74_MAGOUT"},
+		{time = 21/30, sound = "PB_INS2_AK74_MAGOUTRATTLE"},
+		{time = 60/30, sound = "PB_INS2_AK74_MAGIN"},
+		{time = 90/30, sound = "PB_INS2_AK74_RATTLE"},
+        {time = 104/30, sound = "PB_INS2_AK74_BOLTBACK"},
+		{time = 110/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
 	},
 
 	gl_ready = {
 		{time = 0/30, sound = "PB_INS2_UNIVERSAL_DRAW"},
-		{time = 17/30, sound = "PB_INS2_AK74_BOLTBACK"},
-		{time = 26/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
+		{time = 18/30, sound = "PB_INS2_AK74_FIRESELECT"},
+		{time = 31/30, sound = "PB_INS2_AK74_BOLTBACK"},
+		{time = 39/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
 	},
 
 	gl_draw = {
@@ -130,8 +141,8 @@ SWEP.Sounds = {
 	},
 
 	gl_crawl = {
-		{time = 0/30, sound = "PB_INS2_UNIVERSAL_LEFTCRAWL"},
-		{time = 22/30, sound = "PB_INS2_UNIVERSAL_RIGHTCRAWL"},
+		{time = 16/30, sound = "PB_INS2_UNIVERSAL_LEFTCRAWL"},
+		{time = 37/30, sound = "PB_INS2_UNIVERSAL_RIGHTCRAWL"},
 	},
 
 	gl_dryfire = {
@@ -139,22 +150,25 @@ SWEP.Sounds = {
 	},
 
 	gl_fireselect = {
-		{time = 8/30, sound = "PB_INS2_AK74_FIRESELECT"},
+		{time = 12/30, sound = "PB_INS2_AK74_FIRESELECT"},
 	},
 
 	gl_reload = {
 		{time = 16/30, sound = "PB_INS2_AK74_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_AK74_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_AK74_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_AK74_HIT"},
+		{time = 19/30, sound = "PB_INS2_AK74_MAGOUT"},
+        {time = 21/30, sound = "PB_INS2_AK74_MAGOUTRATTLE"},
+		{time = 60/30, sound = "PB_INS2_AK74_MAGIN"},
+		{time = 86/30, sound = "PB_INS2_AK74_RATTLE"},
 	},
 
 	gl_reloadempty = {
 		{time = 16/30, sound = "PB_INS2_AK74_MAGRELEASE"},
-		{time = 17/30, sound = "PB_INS2_AK74_MAGOUT"},
-		{time = 71/30, sound = "PB_INS2_AK74_MAGIN"},
-		{time = 87/30, sound = "PB_INS2_AK74_HIT"},
-		{time = 112/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
+		{time = 19/30, sound = "PB_INS2_AK74_MAGOUT"},
+		{time = 21/30, sound = "PB_INS2_AK74_MAGOUTRATTLE"},
+		{time = 60/30, sound = "PB_INS2_AK74_MAGIN"},
+		{time = 90/30, sound = "PB_INS2_AK74_RATTLE"},
+        {time = 104/30, sound = "PB_INS2_AK74_BOLTBACK"},
+		{time = 110/30, sound = "PB_INS2_AK74_BOLTRELEASE"},
 	},
 
 	gl_iron_dryfire = {
@@ -162,7 +176,7 @@ SWEP.Sounds = {
 	},
 
 	gl_iron_fireselect = {
-		{time = 8/30, sound = "PB_INS2_AK74_FIRESELECT"},
+		{time = 12/30, sound = "PB_INS2_AK74_FIRESELECT"},
 	},
 
 	glsetup_in = {
@@ -186,28 +200,28 @@ SWEP.Sounds = {
 	},
 
 	glsetup_crawl = {
-		{time = 0/30, sound = "PB_INS2_UNIVERSAL_LEFTCRAWL"},
-		{time = 22/30, sound = "PB_INS2_UNIVERSAL_RIGHTCRAWL"},
+		{time = 16/30, sound = "PB_INS2_UNIVERSAL_LEFTCRAWL"},
+		{time = 37/30, sound = "PB_INS2_UNIVERSAL_RIGHTCRAWL"},
 	},
 
 	glsetup_dryfire = {
-		{time = 0/30, sound = "PB_INS2_M203_EMPTY"},
+		{time = 0/30, sound = "PB_INS2_GP30_EMPTY"},
 	},
 
 	glsetup_reload = {
 		{time = 0/30, sound = "PB_INS2_GL_BEGINRELOAD"},
-		{time = 23/30, sound = "PB_INS2_M203_OPENBARREL"},
+		{time = 41/30, sound = "PB_INS2_GP30_INSERTGRENADE"},
 		-- {time = 32/30, sound = "", callback = m203},
-		{time = 57/30, sound = "PB_INS2_M203_INSERTGRENADE"},
+		{time = 50/30, sound = "PB_INS2_GP30_INSERTGRENADECLICK"},
 		-- {time = 44/30, sound = "PB_INS2_m203_GrenadeDrop"},
-		{time = 84/30, sound = "PB_INS2_M203_CLOSEBARREL"},
+        {time = 70/30, sound = "PB_INS2_AK74_RATTLE"},
 	},
 
-	glsetup_iron_fire = {
-		{time = 0/30, sound = "PB_INS2_UNIVERSAL_HOLSTER"},
-	},
+	-- glsetup_iron_fire = {
+		-- {time = 0/30, sound = "PB_INS2_UNIVERSAL_HOLSTER"},
+	-- },
 
 	glsetup_iron_dryfire = {
-		{time = 0/30, sound = "PB_INS2_M203_EMPTY"},
+		{time = 0/30, sound = "PB_INS2_GP30_EMPTY"},
 	}
 }

@@ -16,8 +16,8 @@ SWEP.FireSoundSuppressed = "PB_INS2_M1911_FIRE_SUPPRESSED"
 SWEP.Sounds = {
 	base_ready = {
 		{time = 0, sound = "PB_INS2_UNIVERSAL_PISTOL_DRAW"},
-		{time = 7/30, sound = "PB_INS2_M1911_BOLTBACK"},
-		{time = 17/30, sound = "PB_INS2_M1911_BOLTRELEASE"},
+		{time = 9/30, sound = "PB_INS2_M1911_BOLTBACK"},
+		{time = 19/30, sound = "PB_INS2_M1911_BOLTRELEASE"},
 	},
 
 	base_draw = {
