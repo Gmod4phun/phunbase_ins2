@@ -14,6 +14,8 @@ PHUNBASE:addReloadSound("PB_INS2_M4A1_MAGRELEASE", "weapons/m4a1/handling/m4a1_m
 SWEP.FireSound = "PB_INS2_M4A1_FIRE"
 SWEP.FireSoundSuppressed = "PB_INS2_M4A1_FIRE_SUPPRESSED"
 
+SWEP.GrenadeLauncherFireSound = "PB_INS2_M203_FIRE"
+
 SWEP.Sounds = {
 	base_ready = {
 		{time = 0/30, sound = "PB_INS2_UNIVERSAL_DRAW"},

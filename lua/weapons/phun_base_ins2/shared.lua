@@ -385,7 +385,9 @@ function SWEP:NearWallAnimLogic()
 	if self:GetIsNearWall() then
 		self:_playINS2Anim("iron_down")
 	else
-		self:IdleAnimLogic()
+        if self.RealSequence == "iron_down" then
+            self:IdleAnimLogic()
+        end
 	end
 end
 
@@ -423,4 +425,41 @@ end
 
 function SWEP:GrenadeLauncherReloadAnimLogic()
 	self:PlayVMSequence("glsetup_reload")
+end
+
+
+//
+// wip view bobbing stuff
+//
+
+if CLIENT then
+    local desiredAng = Angle()
+	function SWEP:CalcView(ply, pos, ang, fov)
+        local vm = self.VM
+        
+        local attIndex = vm:LookupAttachment("Muzzle")
+        if !attIndex then return end
+        
+        local att = vm:GetAttachment(attIndex)
+        if !att then return end
+        
+        local realEA = ply:EyeAngles()
+        
+        local vmA, vmP = att.Ang, att.Pos
+        
+        vmA:RotateAroundAxis(vmA:Forward(), -90)
+        
+        local testA = realEA - vmA
+        
+        desiredAng.x = PHUNBASE_Lerp(FrameTime()*5, desiredAng.x, testA.x)
+        desiredAng.z = PHUNBASE_Lerp(FrameTime()*5, desiredAng.z, testA.z)
+        
+        desiredAng.x = math.Clamp(desiredAng.x, -5, 5)
+        desiredAng.y = 0
+        desiredAng.z = math.Clamp(desiredAng.z, -5, 5)
+        
+        local newAng = realEA + desiredAng
+		
+		return pos, newAng, fov
+	end
 end

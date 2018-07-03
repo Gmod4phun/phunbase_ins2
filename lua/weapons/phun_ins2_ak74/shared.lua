@@ -180,12 +180,12 @@ SWEP.MuzzleAttachmentName = "muzzle"
 
 SWEP.MuzzleEffect = {
     "pb_ins2_muzzleflash_sparks_variant_1",
-    "pb_ins2_muzzleflash_akm_1p",
-    -- "pb_ins2_muzzleflash_akm_1p_glow",
-    -- "pb_ins2_muzzleflash_m16_1p_splits",
-    -- "muzzle_lee_rifle",
-    -- "muzzle_smoke_trail",
-    -- "smoke_trail",
+    "pb_ins2_muzzleflash_akm_1p_core",
+    "pb_ins2_muzzleflash_akm_1p_glow",
+    "pb_ins2_muzzleflash_m16_1p_splits",
+    "muzzle_lee_rifle",
+    "muzzle_smoke_trail",
+    "smoke_trail",
 }
 
 SWEP.MuzzleEffectSuppressed = {"muzzle_lee_silenced"}
