@@ -1,6 +1,11 @@
 AddCSLuaFile()
 
+if SERVER then
+    util.AddNetworkString("PB_INS2_ANIM_NAME")
+end
+
 PHUNBASE.LoadLua("pb_ins2_basefiles/pb_ins2_rigs.lua")
+PHUNBASE.LoadLua("pb_ins2_basefiles/pb_ins2_viewbob.lua")
 PHUNBASE.LoadLua("sh_ins2_sounds.lua")
 
 SWEP.PrintName = "PHUNBASE INSURGENCY"
@@ -140,6 +145,11 @@ SWEP.CustomFlashlight = false
 SWEP.FireModeSelectDelay = 0.75
 SWEP.FireModeSelectSound = ""
 
+SWEP.FireMoveMod = 0
+SWEP.FireMoveMod_Iron = 0
+SWEP.LuaViewmodelRecoil = false
+SWEP.FullAimViewmodelRecoil = true
+
 // anims override
 /* // commented out cos it does weird shit when it is set in the base
 SWEP.Sequences = {
@@ -248,6 +258,14 @@ local fixSuffixTab = {
 	["ready"] = {["_empty"] = ""},
 }
 
+net.Receive("PB_INS2_ANIM_NAME", function()
+    local anim = net.ReadString()
+    local wep = LocalPlayer():GetActiveWeapon()
+    
+    if !IsValid(wep) then return end
+    wep.curINS2Anim = anim
+end)
+
 function SWEP:_playINS2Anim(anim, speed, cycle)
 	local prefix, suffix, magsuffixes = self:_getAnimPrefixes(), self:_getAnimSuffixes(), self:_getMagSuffixes(anim)
 	
@@ -270,7 +288,15 @@ function SWEP:_playINS2Anim(anim, speed, cycle)
 	if anim == "firelast" and !self.Sequences[prefix..anim..suffix..magsuffixes] then
 		anim = "fire"
 	end
-	
+    
+    if CLIENT then
+        self.curINS2Anim = anim
+    else
+        net.Start("PB_INS2_ANIM_NAME")
+            net.WriteString(anim)
+        net.Send(self.Owner)
+    end
+    
 	local a = prefix..anim..suffix..magsuffixes
 	
 	speed = speed or 1
@@ -425,41 +451,4 @@ end
 
 function SWEP:GrenadeLauncherReloadAnimLogic()
 	self:PlayVMSequence("glsetup_reload")
-end
-
-
-//
-// wip view bobbing stuff
-//
-
-if CLIENT then
-    local desiredAng = Angle()
-	function SWEP:CalcView(ply, pos, ang, fov)
-        local vm = self.VM
-        
-        local attIndex = vm:LookupAttachment("Muzzle")
-        if !attIndex then return end
-        
-        local att = vm:GetAttachment(attIndex)
-        if !att then return end
-        
-        local realEA = ply:EyeAngles()
-        
-        local vmA, vmP = att.Ang, att.Pos
-        
-        vmA:RotateAroundAxis(vmA:Forward(), -90)
-        
-        local testA = realEA - vmA
-        
-        desiredAng.x = PHUNBASE_Lerp(FrameTime()*5, desiredAng.x, testA.x)
-        desiredAng.z = PHUNBASE_Lerp(FrameTime()*5, desiredAng.z, testA.z)
-        
-        desiredAng.x = math.Clamp(desiredAng.x, -5, 5)
-        desiredAng.y = 0
-        desiredAng.z = math.Clamp(desiredAng.z, -5, 5)
-        
-        local newAng = realEA + desiredAng
-		
-		return pos, newAng, fov
-	end
 end
