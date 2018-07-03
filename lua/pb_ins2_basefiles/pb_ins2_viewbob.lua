@@ -51,6 +51,9 @@ if CLIENT then
         if i2a == "draw" and self:GetIsDeploying() then can = false end
         if i2a == "holster" and self:GetIsHolstering() then can = false end
         if i2a == "holster" and cyc > 0.1 then can = false end
+        if self:GetIsUnderwater() then can = false end
+        
+        if ang.x > 80 or ang.x < -80 then can = false end // if we looking high up/very low down, dont use attachment offset
         
         if can then
             desiredAng.x = PHUNBASE_Lerp(FrameTime()*2, desiredAng.x, diffA.x)
