@@ -371,7 +371,7 @@ function att:detachCallback()
 end
 
 local laserClr = Color(250,10,10)
-local laserMat = Material("cw2/effects/laser_cstm")
+local laserMat = Material("effects/laser1")
 function att:render()
 	if CLIENT then
 		local velement = self:getVElementByName(att.name)
@@ -387,7 +387,7 @@ function att:render()
 			if tr.HitPos and !self:GetIsHolstering() then
 				render.SetColorModulation(1,0,0)
 				render.SetMaterial(laserMat)
-				render.DrawBeam(att.Pos, tr.HitPos, 0.05, 0, 1, laserClr)
+				render.DrawBeam(att.Pos, tr.HitPos, 1, 0, 1, laserClr)
 				render.SetColorModulation(1,1,1)
 			end
 		end
