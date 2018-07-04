@@ -72,12 +72,27 @@ SWEP.UseIronTransitionAnims = false
 
 SWEP.drawViewModelInRT = true
 
+SWEP.RTScope_Material = Material("models/weapons/optics/lense_rt")
+SWEP.RTScope_Enabled = true
+SWEP.RTScope_Zoom = 11.25
+SWEP.RTScope_Align = Angle(0,0,-90)
+SWEP.RTScope_Reticle = Material("phunbase/rt_scope/invis")
+SWEP.RTScope_DrawIris = true
+SWEP.RTScope_DrawParallax = true
+SWEP.RTScope_AttachmentName = "scope_origin"
+
+SWEP.MouseSensitivityHip = 1
+SWEP.MouseSensitivityIron = 0.5
+
 SWEP.VElements = {
 
 	["standard_1"] = {model = "models/gmod4phun/ins2/upgrades/a_standard_m590.mdl", default = true, bonemerge = true},
 	["rail"] = {model = "models/gmod4phun/ins2/upgrades/a_modkit_05.mdl", bonemerge = true},
+    
+	["pb_ins2_att_flashlight"] = {model = "models/gmod4phun/ins2/upgrades/a_flashlight_band.mdl", bonemerge = true, drawInRT = true},
+	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_band.mdl", bonemerge = true, drawInRT = true},
 	
-	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_12ga.mdl", bonemerge = true},
+	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_12ga.mdl", bonemerge = true, drawInRT = true},
 	["pb_ins2_att_foregrip"] = {model = "models/weapons/upgrades/a_foregrip_ins2.mdl", attachment = "Foregrip", angle = Angle(0,-90,0), size = Vector(0.5, 0.5, 0.5)},
 	
 	["pb_ins2_att_optic_holo"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech_m.mdl", bonemerge = true},

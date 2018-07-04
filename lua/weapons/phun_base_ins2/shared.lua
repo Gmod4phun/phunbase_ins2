@@ -423,7 +423,7 @@ function SWEP:CustomizeAnimLogic()
 	if self.NoCustomizeAnims then return end
 	
 	if self:GetIsCustomizing() then
-		self:_playINS2Anim("iron_down")
+        self:_playINS2Anim("iron_down")
 	else
 		self:IdleAnimLogic()
 	end

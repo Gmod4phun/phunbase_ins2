@@ -83,7 +83,7 @@ SWEP.Attachments = {
 SWEP.EnableCustomization = true
 SWEP.CustomizationMenuSize = 0.8
 SWEP.CustomizationMenuAttachmentName = "muzzle"
-SWEP.NoCustomizeAnims = true
+//SWEP.NoCustomizeAnims = true
 
 SWEP.IsSuppressed = false
 SWEP.UsesExtMag = false
@@ -126,3 +126,9 @@ local icon_merge_models = {
 }
 
 SWEP.INS2_IconParams = {dist = 7, offset = 4, spin = false, mergemodels = icon_merge_models}
+
+function SWEP:CustomizeAnimLogic()
+	if self:GetIsCustomizing() then
+        self:_playINS2Anim("idle")
+	end
+end

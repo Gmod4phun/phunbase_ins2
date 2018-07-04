@@ -365,33 +365,15 @@ att.name = "pb_ins2_att_laser"
 att.menuName = "Laser Sight"
 
 function att:attachCallback()
+    if CLIENT then
+        self:AddAttLaser(att.name)
+    end
 end
 
 function att:detachCallback()
-end
-
-local laserClr = Color(250,10,10)
-local laserMat = Material("effects/laser1")
-function att:render()
-	if CLIENT then
-		local velement = self:getVElementByName(att.name)
-		if velement then
-			local att = velement:GetAttachment(1)
-			
-			local tr = util.TraceLine( {
-				start = att.Pos,
-				endpos = att.Pos + att.Ang:Forward() * 4096,
-				mask = MASK_SOLID_BRUSHONLY,
-			} )
-
-			if tr.HitPos and !self:GetIsHolstering() then
-				render.SetColorModulation(1,0,0)
-				render.SetMaterial(laserMat)
-				render.DrawBeam(att.Pos, tr.HitPos, 1, 0, 1, laserClr)
-				render.SetColorModulation(1,1,1)
-			end
-		end
-	end
+    if CLIENT then
+        self:RemoveAttLaser(att.name)
+    end
 end
 PHUNBASE:registerAttachment(att)
 

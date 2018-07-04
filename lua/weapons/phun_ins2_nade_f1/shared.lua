@@ -77,7 +77,7 @@ SWEP.CustomFlashlight = false
 SWEP.FlashlightAttachmentName = "1"
 SWEP.InstantFlashlight = false
 
-SWEP.INS2_IconParams = {dist = 10, offset = 0, spin = false, mergemodels = icon_merge_models}
+SWEP.INS2_IconParams = {dist = 2.75, offset = 0, spin = false}
 
 SWEP.NadeClass = "pb_ins2_throwable_f1"
 SWEP.NadeFuseTime = 4
