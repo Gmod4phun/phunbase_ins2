@@ -12,6 +12,10 @@ SWEP.AimViewModelFOV = 60
 SWEP.ViewModel = "models/gmod4phun/ins2/weapons/v_f1.mdl"
 SWEP.WorldModel = "models/gmod4phun/ins2/weapons/w_f1.mdl"
 
+SWEP.CustomWorldModel = SWEP.WorldModel
+SWEP.CustomWorldModelPos = Vector(-2.5, 3.35, 1.85)
+SWEP.CustomWorldModelAng = Angle(0, 0, 180)
+
 SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
 
