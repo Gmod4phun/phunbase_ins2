@@ -271,11 +271,11 @@ att.name = "pb_ins2_att_bipod"
 att.menuName = "Bipod"
 
 function att:attachCallback()
-	self.UsesBipod = true
+	self:AllowBipodMode()
 end
 
 function att:detachCallback()
-	self.UsesBipod = false
+	self:DisallowBipodMode()
 end
 PHUNBASE:registerAttachment(att)
 

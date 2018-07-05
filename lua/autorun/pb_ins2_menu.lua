@@ -49,6 +49,8 @@ PHUNBASE.INS2.RIG_ADD("Security (Medium)", "models/weapons/v_hands_sec_m.mdl")
 PHUNBASE.INS2.RIG_ADD("Security (Heavy)", "models/weapons/v_hands_sec_h.mdl")
 PHUNBASE.INS2.RIG_ADD("V.I.P.", "models/weapons/v_hands_vip.mdl")
 
+PHUNBASE.INS2.RIG_ADD("CS:S", "models/gmod4phun/ins2/arms/ins2_css_hands.mdl")
+
 PHUNBASE.INS2.RIG_ADD("CT Black (Light)", "models/gmod4phun/ins2/arms/mrb_arms_ct.mdl", {[0] = 1})
 PHUNBASE.INS2.RIG_ADD("CT Black (Medium)", "models/gmod4phun/ins2/arms/mrb_arms_ct.mdl", {[0] = 0})
 PHUNBASE.INS2.RIG_ADD("CT Black (Heavy)", "models/gmod4phun/ins2/arms/mrb_arms_ct.mdl", {[0] = 2})

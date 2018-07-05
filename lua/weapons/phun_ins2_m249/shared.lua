@@ -169,13 +169,14 @@ SWEP.MuzzleEffect = {
 
 SWEP.MuzzleEffectSuppressed = {"muzzle_lee_silenced"}
 
-SWEP.INS2_IconParams = {dist = 16, offset = 0, spin = false}
+SWEP.INS2_IconParams = {dist = 17, offset = 1.5, spin = false}
 
-function SWEP:AdditionalThink()
-    if CLIENT then
-        local vm = self.VM
-        if vm:GetBodygroup(1) != 16 then
-            vm:SetBodygroup(1, 16)
-        end
-    end
+function SWEP:ReloadAnimLogic()
+	local clip = self:Clip1() 
+	local empty = clip < 1
+
+	local anim = empty and "reloadempty" or (clip < 16 and "reload_half" or "reload")
+	
+	local speed = (anim == "reload_half" and 1.1 or 1)
+	self:_playINS2Anim(anim, speed)
 end

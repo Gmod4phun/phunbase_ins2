@@ -26,16 +26,30 @@ PHUNBASE:addReloadSound("PB_INS2_M249_THROWAWAYREMAINING", "weapons/m249/handlin
 SWEP.FireSound = "PB_INS2_M249_FIRE"
 SWEP.FireSoundSuppressed = "PB_INS2_M249_FIRE_SUPPRESSED"
 
+local function beltToClip(wep)
+	wep.VM:SetBodygroup(1, math.Clamp(wep:Clip1(), 0, 16))
+end
+
+local function beltToHadInClip(wep)
+	wep.VM:SetBodygroup(1, math.Clamp(wep.HadInClip, 0, 16))
+end
+
+local function beltToReserve(wep)
+	local reserve = wep.Owner:GetAmmoCount(wep.Primary.Ammo) + wep:Clip1()
+	wep.VM:SetBodygroup(1, math.Clamp(reserve, 0, 16))
+end
+
 local function shell(wep)
 	wep:_makeShellInstant()
+	beltToClip(wep)
 end
 
 local function link(wep)
-	-- wep:_makeShellInstant()
 end
 
 SWEP.Sounds = {
 	base_ready = {
+		{time = 0, sound = "", callback = beltToClip},
 		{time = 0, sound = "PB_INS2_UNIVERSAL_DRAW"},
 		{time = 23/30, sound = "PB_INS2_M249_BOLTBACK"},
 		{time = 30/30, sound = "PB_INS2_M249_BOLTRELEASE"},
@@ -43,6 +57,7 @@ SWEP.Sounds = {
 	},
 
 	base_draw = {
+		{time = 0, sound = "", callback = beltToClip},
 		{time = 0, sound = "PB_INS2_UNIVERSAL_DRAW"},
 	},
 
@@ -75,12 +90,12 @@ SWEP.Sounds = {
 	},
 
 	base_reload = {
-		-- {time = 0, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToClip},
+		{time = 0, sound = "", callback = beltToHadInClip},
 		{time = 2/31.5, sound = "PB_INS2_UNIVERSAL_LEANIN"},
 		{time = 34/31.5, sound = "PB_INS2_M249_COVEROPEN"},
 		{time = 69/31.5, sound = "PB_INS2_M249_MAGOUTFULL"},
 		{time = 90/31.5, sound = "PB_INS2_M249_FETCHMAG"},
-		-- {time = 100/31.5, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToReserve},
+		{time = 100/31.5, sound = "", callback = beltToReserve},
 		{time = 129/31.5, sound = "PB_INS2_M249_ARMMOVEMENT1"},
 		{time = 147/31.5, sound = "PB_INS2_M249_MAGHIT"},
 		{time = 154/31.5, sound = "PB_INS2_M249_MAGIN"},
@@ -93,7 +108,7 @@ SWEP.Sounds = {
 	},
 
 	base_reload_empty = {
-		-- {time = 0, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToClip},
+		{time = 0, sound = "", callback = beltToHadInClip},
 		{time = 2/31.5, sound = "PB_INS2_UNIVERSAL_LEANIN"},
 		{time = 32/31.5, sound = "PB_INS2_M249_BOLTBACK"},
 		{time = 42/31.5, sound = "PB_INS2_M249_BOLTRELEASE"},
@@ -102,7 +117,7 @@ SWEP.Sounds = {
 		{time = 111/31.5, sound = "PB_INS2_M249_ARMMOVEMENT1"},
 		{time = 134/31.5, sound = "PB_INS2_M249_MAGOUT"},
 		{time = 151/31.5, sound = "PB_INS2_M249_FETCHMAG"},
-		-- {time = 161/31.5, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToReserve},
+		{time = 161/31.5, sound = "", callback = beltToReserve},
 		{time = 195/31.5, sound = "PB_INS2_M249_ARMMOVEMENT2"},
 		{time = 216/31.5, sound = "PB_INS2_M249_MAGHIT"},
 		{time = 223/31.5, sound = "PB_INS2_M249_MAGIN"},
@@ -115,14 +130,14 @@ SWEP.Sounds = {
 	},
 
 	base_reload_half = {
-		-- {time = 0, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToClip},
+		{time = 0, sound = "", callback = beltToHadInClip},
 		{time = 2/31.5, sound = "PB_INS2_UNIVERSAL_LEANIN"},
 		{time = 13/31.5, sound = "PB_INS2_M249_ARMMOVEMENT2"},
 		{time = 26/31.5, sound = "PB_INS2_M249_COVEROPEN"},
 		{time = 63/31.5, sound = "PB_INS2_M249_THROWAWAYREMAINING"},
 		{time = 91/31.5, sound = "PB_INS2_M249_MAGOUT"},
 		{time = 108/31.5, sound = "PB_INS2_M249_FETCHMAG"},
-		-- {time = 118/31.5, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToReserve},
+		{time = 118/31.5, sound = "", callback = beltToReserve},
 		{time = 150/31.5, sound = "PB_INS2_M249_ARMMOVEMENT1"},
 		{time = 177/31.5, sound = "PB_INS2_M249_MAGHIT"},
 		{time = 185/31.5, sound = "PB_INS2_M249_MAGIN"},
@@ -181,12 +196,12 @@ SWEP.Sounds = {
 	},
 
 	deployed_reload = {
-		-- {time = 0, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToClip},
+		{time = 0, sound = "", callback = beltToHadInClip},
 		{time = 2/30, sound = "PB_INS2_UNIVERSAL_LEANIN"},
 		{time = 34/32.5, sound = "PB_INS2_M249_COVEROPEN"},
 		{time = 69/32.5, sound = "PB_INS2_M249_MAGOUTFULL"},
 		{time = 90/32.5, sound = "PB_INS2_M249_FETCHMAG"},
-		-- {time = 100/32.5, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToReserve},
+		{time = 100/32.5, sound = "", callback = beltToReserve},
 		{time = 129/32.5, sound = "PB_INS2_M249_ARMMOVEMENT1"},
 		{time = 147/32.5, sound = "PB_INS2_M249_MAGHIT"},
 		{time = 154/32.5, sound = "PB_INS2_M249_MAGIN"},
@@ -199,14 +214,14 @@ SWEP.Sounds = {
 	},
 
 	deployed_reload_half = {
-		-- {time = 0, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToClip},
+		{time = 0, sound = "", callback = beltToHadInClip},
 		{time = 2/32.5, sound = "PB_INS2_UNIVERSAL_LEANIN"},
 		{time = 13/32.5, sound = "PB_INS2_M249_ARMMOVEMENT2"},
 		{time = 26/32.5, sound = "PB_INS2_M249_COVEROPEN"},
 		{time = 63/32.5, sound = "PB_INS2_M249_THROWAWAYREMAINING"},
 		{time = 91/32.5, sound = "PB_INS2_M249_MAGOUT"},
 		{time = 108/32.5, sound = "PB_INS2_M249_FETCHMAG"},
-		-- {time = 118/32.5, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToReserve},
+		{time = 118/32.5, sound = "", callback = beltToReserve},
 		{time = 150/32.5, sound = "PB_INS2_M249_ARMMOVEMENT1"},
 		{time = 177/32.5, sound = "PB_INS2_M249_MAGHIT"},
 		{time = 185/32.5, sound = "PB_INS2_M249_MAGIN"},
@@ -219,7 +234,7 @@ SWEP.Sounds = {
 	},
 
 	deployed_reload_empty = {
-		-- {time = 0, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToClip},
+		{time = 0, sound = "", callback = beltToHadInClip},
 		{time = 2/32.5, sound = "PB_INS2_UNIVERSAL_LEANIN"},
 		{time = 32/32.5, sound = "PB_INS2_M249_BOLTBACK"},
 		{time = 42/32.5, sound = "PB_INS2_M249_BOLTRELEASE"},
@@ -228,7 +243,7 @@ SWEP.Sounds = {
 		{time = 111/32.5, sound = "PB_INS2_M249_ARMMOVEMENT1"},
 		{time = 129/32.5, sound = "PB_INS2_M249_MAGOUT"},
 		{time = 151/32.5, sound = "PB_INS2_M249_FETCHMAG"},
-		-- {time = 161/32.5, sound = "", callback = CustomizableWeaponry_KK.ins2.bulletBgs.beltToReserve},
+		{time = 161/32.5, sound = "", callback = beltToReserve},
 		{time = 195/32.5, sound = "PB_INS2_M249_ARMMOVEMENT2"},
 		{time = 201/32.5, sound = "PB_INS2_M249_MAGHIT"},
 		{time = 217/32.5, sound = "PB_INS2_M249_MAGIN"},

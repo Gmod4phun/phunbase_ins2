@@ -184,4 +184,4 @@ local icon_merge_models = {
 	"models/weapons/upgrades/a_standard_m40.mdl"
 }
 
-SWEP.INS2_IconParams = {dist = 20, offset = 0, spin = false, mergemodels = icon_merge_models}
+SWEP.INS2_IconParams = {dist = 22, offset = 2, spin = false, mergemodels = icon_merge_models}

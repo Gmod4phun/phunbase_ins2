@@ -205,4 +205,4 @@ local icon_merge_models = {
 	"models/weapons/upgrades/a_standard_m590.mdl"
 }
 
-SWEP.INS2_IconParams = {dist = 20, offset = 0, spin = false, mergemodels = icon_merge_models}
+SWEP.INS2_IconParams = {dist = 18, offset = 0.5, spin = false, mergemodels = icon_merge_models}

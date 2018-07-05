@@ -16,17 +16,20 @@ SWEP.Sequences = {
     base_sprint	=	"base_sprint",
 
     deployed_dryfire	=	"deployed_dryfire",
+	deployed_fire   =   {"deployed_fire_1", "deployed_fire_2"},
     deployed_fire_1	=	"deployed_fire_1",
     deployed_fire_2	=	"deployed_fire_2",
     deployed_idle	=	"deployed_idle",
     deployed_in	=	"deployed_in",
     deployed_iron_dryfire	=	"deployed_iron_dryfire",
+	
+	deployed_iron_fire   =   {"deployed_iron_fire_1", "deployed_iron_fire_2"},
     deployed_iron_fire_1	=	"deployed_iron_fire_1",
     deployed_iron_fire_2	=	"deployed_iron_fire_2",
     deployed_iron_idle	=	"deployed_iron_idle",
     deployed_out	=	"deployed_out",
     deployed_reload	=	"deployed_reload",
-    deployed_reload_empty	=	"deployed_reload_empty",
+    deployed_reloadempty	=	"deployed_reload_empty",
     deployed_reload_half	=	"deployed_reload_half",
     
     idle	=	"idle",

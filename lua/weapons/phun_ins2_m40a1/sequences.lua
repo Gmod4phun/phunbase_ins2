@@ -30,4 +30,52 @@ SWEP.Sequences = {
 	iron_fire_cock = "iron_fire_end",
 	iron_firelast = "iron_fire_last",
 	iron_dryfire = "iron_dryfire",
+	
+	// new
+	base_crawl	=	"base_crawl",
+	base_down	=	"base_down",
+	base_draw	=	"base_draw",
+	base_dryfire	=	"base_dryfire",
+	base_fire_end	=	"base_fire_end",
+	base_fire_last	=	"base_fire_last",
+	base_fire_start	=	"base_fire_start",
+	
+	base_fire = "base_fire_start",
+	base_fire_cock = "base_fire_end",
+	
+	base_holster	=	"base_holster",
+	base_idle	=	"base_idle",
+	base_ready	=	"base_ready",
+	base_reload_end	=	"base_reload_end",
+	base_reload_end_empty	=	"base_reload_end_empty",
+	base_reload_insert	=	"base_reload_insert",
+	base_reload_start	=	"base_reload_start",
+	base_reload_start_empty	=	"base_reload_start",
+	base_sprint	=	"base_sprint",
+
+	deployed_in	=	"deploy_in",
+	deployed_out	=	"deploy_out",
+	deployed_dryfire	=	"deployed_dryfire",
+	deployed_fire_cock	=	"deployed_fire_end",
+	deployed_fire	=	"deployed_fire_start",
+	
+	deployed_fire = "deployed_fire_start",
+	deployed_fire_cock = "deployed_fire_end",
+	
+	deployed_idle	=	"deployed_idle",
+	deployed_iron_dryfire	=	"deployed_iron_dryfire",
+	deployed_iron_fire_cock	=	"deployed_iron_fire_end",
+	deployed_iron_fire	=	"deployed_iron_fire_start",
+	deployed_reload_end	=	"deployed_reload_end",
+	deployed_reload_end_empty	=	"deployed_reload_end",
+	deployed_reload_insert	=	"deployed_reload_insert",
+	deployed_reload_start	=	"deployed_reload_start",
+	deployed_reload_start_empty	=	"deployed_reload_start",
+	
+	idle	=	"idle",
+	iron_down	=	"iron_down",
+	iron_dryfire	=	"iron_dryfire",
+	iron_fire_end	=	"iron_fire_end",
+	iron_fire_last	=	"iron_fire_last",
+	iron_fire_start	=	"iron_fire_start",
 }

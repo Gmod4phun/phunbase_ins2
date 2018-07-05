@@ -194,4 +194,4 @@ local icon_merge_models = {
 	"models/gmod4phun/ins2/upgrades/a_standard_ak74.mdl",
 }
 
-SWEP.INS2_IconParams = {dist = 16, offset = 0, spin = false, mergemodels = icon_merge_models}
+SWEP.INS2_IconParams = {dist = 16, offset = 1.25, spin = false, mergemodels = icon_merge_models}

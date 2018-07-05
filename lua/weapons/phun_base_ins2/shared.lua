@@ -193,12 +193,14 @@ function SWEP:_getAnimPrefixes()
 	local empty = self:Clip1() == 0
 	
 	local glactive = self.UsesGrenadeLauncher and self:GetWeaponMode() == PB_WEAPONMODE_GL_ACTIVE
+	local deployed = self.UsesBipod and self:GetWeaponMode() == PB_WEAPONMODE_BIPOD_ACTIVE
 	
 	if iron then prefix = "iron_"..prefix end
 	if fore then prefix = "foregrip_"..prefix end
 	if gl then prefix = "gl_"..prefix end
 	
 	if glactive then prefix = "glsetup_"..prefix end
+	if deployed then prefix = "deployed_"..prefix end
 	
 	if prefix == "" then prefix = empty and "empty_" or "base_" end
 	
@@ -240,11 +242,13 @@ local fixPrefixTab = {
 	["dryfire"] = {["empty_"] = "base_"},
 	["reload_insert"] = {["empty_"] = "base_"},
 	["sprint"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["glsetup_iron_"] = "glsetup_"},
-	["holster"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["glsetup_iron_"] = "glsetup_"},
+	["holster"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["glsetup_iron_"] = "glsetup_", ["deployed_"] = "base_"},
 	["reload"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["glsetup_iron_"] = "glsetup_", ["empty_"] = "base_"},
 	["reloadempty"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["glsetup_iron_"] = "glsetup_", ["empty_"] = "base_"},
 	["reload_start"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["q"] = "glsetup_", ["empty_"] = "base_"},
 	["iron_down"] = {["base_"] = "", ["empty_"] = ""},
+	["draw"] = {["deployed_"] = "base_"},
+	["ready"] = {["deployed_"] = "base_"},
 }
 
 local fixSuffixTab = {
@@ -411,7 +415,7 @@ function SWEP:NearWallAnimLogic()
 	if self:GetIsNearWall() then
 		self:_playINS2Anim("iron_down")
 	else
-        if self.RealSequence == "iron_down" then
+        if self.curINS2Anim == "iron_down" then
             self:IdleAnimLogic()
         end
 	end
@@ -451,4 +455,14 @@ end
 
 function SWEP:GrenadeLauncherReloadAnimLogic()
 	self:PlayVMSequence("glsetup_reload")
+end
+
+// bipod mode anim
+
+function SWEP:BipodModeAnimLogic()
+	if self:GetWeaponMode() == PB_WEAPONMODE_BIPOD_ACTIVE then
+		self:PlayVMSequence("deployed_in")
+	else
+		self:PlayVMSequence("deployed_out")
+	end
 end

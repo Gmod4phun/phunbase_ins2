@@ -8,10 +8,11 @@ if CLIENT then
 		local icon = vgui.Create( "ContentIcon", container )
 		icon:SetContentType( "weapon" )
 		icon:SetSpawnName( obj.spawnname )
-		icon:SetName( "INS2 | "..obj.nicename )
+		icon:SetName("")
 		icon:SetMaterial( obj.material )
 		icon:SetAdminOnly( obj.admin )
 		icon:SetColor( Color( 135, 206, 250, 255 ) )
+		icon:SetTooltip( "INS2 | "..obj.nicename )
 		
 		icon.DoClick = function()
 			RunConsoleCommand( "gm_giveswep", obj.spawnname )
@@ -43,7 +44,7 @@ if CLIENT then
 			return icon
 		end // if no icon params exist, keep default
 		
-		icon.Paint = function() return end
+		icon.Paint = function(s, w, h) return end
 		icon.Label:SetTextColor(Color(255,255,255,255))
 		
 		local modelpanel = vgui.Create("DModelPanel", icon)
@@ -114,6 +115,73 @@ if CLIENT then
 		modelpanel.DoMiddleClick = function(self) icon:DoMiddleClick() end
 		modelpanel.DoRightClick = function(self) icon:OpenMenu() end
 		
+		// edit by Daxble
+		modelpanel.Paint = function( self, w, h )
+
+			if ( !IsValid( self.Entity ) ) then return end
+
+			local x, y = self:LocalToScreen( 0, 0 )
+
+			self:LayoutEntity( self.Entity )
+
+			local ang = self.aLookAngle
+			if ( !ang ) then
+				ang = ( self.vLookatPos - self.vCamPos ):Angle()
+			end
+
+			cam.Start3D( self.vCamPos, ang, self.fFOV, x, y, w, h, 5, self.FarZ )
+				render.SuppressEngineLighting( true )
+				render.SetLightingOrigin( self.Entity:GetPos() )
+				render.ResetModelLighting( self.colAmbientLight.r / 255, self.colAmbientLight.g / 255, self.colAmbientLight.b / 255 )
+				render.SetColorModulation( self.colColor.r / 255, self.colColor.g / 255, self.colColor.b / 255 )
+				render.SetBlend( ( self:GetAlpha() / 255 ) * ( self.colColor.a / 255 ) )
+
+				for i = 0, 6 do
+					local col = self.DirectionalLight[ i ]
+					if ( col ) then
+						render.SetModelLighting( i, col.r / 255, col.g / 255, col.b / 255 )
+					end
+				end
+
+				self:DrawModel()
+
+				render.SuppressEngineLighting( false )
+			cam.End3D()
+
+			self.LastPaint = RealTime()
+
+			local left = 1
+			local top = 1
+			local right = w - 1
+			local bottom = h - 1
+
+			surface.SetDrawColor( 30, 30, 30, 180 )
+			surface.DrawLine( left, top + 1, left, bottom - 1 )
+			surface.DrawLine( left + 1, top, right - 1, top )
+			surface.DrawLine( right, top + 1, right, bottom - 1 )
+			surface.DrawLine( left + 1, bottom, right - 1, bottom )
+			surface.DrawLine( left + 1, top + 1, left + 1, bottom - 1 )
+			surface.DrawLine( left + 1, top + 1, right - 1, top + 1 )
+			surface.DrawLine( right - 1, top + 1, right - 1, bottom - 1 )
+			surface.DrawLine( left + 1, bottom - 1, right - 1, bottom - 1 )
+
+			surface.SetDrawColor( 200, 200, 200, 180 )
+			surface.DrawLine( left + 2, top + 2, left + 2, bottom - 2 )
+			surface.DrawLine( left + 2, top + 2, right - 2, top + 2 )
+			surface.DrawLine( right - 2, top + 2, right - 2, bottom - 2 )
+			surface.DrawLine( left + 2, bottom - 2, right - 2, bottom - 2 )
+
+			surface.SetDrawColor( 48, 48, 48, 200 )
+			surface.DrawRect( 0 + 4, h - ( h * 0.15 ) - 2, w - 8, h * 0.15 )
+
+			surface.SetDrawColor( 255, 255, 255, 255 )
+			surface.SetFont( "DermaDefault" )
+			local textWidth, textHeight = surface.GetTextSize( "INS2 | "..obj.nicename )
+			surface.SetTextPos( w / 2 - ( textWidth / 2 ), ( h - ( h * 0.15 / 2 ) - 2 - ( textHeight / 2 ) ) )
+			surface.DrawText( "INS2 | "..obj.nicename )
+		end
+		//
+		
 		function icon:PB_UpdateSpawnIcon()
 			local mp = self.PB_MODELPANEL
 			local obj = self.PB_WEPOBJ
@@ -122,7 +190,8 @@ if CLIENT then
 			
 			if !params then return end
 			
-			icon:SetName( "INS2 | "..wepTable.PrintName )
+			icon:SetName("")
+			icon:SetTooltip( "INS2 | "..obj.nicename )
 			
 			mp:SetModel(wepTable.ViewModel)
 			mp:SetCamPos( Vector( -params.offset, -params.dist * 2, 0 ) )

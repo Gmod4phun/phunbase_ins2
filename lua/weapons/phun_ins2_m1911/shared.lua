@@ -125,7 +125,7 @@ local icon_merge_models = {
 	"models/gmod4phun/ins2/upgrades/a_magazine_1911_8.mdl"
 }
 
-SWEP.INS2_IconParams = {dist = 7, offset = 4, spin = false, mergemodels = icon_merge_models}
+SWEP.INS2_IconParams = {dist = 7, offset = 3.75, spin = false, mergemodels = icon_merge_models}
 
 function SWEP:CustomizeAnimLogic()
 	if self:GetIsCustomizing() then
