@@ -1,11 +1,11 @@
-// INS2 HANDS 
+// INS2 HANDS
 
-local bonescalevec = Vector(1,1,1) * 0.01
-local bonescalevecRestore = Vector(1,1,1)
+// Rig scaling available in menu
+
+local vec_scale_hide = Vector(1,1,1) * 0.01 // scale for playermodel bones that we want to hide
+local vec_scale_normal = Vector(1,1,1) // default scale
 
 local pmodel_bones = {
-	//["ValveBiped.Bip01_Spine4"] = true,
-	//["ValveBiped.Bip01_L_Clavicle"] = true,
 	["ValveBiped.Bip01_L_UpperArm"] = true,
 	["ValveBiped.Bip01_L_Forearm"] = true,
 	["ValveBiped.Bip01_L_Hand"] = true,
@@ -24,7 +24,6 @@ local pmodel_bones = {
 	["ValveBiped.Bip01_L_Finger0"] = true,
 	["ValveBiped.Bip01_L_Finger01"] = true,
 	["ValveBiped.Bip01_L_Finger02"] = true,
-	//["ValveBiped.Bip01_R_Clavicle"] = true,
 	["ValveBiped.Bip01_R_UpperArm"] = true,
 	["ValveBiped.Bip01_R_Forearm"] = true,
 	["ValveBiped.Bip01_R_Hand"] = true,
@@ -71,7 +70,7 @@ local ins2_csgo_rig_bones = {
     -- ["v_weapon.Bip01_L_Finger02"] = true,
     -- ["v_weapon.Bip01_L_Finger01"] = true,
     -- ["v_weapon.Bip01_L_Finger0"] = true,
-    
+
     ["v_weapon.Bip01_L_Hand"] = true,
 
     -- ["v_weapon.Bip01_R_Finger42"] = true,
@@ -93,7 +92,7 @@ local ins2_csgo_rig_bones = {
     -- ["v_weapon.Bip01_R_Finger02"] = true,
     -- ["v_weapon.Bip01_R_Finger01"] = true,
     -- ["v_weapon.Bip01_R_Finger0"] = true,
-    
+
     ["v_weapon.Bip01_R_Hand"] = true,
 }
 
@@ -107,9 +106,9 @@ local function ResetEntityToDefault(ent)
 	end
 	for i = 0, ent:GetBoneCount()-1 do
 		local bname = ent:GetBoneName(i)
-		
+
 		if bname and bname != "__INVALIDBONE__" then
-			ent:ManipulateBoneScale(i, bonescalevecRestore)
+			ent:ManipulateBoneScale(i, vec_scale_normal)
 			ent:ManipulateBonePosition(i, Vector())
 			ent:ManipulateBoneAngles(i, Angle())
 		end
@@ -119,12 +118,13 @@ end
 function SWEP:_CreateHands()
 	if !CLIENT then return end
 	local gmod_hands = LocalPlayer():GetHands()
+	local gmod_hands_scale = GetConVar("pb_ins2_rig_gmod_hands_scale"):GetFloat()
 	local currig = GetConVar("pb_ins2_rig"):GetInt()
-    
+
     // csgo rig
 	local curglove = GetConVar("pb_ins2_csgo_rig_glove"):GetInt()
 	local cursleeve = GetConVar("pb_ins2_csgo_rig_sleeve"):GetInt()
-	
+
 	if GetConVar("pb_ins2_rig_use_gmod_hands"):GetInt() == 1 then // gmod hands
 		if !self.INS2_Linker then
 			self.INS2_Linker = self:CreateClientModel( "models/gmod4phun/ins2/c_ins2_to_gmod_hands.mdl" ) // gmod linker
@@ -134,13 +134,13 @@ function SWEP:_CreateHands()
 		self.INS2_Linker:SetParent(self.VM)
 		self.INS2_Linker:AddEffects(EF_BONEMERGE)
 		self.INS2_Linker:AddEffects(EF_BONEMERGE_FASTCULL)
-		
+
 		if !self.Hands then
 			self.Hands = self:CreateClientModel( gmod_hands:GetModel() )
 		end
-		
+
 		ResetEntityToDefault(self.Hands)
-		
+
 		self.Hands:SetNoDraw(true)
 		self.Hands:SetupBones()
 		self.Hands:SetParent(self.INS2_Linker)
@@ -149,6 +149,14 @@ function SWEP:_CreateHands()
 		self.Hands.GetPlayerColor = self._GetPlayerColor // player color proxy
 		self:_CopyBodyGroups(LocalPlayer():GetHands(), self.Hands)
 		
+		for i = 0, self.Hands:GetBoneCount()-1 do // rescale bones of gmod hands in case its needed
+			local bname = self.Hands:GetBoneName(i)
+
+			if bname and bname != "__INVALIDBONE__" then
+				self.Hands:ManipulateBoneScale(i, vec_scale_normal * gmod_hands_scale)
+			end
+		end
+
 		if GetConVar("pb_ins2_rig_use_gmod_playermodel"):GetInt() == 1 then // playermodel merged as hands
 			self.Hands:SetModel( LocalPlayer():GetModel() )
 			self.Hands:SetupBones()
@@ -156,15 +164,17 @@ function SWEP:_CreateHands()
 			self.Hands:AddEffects(EF_BONEMERGE)
 			self.Hands:AddEffects(EF_BONEMERGE_FASTCULL)
 			self:_CopyBodyGroups(LocalPlayer(), self.Hands)
-			
+
 			for i = 0, self.Hands:GetBoneCount()-1 do
 				local bname = self.Hands:GetBoneName(i)
-				
+
 				if bname and bname != "__INVALIDBONE__" then
-					if !pmodel_bones[bname] then
-						self.Hands:ManipulateBoneScale(i, bonescalevec)
+					if pmodel_bones[bname] then // scale down all other bones to near zero except the hand bones of playermodel
+						self.Hands:ManipulateBoneScale(i, vec_scale_normal * gmod_hands_scale )
+					else
+						self.Hands:ManipulateBoneScale(i, vec_scale_hide)
 					end
-					
+
 					if bname == "ValveBiped.Bip01_Pelvis" then
 						self.Hands:ManipulateBonePosition(i, Vector(-32,0,-64))
 					end
@@ -181,7 +191,7 @@ function SWEP:_CreateHands()
             self.INS2_Linker:SetParent(self.VM)
             self.INS2_Linker:AddEffects(EF_BONEMERGE)
             self.INS2_Linker:AddEffects(EF_BONEMERGE_FASTCULL)
-            
+
             if !self.CSGO_Glove then
                 self.CSGO_Glove = self:CreateClientModel( PHUNBASE.INS2_CSGO.RIGS_GLOVE[curglove].model )
             end
@@ -190,10 +200,10 @@ function SWEP:_CreateHands()
             self.CSGO_Glove:SetParent(self.INS2_Linker)
             self.CSGO_Glove:AddEffects(EF_BONEMERGE)
             self.CSGO_Glove:AddEffects(EF_BONEMERGE_FASTCULL)
-            
+
             for i = 0, self.CSGO_Glove:GetBoneCount()-1 do
                 local bname = self.CSGO_Glove:GetBoneName(i)
-                
+
                 if bname and bname != "__INVALIDBONE__" then
                     if ins2_csgo_rig_bones[bname] then
                         self.CSGO_Glove:ManipulateBoneScale(i, Vector(1,1,1) * csgorigscalevec)
@@ -227,23 +237,19 @@ function SWEP:_UpdateHands()
 		SendUserMessage("PHUNBASE_UMSG_UPDATEHANDS", self.Owner)
 	else
 		local gmod_hands = LocalPlayer():GetHands()
+		local gmod_hands_scale = GetConVar("pb_ins2_rig_gmod_hands_scale"):GetFloat()
 		local currig = GetConVar("pb_ins2_rig"):GetInt()
-        
-        // csgo rig
+
+        // csgo rig related stuff
         local curglove = GetConVar("pb_ins2_csgo_rig_glove"):GetInt()
         local cursleeve = GetConVar("pb_ins2_csgo_rig_sleeve"):GetInt()
 		local curskin = GetConVar("pb_ins2_csgo_rig_skin"):GetInt()
-        
 
-        
-        //
-        //
-		
 		if GetConVar("pb_ins2_rig_use_gmod_hands"):GetInt() == 1 then // gmod hands
 			if !self.Hands or !self.INS2_Linker then
 				self:_CreateHands()
 			end
-            
+
             self.INS2_Linker:SetModel( "models/gmod4phun/ins2/c_ins2_to_gmod_hands.mdl" ) // gmod linker
 			self.Hands:SetModel( gmod_hands:GetModel() )
 			self.Hands:SetupBones()
@@ -251,21 +257,31 @@ function SWEP:_UpdateHands()
 			ResetEntityToDefault(self.Hands)
 			self:_CopyBodyGroups(gmod_hands, self.Hands)
 			
+			for i = 0, self.Hands:GetBoneCount()-1 do // rescale bones of gmod hands in case its needed
+				local bname = self.Hands:GetBoneName(i)
+
+				if bname and bname != "__INVALIDBONE__" then
+					self.Hands:ManipulateBoneScale(i, vec_scale_normal * gmod_hands_scale)
+				end
+			end
+
 			if GetConVar("pb_ins2_rig_use_gmod_playermodel"):GetInt() == 1 then // playermodel merged as hands
 				self.Hands:SetModel( LocalPlayer():GetModel() )
 				self.Hands:SetupBones()
 				self.Hands:SetParent(self.INS2_Linker)
 				ResetEntityToDefault(self.Hands)
 				self:_CopyBodyGroups(LocalPlayer(), self.Hands)
-				
+
 				for i = 0, self.Hands:GetBoneCount()-1 do
 					local bname = self.Hands:GetBoneName(i)
-					
+
 					if bname and bname != "__INVALIDBONE__" then
-						if !pmodel_bones[bname] then
-							self.Hands:ManipulateBoneScale(i, bonescalevec)
+						if pmodel_bones[bname] then // scale down all other bones to near zero except the hand bones of playermodel
+							self.Hands:ManipulateBoneScale(i, vec_scale_normal * gmod_hands_scale )
+						else
+							self.Hands:ManipulateBoneScale(i, vec_scale_hide)
 						end
-						
+
 						if bname == "ValveBiped.Bip01_Pelvis" then
 							self.Hands:ManipulateBonePosition(i, Vector(-32,0,-64))
 						end
@@ -277,41 +293,41 @@ function SWEP:_UpdateHands()
                 if !self.INS2_Linker or !self.CSGO_Glove or !self.CSGO_Sleeve then
                     self:_CreateHands()
                 end
-                
+
                 self.INS2_Linker:SetModel( "models/gmod4phun/ins2/c_ins2_csgo_linker.mdl" ) // csgo linker
-                
+
                 ResetEntityToDefault(self.CSGO_Glove)
-                
+
                 self.CSGO_Glove:SetModel(PHUNBASE.INS2_CSGO.RIGS_GLOVE[curglove].model)
                 self.CSGO_Glove:SetSkin(curskin - 1)
-                
+
                 for i = 0, #self.CSGO_Glove:GetBodyGroups() do
                     self.CSGO_Glove:SetBodygroup(i, 0)
                 end
                 for k, v in pairs(PHUNBASE.INS2_CSGO.RIGS_GLOVE[curglove].bg) do
                     self.CSGO_Glove:SetBodygroup(k, v)
                 end
-                
+
                 for i = 0, #self.CSGO_Glove:GetMaterials() do
                     self.CSGO_Glove:SetSubMaterial(i, nil)
                 end
                 for k, v in pairs(PHUNBASE.INS2_CSGO.RIGS_GLOVE[curglove].submats) do
                     self.CSGO_Glove:SetSubMaterial(k, v)
                 end
-                
+
                 if PHUNBASE.INS2_CSGO.RIGS_GLOVE[curglove].nosleeve then // sometimes we dont want to use any sleeves
                     self.CSGO_Sleeve:SetModel( "models/gmod4phun/csgo/arms/bare/c_bare_hands.mdl" )
                     self.CSGO_Sleeve:SetBodygroup(0, 1) // makes invisible model
                 else
                     self.CSGO_Sleeve:SetModel(PHUNBASE.INS2_CSGO.RIGS_SLEEVE[cursleeve].model)
-                    
+
                     for i = 0, #self.CSGO_Sleeve:GetBodyGroups() do
                         self.CSGO_Sleeve:SetBodygroup(i, 0)
                     end
                     for k, v in pairs(PHUNBASE.INS2_CSGO.RIGS_SLEEVE[cursleeve].bg) do
                         self.CSGO_Sleeve:SetBodygroup(k, v)
                     end
-                    
+
                     for i = 0, #self.CSGO_Sleeve:GetMaterials() do
                         self.CSGO_Sleeve:SetSubMaterial(i, nil)
                     end
@@ -319,23 +335,23 @@ function SWEP:_UpdateHands()
                         self.CSGO_Sleeve:SetSubMaterial(k, v)
                     end
                 end
-                
+
                 self.CSGO_Glove:SetupBones()
                 self.CSGO_Glove:SetParent(self.INS2_Linker)
-                
+
                 self.CSGO_Sleeve:SetupBones()
                 self.CSGO_Sleeve:SetParent(self.INS2_Linker)
-                
+
 				for i = 0, self.CSGO_Glove:GetBoneCount()-1 do
 					local bname = self.CSGO_Glove:GetBoneName(i)
-					
+
 					if bname and bname != "__INVALIDBONE__" then
 						if ins2_csgo_rig_bones[bname] then
 							self.CSGO_Glove:ManipulateBoneScale(i, Vector(1,1,1) * csgorigscalevec)
 						end
 					end
 				end
-                
+
             else
                 if !self.Hands then
                     self:_CreateHands()
@@ -345,11 +361,11 @@ function SWEP:_UpdateHands()
                 self.Hands:SetupBones()
                 self.Hands:SetParent(self.VM)
                 ResetEntityToDefault(self.Hands)
-                
+
                 for k, v in pairs(PHUNBASE.INS2.RIGS[currig].bg) do
                     self.Hands:SetBodygroup(k, v)
                 end
-                
+
                 for k, v in pairs(PHUNBASE.INS2.RIGS[currig].submats) do
                     self.Hands:SetSubMaterial(k, v)
                 end
@@ -359,7 +375,6 @@ function SWEP:_UpdateHands()
 end
 
 function SWEP:_drawHands()
-
     if GetConVar("pb_ins2_rig_use_csgo_hands"):GetInt() == 1 then // gmod hands
         if self.CSGO_Glove then
             self.CSGO_Glove:DrawModel()

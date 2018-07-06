@@ -9,6 +9,7 @@ AddCSLuaFile()
 CreateClientConVar("pb_ins2_rig", 1, true, false)
 CreateClientConVar("pb_ins2_rig_use_gmod_hands", 0, true, false)
 CreateClientConVar("pb_ins2_rig_use_gmod_playermodel", 0, true, false)
+CreateClientConVar("pb_ins2_rig_gmod_hands_scale", 1, true, false)
 
 CreateClientConVar("pb_ins2_csgo_rig_glove", 1, true, false)
 CreateClientConVar("pb_ins2_csgo_rig_sleeve", 1, true, false)
@@ -131,6 +132,15 @@ local function PB_INS2_MENU_PANEL(panel)
 	panel:AddControl("CheckBox", {Label = "Use GMod Player Hands?", Command = "pb_ins2_rig_use_gmod_hands"})
 	panel:AddControl("CheckBox", {Label = "Use the Playermodel merged as Hands?", Command = "pb_ins2_rig_use_gmod_playermodel"})
 	
+	local slider = vgui.Create("DNumSlider", panel)
+	slider:SetDecimals(2)
+	slider:SetMin(0)
+	slider:SetMax(2)
+	slider:SetConVar("pb_ins2_rig_gmod_hands_scale")
+	slider:SetValue(GetConVar("pb_ins2_rig_gmod_hands_scale"):GetFloat())
+	slider:SetText("GM/PM Hands Scale")
+	panel:AddItem(slider)
+	
 	// GLOVES
 	panel:AddControl("Label", {Text = "\nINS2 Rig Options"})
 	local rig_selector = vgui.Create("DComboBox", panel)
@@ -248,6 +258,7 @@ end
 cvars.AddChangeCallback("pb_ins2_rig", PB_INS2_HandChange)
 cvars.AddChangeCallback("pb_ins2_rig_use_gmod_hands", PB_INS2_HandChange)
 cvars.AddChangeCallback("pb_ins2_rig_use_gmod_playermodel", PB_INS2_HandChange)
+cvars.AddChangeCallback("pb_ins2_rig_gmod_hands_scale", PB_INS2_HandChange)
 cvars.AddChangeCallback("pb_ins2_rig_use_csgo_hands", PB_INS2_HandChange)
 
 cvars.AddChangeCallback("pb_ins2_csgo_rig_glove", PB_INS2_HandChange)
