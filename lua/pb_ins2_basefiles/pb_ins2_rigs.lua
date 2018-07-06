@@ -1,6 +1,6 @@
 // INS2 HANDS
 
-// Rig scaling available in menu
+SWEP.INS2_Rig_GMod_Scale = 0.9
 
 local vec_scale_hide = Vector(1,1,1) * 0.01 // scale for playermodel bones that we want to hide
 local vec_scale_normal = Vector(1,1,1) // default scale
@@ -118,7 +118,7 @@ end
 function SWEP:_CreateHands()
 	if !CLIENT then return end
 	local gmod_hands = LocalPlayer():GetHands()
-	local gmod_hands_scale = GetConVar("pb_ins2_rig_gmod_hands_scale"):GetFloat()
+	local gmod_hands_scale = self.INS2_Rig_GMod_Scale
 	local currig = GetConVar("pb_ins2_rig"):GetInt()
 
     // csgo rig
@@ -237,7 +237,7 @@ function SWEP:_UpdateHands()
 		SendUserMessage("PHUNBASE_UMSG_UPDATEHANDS", self.Owner)
 	else
 		local gmod_hands = LocalPlayer():GetHands()
-		local gmod_hands_scale = GetConVar("pb_ins2_rig_gmod_hands_scale"):GetFloat()
+		local gmod_hands_scale = self.INS2_Rig_GMod_Scale
 		local currig = GetConVar("pb_ins2_rig"):GetInt()
 
         // csgo rig related stuff
