@@ -5,15 +5,15 @@ AddCSLuaFile()
 PHUNBASE.LoadLua("sequences.lua")
 PHUNBASE.LoadLua("sounds.lua")
 
-SWEP.PrintName = "M40A1"
+SWEP.PrintName = "SKS"
 SWEP.Category = "PHUNBASE | Insurgency"
 SWEP.Slot = 1
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
 SWEP.AimViewModelFOV = 60
-SWEP.ViewModel = "models/gmod4phun/ins2/weapons/v_m40a1.mdl"
-SWEP.WorldModel = "models/gmod4phun/ins2/weapons/w_m40a1.mdl"
+SWEP.ViewModel = "models/gmod4phun/ins2/weapons/v_sks.mdl"
+SWEP.WorldModel = "models/gmod4phun/ins2/weapons/w_sks.mdl"
 
 SWEP.CustomWorldModel = SWEP.WorldModel
 SWEP.CustomWorldModelPos = Vector(-0.5,5,1.25)
@@ -31,17 +31,17 @@ SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
 // weapon specific variables
 
-SWEP.Primary.Ammo = "phunbase_762x51"
-SWEP.Primary.ClipSize = 5
+SWEP.Primary.Ammo = "phunbase_762x39"
+SWEP.Primary.ClipSize = 20
 SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 SWEP.Primary.Automatic = false
-SWEP.Primary.Delay = 0.5
+SWEP.Primary.Delay = 60/600
 SWEP.Primary.Damage = 32
 SWEP.Primary.Force = 10
 SWEP.Primary.Bullets = 1
 SWEP.Primary.Tracer = 0
 
-SWEP.FireModes = {"bolt"}
+SWEP.FireModes = {"semi"}
 
 // Recoil variables
 SWEP.Recoil	= 1.5
@@ -55,8 +55,8 @@ SWEP.SpreadAdd_Iron	= 0.05
 SWEP.BasePos = Vector(0, 0, 0)
 SWEP.BaseAng = Vector(0, 0, 0)
 
-SWEP.IronsightPos = Vector(-2.821, -3.750, 0.184)
-SWEP.IronsightAng = Vector(0.000, 0.000, 0.000)
+SWEP.IronsightPos = Vector(-2.683, -2.500, 1.650)
+SWEP.IronsightAng = Vector(0.100, 0.030, 0.000)
 
 SWEP.SprintPos = Vector(0,0,0)
 SWEP.SprintAng = Vector(0,0,0)
@@ -84,46 +84,44 @@ SWEP.RTScope_AttachmentName = "scope_origin"
 SWEP.MouseSensitivityHip = 1
 SWEP.MouseSensitivityIron = 0.2
 
-SWEP.BipodTransitionDelay = 1
+SWEP.BipodTransitionDelay = 1.2
 
 SWEP.VElements = {
-	["standard_1"] = {model = "models/gmod4phun/ins2/upgrades/a_standard_m40.mdl", default = true, bonemerge = true},
-	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_sec.mdl", bonemerge = true, drawInRT = true},
+	["modkit"] = {model = "models/gmod4phun/ins2/upgrades/a_modkit_02.mdl", bonemerge = true},
+	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_ins.mdl", bonemerge = true, drawInRT = true},
 	
 	["pb_ins2_att_flashlight"] = {model = "models/gmod4phun/ins2/upgrades/a_flashlight_band.mdl", bonemerge = true, drawInRT = true},
 	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_band.mdl", bonemerge = true, drawInRT = true},
 	
-	["pb_ins2_att_optic_holo"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech_l.mdl", bonemerge = true},
-	["pb_ins2_att_optic_holo_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech_l.mdl", bonemerge = true, stencilmaterials = {1}},
+	["pb_ins2_att_optic_kobra"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_kobra.mdl", bonemerge = true},
+	["pb_ins2_att_optic_kobra_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_kobra.mdl", bonemerge = true, stencilmaterials = {2}},
 	
 	["pb_ins2_att_optic_2xreddot"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimp2x.mdl", bonemerge = true},
-	["pb_ins2_att_optic_elcan"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_elcan.mdl", bonemerge = true},
-	["pb_ins2_att_optic_mk4"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_m40.mdl", bonemerge = true},
+	["pb_ins2_att_optic_po4"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_po4x24_m.mdl", bonemerge = true},
 	
-	["pb_ins2_att_bipod"] = {model = "models/gmod4phun/ins2/upgrades/a_bipod_m40.mdl", bonemerge = true},
+	["pb_ins2_att_foregrip"] = {model = "models/weapons/upgrades/a_foregrip_ins.mdl", attachment = "Foregrip", angle = Angle(0,-90,0), size = Vector(0.5, 0.5, 0.5)},
+	["pb_ins2_att_bipod"] = {model = "models/gmod4phun/ins2/upgrades/a_bipod_sks.mdl", bonemerge = true},
 }
 
-SWEP.DisableVElements = {
-	["pb_ins2_att_optic_holo"] = {"standard_1"},
-	["pb_ins2_att_optic_2xreddot"] = {"standard_1"},
-	["pb_ins2_att_optic_elcan"] = {"standard_1"},
-	["pb_ins2_att_optic_mk4"] = {"standard_1"},
+SWEP.EnableVElements = {
+	["pb_ins2_att_optic_kobra"] = {"modkit"},
+	["pb_ins2_att_optic_2xreddot"] = {"modkit"},
+	["pb_ins2_att_optic_po4"] = {"modkit"},
 }
 
 local ang0 = Vector()
 
 SWEP.AttachmentIronsights = {
-	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.821, -3.750, 0.184), ang = ang0},
-	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.812, -5.000, 0.351), ang = ang0},
-	["pb_ins2_att_optic_elcan"] = {pos = Vector(-2.815, -4.500, 0.034), ang = ang0},
-	["pb_ins2_att_optic_mk4"] = {pos = Vector(-2.822, -4.000, 0.7), ang = ang0}
+	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.682, -1.250, 0.675), ang = ang0},
+	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.679, -2, 0.505), ang = ang0},
+	["pb_ins2_att_optic_po4"] = {pos = Vector(-2.632, -2.8, 0.766), ang = ang0}
 }
 
 SWEP.Attachments = {
-	[1] = {name = "Optics", attachments = {"pb_ins2_att_optic_holo", "pb_ins2_att_optic_2xreddot", "pb_ins2_att_optic_elcan", "pb_ins2_att_optic_mk4"}},
+	[1] = {name = "Optics", attachments = {"pb_ins2_att_optic_kobra", "pb_ins2_att_optic_2xreddot", "pb_ins2_att_optic_po4"}},
 	[2] = {name = "Barrel", attachments = {"pb_ins2_att_suppressor"}},
 	[3] = {name = "Siderail", attachments = {"pb_ins2_att_flashlight", "pb_ins2_att_laser"}},
-	[4] = {name = "Underbarrel", attachments = {"pb_ins2_att_bipod"}},
+	[4] = {name = "Underbarrel", attachments = {"pb_ins2_att_foregrip", "pb_ins2_att_bipod"}},
 }
 
 SWEP.EnableCustomization = true
@@ -131,43 +129,24 @@ SWEP.CustomizationMenuSize = 0.75
 SWEP.CustomizationMenuAttachmentName = "Foregrip"
 
 SWEP.DeployTime = 0.7
-SWEP.DeployTime_First = 3
+SWEP.DeployTime_First = 1.5
 
-SWEP.HolsterTime = 0.55
+SWEP.HolsterTime = 0.5
 
-SWEP.ReloadTime = 2.6
-SWEP.ReloadTime_Empty = 2.85
-
-SWEP.Chamberable = false
-SWEP.CockAfterShot = true
-SWEP.CockAfterShotTime = 1.55
-SWEP.MakeShellOnCock = false
-SWEP.DontCockWhenEmpty = true
-
-SWEP.ShotgunReload = true
-SWEP.ShotgunReload_EjectOnStart = true
-SWEP.ShotgunReloadTime_EjectOnStart = 0.45
-
-SWEP.ShotgunReloadTime_Start = 0.85
-SWEP.ShotgunReloadTime_Start_Empty = 0.85
-SWEP.ShotgunReloadTime_Insert = 0.8
-SWEP.ShotgunReloadTime_End = 1
-SWEP.ShotgunReloadTime_End_Empty = 1
-
-SWEP.ShotgunReloadTime_InsertAmmoWait = 0.4
+SWEP.ReloadTime = 3.25
+SWEP.ReloadTime_Empty = 4.6
 
 SWEP.ViewModelMovementScale = 0.75
 
 // shell-related stuff
-SWEP.ShellVelocity = {X = 80, Y = 35, Z = 15}
+SWEP.ShellVelocity = {X = 80, Y = 15, Z = 65}
 //SWEP.ShellAngularVelocity = {Pitch_Min = -500, Pitch_Max = 200, Yaw_Min = 0, Yaw_Max = 1000, Roll_Min = -200, Roll_Max = 100}
 SWEP.ShellAngularVelocity = {Pitch_Min = -2500, Pitch_Max = -2000, Yaw_Min = 150, Yaw_Max = 200, Roll_Min = 10, Roll_Max = 20}
 SWEP.ShellViewAngleAlign = {Forward = 0, Right = 0, Up = 0}
 SWEP.ShellAttachmentName = "shell"
-SWEP.ShellDelay = 0.1
+SWEP.ShellDelay = 0.04
 SWEP.ShellScale = 0.66
-SWEP.ShellModel = "models/gmod4phun/ins2/shells/762x51.mdl"
-SWEP.NoShells = true
+SWEP.ShellModel = "models/gmod4phun/ins2/shells/762x39.mdl"
 
 SWEP.MuzzleAttachmentName = "muzzle"
 
@@ -182,8 +161,8 @@ SWEP.MuzzleEffect = {
 
 SWEP.MuzzleEffectSuppressed = {"muzzle_lee_silenced"}
 
-local icon_merge_models = {
-	"models/weapons/upgrades/a_standard_m40.mdl"
-}
+-- local icon_merge_models = {
+	-- "models/weapons/upgrades/a_standard_m40.mdl"
+-- }
 
 SWEP.INS2_IconParams = {dist = 22, offset = 2, spin = false, mergemodels = icon_merge_models}

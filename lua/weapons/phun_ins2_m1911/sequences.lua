@@ -1,3 +1,5 @@
+SWEP.UsesEmptyAnims = true
+
 SWEP.Sequences = {
 	base_idle = "base_idle",
 	base_ready = "base_ready",

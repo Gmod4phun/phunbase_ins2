@@ -83,12 +83,12 @@ SWEP.RTScope_AttachmentName = "scope_origin"
 SWEP.MouseSensitivityHip = 1
 SWEP.MouseSensitivityIron = 0.5
 
+SWEP.UsesBipod = true
+SWEP.BipodTransitionDelay = 1.35
+
 SWEP.drawViewModelInRT = true
 
 SWEP.VElements = {
-	//["standard"] = {model = "models/gmod4phun/ins2/upgrades/a_standard_ak74.mdl", default = true, bonemerge = true},
-	//["rail"] = {model = "models/gmod4phun/ins2/upgrades/a_modkit_06.mdl", bonemerge = true},
-	
 	["pb_ins2_att_flashlight"] = {model = "models/gmod4phun/ins2/upgrades/a_flashlight_band.mdl", bonemerge = true, drawInRT = true},
 	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_band.mdl", bonemerge = true, drawInRT = true},
 	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_12ga.mdl", bonemerge = true, drawInRT = true},

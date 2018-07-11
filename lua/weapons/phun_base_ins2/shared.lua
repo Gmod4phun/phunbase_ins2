@@ -1,7 +1,7 @@
 AddCSLuaFile()
 
 if SERVER then
-    util.AddNetworkString("PB_INS2_ANIM_NAME")
+    util.AddNetworkString("PB_INS2_CURANIM_NAME")
 end
 
 PHUNBASE.LoadLua("pb_ins2_basefiles/pb_ins2_rigs.lua")
@@ -109,7 +109,6 @@ SWEP.ShellAttachmentName_R = "shelleject_right"
 SWEP.ShellDelay = 0.03
 SWEP.ShellScale = 0.5
 SWEP.ShellModel = "models/weapons/shell.mdl"
-SWEP.ShellEjectVelocity = 75
 
 SWEP.FireSound = {} -- can be a string, or a table of sounds
 
@@ -137,6 +136,7 @@ SWEP.DontCockWhenSprinting = true
 
 SWEP.IsSuppressed = false
 SWEP.UsesForegrip = false
+SWEP.UsesBipod = false
 SWEP.UsesGrenadeLauncher = false
 SWEP.UsesExtMag = false
 SWEP.UsesDrumMag = false
@@ -184,45 +184,72 @@ SWEP.Sequences = {
 }
 */
 
-function SWEP:_getAnimPrefixes()
-	local prefix = ""
-	
-	local iron = self:GetIron()
+local anims_pref_empty = {
+	["idle"] = true,
+	["draw"] = true,
+	["holster"] = true,
+	["crawl"] = true,
+	["sprint"] = true,
+	["iron_down"] = true,
+	["in"] = true,
+	["out"] = true,
+	["down"] = true,
+}
+
+local anims_pref_iron = {
+	["idle"] = true,
+	["fire"] = true,
+	["firelast"] = true,
+	["fireselect"] = true,
+	["dryfire"] = true,
+	["fire_cock"] = true,
+}
+
+local anims_pref_nobase = {
+	["iron_down"] = true,
+	["in"] = true,
+	["out"] = true,
+}
+
+function SWEP:_getAnimPrefixes(anim)
+	local empty = self:Clip1() == 0 and anims_pref_empty[anim] and self.UsesEmptyAnims
+	local iron = self:GetIron() and anims_pref_iron[anim]
 	local fore = self.UsesForegrip
 	local gl = self.UsesGrenadeLauncher and self:GetWeaponMode() != PB_WEAPONMODE_GL_ACTIVE
-	local empty = self:Clip1() == 0
 	
-	local glactive = self.UsesGrenadeLauncher and self:GetWeaponMode() == PB_WEAPONMODE_GL_ACTIVE
-	local deployed = self.UsesBipod and self:GetWeaponMode() == PB_WEAPONMODE_BIPOD_ACTIVE
+	local glactive = self:GetWeaponMode() == PB_WEAPONMODE_GL_ACTIVE
+	local deployed = self:IsBipodDeployed()
+	
+	local prefix = empty and "empty_" or ""
 	
 	if iron then prefix = "iron_"..prefix end
 	if fore then prefix = "foregrip_"..prefix end
 	if gl then prefix = "gl_"..prefix end
-	
 	if glactive then prefix = "glsetup_"..prefix end
 	if deployed then prefix = "deployed_"..prefix end
 	
-	if prefix == "" then prefix = empty and "empty_" or "base_" end
+	local base = (prefix == "" and !anims_pref_nobase[anim]) and true or false
+	
+	prefix = base and "base_" or prefix
 	
 	return prefix
 end
 
-function SWEP:_noEmptyPrefix()
-	return self:_getAnimPrefixes() != "empty_"
-end
+local anims_suff_empty = {
+	["reload_start"] = true,
+	["reload_end"] = true,
+}
 
-function SWEP:_getAnimSuffixes()
-	local suffix = ""
+function SWEP:_getAnimSuffixes(anim)
+	local validanim, empty = anims_suff_empty[anim], false
 	
-	local empty
-	
-	if self:GetIsReloading() and self.ShotgunReloadingState != 1 and self.WasEmpty then
+	if self:GetIsReloading() and self.ShotgunReloadingState != 1 and self.WasEmpty and validanim then
 		empty = true
 	else
-		empty = self:Clip1() < 0
+		empty = (self:Clip1() < 0 and validanim)
 	end
-	
-	if empty then suffix = suffix.."_empty" end
+
+	local suffix = empty and "_empty" or ""
 	
 	return suffix
 end
@@ -238,52 +265,8 @@ function SWEP:_getMagSuffixes(anim)
 	end
 end
 
-local fixPrefixTab = {
-	["dryfire"] = {["empty_"] = "base_"},
-	["reload_insert"] = {["empty_"] = "base_"},
-	["sprint"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["glsetup_iron_"] = "glsetup_"},
-	["holster"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["glsetup_iron_"] = "glsetup_", ["deployed_"] = "base_"},
-	["reload"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["glsetup_iron_"] = "glsetup_", ["empty_"] = "base_"},
-	["reloadempty"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["glsetup_iron_"] = "glsetup_", ["empty_"] = "base_"},
-	["reload_start"] = {["iron_"] = "base_", ["foregrip_iron_"] = "foregrip_", ["gl_iron_"] = "gl_", ["q"] = "glsetup_", ["empty_"] = "base_"},
-	["iron_down"] = {["base_"] = "", ["empty_"] = ""},
-	["draw"] = {["deployed_"] = "base_"},
-	["ready"] = {["deployed_"] = "base_"},
-}
-
-local fixSuffixTab = {
-	["dryfire"] = {["_empty"] = ""},
-	["reload"] = {["_empty"] = ""},
-	["reloadempty"] = {["_empty"] = ""},
-	["draw"] = {["_empty"] = ""},
-	["holster"] = {["_empty"] = ""},
-	["iron_down"] = {["_empty"] = ""},
-	["sprint"] = {["_empty"] = ""},
-	["ready"] = {["_empty"] = ""},
-}
-
-net.Receive("PB_INS2_ANIM_NAME", function()
-    local anim = net.ReadString()
-    local wep = LocalPlayer():GetActiveWeapon()
-    
-    if !IsValid(wep) then return end
-    wep.curINS2Anim = anim
-end)
-
 function SWEP:_playINS2Anim(anim, speed, cycle)
-	local prefix, suffix, magsuffixes = self:_getAnimPrefixes(), self:_getAnimSuffixes(), self:_getMagSuffixes(anim)
-	
-	if fixPrefixTab[anim] then
-		if fixPrefixTab[anim][prefix] then
-			prefix = fixPrefixTab[anim][prefix]
-		end
-	end
-	
-	if fixSuffixTab[anim] then
-		if fixSuffixTab[anim][suffix] then
-			suffix = fixSuffixTab[anim][suffix]
-		end
-	end
+	local prefix, suffix, magsuffixes = self:_getAnimPrefixes(anim), self:_getAnimSuffixes(anim), self:_getMagSuffixes(anim)
 	
 	if prefix == "empty_" and !self.Sequences[prefix..anim..suffix..magsuffixes] and self.Sequences["base_"..anim..suffix..magsuffixes] then // some guns use base_ for empty_ anims
 		prefix = "base_"
@@ -296,7 +279,7 @@ function SWEP:_playINS2Anim(anim, speed, cycle)
     if CLIENT then
         self.curINS2Anim = anim
     else
-        net.Start("PB_INS2_ANIM_NAME")
+        net.Start("PB_INS2_CURANIM_NAME")
             net.WriteString(anim)
         net.Send(self.Owner)
     end
@@ -308,6 +291,14 @@ function SWEP:_playINS2Anim(anim, speed, cycle)
 	
 	self:PlayVMSequence(a, speed, cycle)
 end
+
+net.Receive("PB_INS2_CURANIM_NAME", function()
+    local anim = net.ReadString()
+    local wep = LocalPlayer():GetActiveWeapon()
+    
+    if !IsValid(wep) then return end
+    wep.curINS2Anim = anim
+end)
 
 function SWEP:PlayIdleAnim() // override and dont use this shit
 end
@@ -442,10 +433,10 @@ end
 // grenade launcher mode anim
 
 function SWEP:GrenadeLauncherModeAnimLogic()
-	if self:GetWeaponMode() == PB_WEAPONMODE_GL_ACTIVE then
-		self:PlayVMSequence("glsetup_in")
+	if self:GetGLState() == PB_GLSTATE_ENTER then
+		self:_playINS2Anim("in")
 	else
-		self:PlayVMSequence("glsetup_out")
+		self:_playINS2Anim("out")
 	end
 end
 
@@ -454,15 +445,15 @@ function SWEP:GrenadeLauncherFireAnimLogic()
 end
 
 function SWEP:GrenadeLauncherReloadAnimLogic()
-	self:PlayVMSequence("glsetup_reload")
+	self:_playINS2Anim("reload")
 end
 
 // bipod mode anim
 
 function SWEP:BipodModeAnimLogic()
-	if self:GetWeaponMode() == PB_WEAPONMODE_BIPOD_ACTIVE then
-		self:PlayVMSequence("deployed_in")
+	if self:GetBipodState() == PB_BIPODSTATE_ENTER then
+		self:_playINS2Anim("in")
 	else
-		self:PlayVMSequence("deployed_out")
+		self:_playINS2Anim("out")
 	end
 end
