@@ -1,5 +1,6 @@
 // INS2 HANDS
 
+SWEP.UseHands = true
 SWEP.INS2_Rig_GMod_Scale = 0.9
 
 local vec_scale_hide = Vector(1,1,1) * 0.01 // scale for playermodel bones that we want to hide
@@ -375,19 +376,21 @@ function SWEP:_UpdateHands()
 end
 
 function SWEP:_drawHands()
-    if GetConVar("pb_ins2_rig_use_csgo_hands"):GetInt() == 1 then // gmod hands
-        if self.CSGO_Glove then
-            self.CSGO_Glove:DrawModel()
-        end
-        if self.CSGO_Sleeve then
-            self.CSGO_Sleeve:DrawModel()
-        end
-    else
-        if self.Hands then
-            if GetConVar("pb_ins2_rig_use_gmod_hands"):GetInt() == 1 then // gmod hands
-                self.Hands.GetPlayerColor = self._GetPlayerColor
-            end
-            self.Hands:DrawModel()
-        end
-    end
+	if self.UseHands then
+		if GetConVar("pb_ins2_rig_use_csgo_hands"):GetInt() == 1 then // gmod hands
+			if self.CSGO_Glove then
+				self.CSGO_Glove:DrawModel()
+			end
+			if self.CSGO_Sleeve then
+				self.CSGO_Sleeve:DrawModel()
+			end
+		else
+			if self.Hands then
+				if GetConVar("pb_ins2_rig_use_gmod_hands"):GetInt() == 1 then // gmod hands
+					self.Hands.GetPlayerColor = self._GetPlayerColor
+				end
+				self.Hands:DrawModel()
+			end
+		end
+	end
 end

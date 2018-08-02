@@ -3,7 +3,7 @@ att.name = "pb_ins2_att_optic_holo"
 att.menuName = "Holographic Sight"
 
 att.reticleTable = {
-	["reticleMaterial"] = Material("models/weapons/optics/eotech_reticule"),
+	["reticleMaterial"] = Material("phunbase/reticles/eotech_reticle"),
 	["reticleSize"] = 24,
 	["stencilElementName"] = "pb_ins2_att_optic_holo_stencil",
 	["reticleRotate"] = -90,
@@ -17,7 +17,7 @@ att.name = "pb_ins2_att_optic_kobra"
 att.menuName = "Kobra Sight"
 
 att.reticleTable = {
-	["reticleMaterial"] = Material("models/weapons/optics/kobra_dot"),
+	["reticleMaterial"] = Material("phunbase/reticles/kobra_reticle"),
 	["reticleSize"] = 24,
 	["stencilElementName"] = "pb_ins2_att_optic_kobra_stencil",
 	["reticleRotate"] = -90,
@@ -31,8 +31,8 @@ att.name = "pb_ins2_att_optic_reddot"
 att.menuName = "Red Dot"
 
 att.reticleTable = {
-	["reticleMaterial"] = Material("models/weapons/optics/aimpoint_reticule"),
-	["reticleSize"] = 300,
+	["reticleMaterial"] = Material("phunbase/reticles/aimpoint_reticle"),
+	["reticleSize"] = 12,
 	["stencilElementName"] = "pb_ins2_att_optic_reddot_stencil",
 	["reticleRotate"] = -90,
 }
@@ -57,12 +57,14 @@ function att:attachCallback()
 			self.RTScope_Entity = velement
 		end
 	end
+	self.RTScope_Reticle = Material("phunbase/reticles/aimpoint_crosshair")
 end
 
 function att:detachCallback()
 	if CLIENT then
 		self.RTScope_Entity = self.VM
 	end
+	self:_restoreOrigValue("RTScope_Reticle")
 end
 
 function att:think()
@@ -92,12 +94,14 @@ function att:attachCallback()
 			self.RTScope_Entity = velement
 		end
 	end
+	self.RTScope_Reticle = Material("phunbase/reticles/elcan_crosshair")
 end
 
 function att:detachCallback()
 	if CLIENT then
 		self.RTScope_Entity = self.VM
 	end
+	self:_restoreOrigValue("RTScope_Reticle")
 end
 
 function att:think()
@@ -127,12 +131,14 @@ function att:attachCallback()
 			self.RTScope_Entity = velement
 		end
 	end
+	self.RTScope_Reticle = Material("phunbase/reticles/po4x_crosshair_new")
 end
 
 function att:detachCallback()
 	if CLIENT then
 		self.RTScope_Entity = self.VM
 	end
+	self:_restoreOrigValue("RTScope_Reticle")
 end
 
 function att:think()
@@ -162,12 +168,14 @@ function att:attachCallback()
 			self.RTScope_Entity = velement
 		end
 	end
+	self.RTScope_Reticle = Material("phunbase/reticles/mosin_crosshair")
 end
 
 function att:detachCallback()
 	if CLIENT then
 		self.RTScope_Entity = self.VM
 	end
+	self:_restoreOrigValue("RTScope_Reticle")
 end
 
 function att:think()
@@ -197,12 +205,14 @@ function att:attachCallback()
 			self.RTScope_Entity = velement
 		end
 	end
+	self.RTScope_Reticle = Material("phunbase/reticles/mk4_crosshair")
 end
 
 function att:detachCallback()
 	if CLIENT then
 		self.RTScope_Entity = self.VM
 	end
+	self:_restoreOrigValue("RTScope_Reticle")
 end
 
 function att:think()
@@ -380,15 +390,19 @@ PHUNBASE:registerAttachment(att)
 
 
 local att = {}
-att.name = "pb_ins2_att_mag_drum"
+att.name = "pb_ins2_att_mag_drum_75"
 att.menuName = "Drum Magazine"
 
 function att:attachCallback()
 	self.UsesDrumMag = true
+	self:unloadWeapon()
+	self:SetClipSize(75)
 end
 
 function att:detachCallback()
 	self.UsesDrumMag = false
+	self:unloadWeapon()
+	self:RestoreClipSize()
 end
 PHUNBASE:registerAttachment(att)
 
@@ -437,10 +451,10 @@ att.name = "pb_ins2_att_speedloader"
 att.menuName = "Speed Loader"
 
 function att:attachCallback()
-	self.UsesSpeedloader = true
+	self.ShotgunReload = false
 end
 
 function att:detachCallback()
-	self.UsesSpeedloader = false
+	self.ShotgunReload = true
 end
 PHUNBASE:registerAttachment(att)

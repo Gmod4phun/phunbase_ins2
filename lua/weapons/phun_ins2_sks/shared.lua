@@ -99,7 +99,7 @@ SWEP.VElements = {
 	["pb_ins2_att_optic_2xreddot"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimp2x.mdl", bonemerge = true},
 	["pb_ins2_att_optic_po4"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_po4x24_m.mdl", bonemerge = true},
 	
-	["pb_ins2_att_foregrip"] = {model = "models/weapons/upgrades/a_foregrip_ins.mdl", attachment = "Foregrip", angle = Angle(0,-90,0), size = Vector(0.5, 0.5, 0.5)},
+	["pb_ins2_att_foregrip"] = {model = "models/gmod4phun/ins2/upgrades/a_foregrip_ins2.mdl", bonemerge = true},
 	["pb_ins2_att_bipod"] = {model = "models/gmod4phun/ins2/upgrades/a_bipod_sks.mdl", bonemerge = true},
 }
 
@@ -133,8 +133,12 @@ SWEP.DeployTime_First = 1.5
 
 SWEP.HolsterTime = 0.5
 
-SWEP.ReloadTime = 3.25
-SWEP.ReloadTime_Empty = 4.6
+SWEP.ReloadTimes = {
+	Base = 3.25,
+	Base_Empty = 4.6,
+	Bipod = 3.25,
+	Bipod_Empty = 4.6,
+}
 
 SWEP.ViewModelMovementScale = 0.75
 
@@ -165,4 +169,4 @@ SWEP.MuzzleEffectSuppressed = {"muzzle_lee_silenced"}
 	-- "models/weapons/upgrades/a_standard_m40.mdl"
 -- }
 
-SWEP.INS2_IconParams = {dist = 22, offset = 2, spin = false, mergemodels = icon_merge_models}
+SWEP.INS2_IconParams = {dist = 17.5, offset = 1, spin = false, mergemodels = icon_merge_models}

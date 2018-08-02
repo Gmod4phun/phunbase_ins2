@@ -162,8 +162,10 @@ SWEP.DeployTime_First = 2.25
 
 SWEP.HolsterTime = 0.5
 
-SWEP.ReloadTime = 3.2
-SWEP.ReloadTime_Empty = 4.5
+SWEP.ReloadTimes = {
+	Base = 3.2,
+	Base_Empty = 4.5,
+}
 
 SWEP.ViewModelMovementScale = 0.75
 
@@ -191,7 +193,7 @@ SWEP.MuzzleEffect = {
 SWEP.MuzzleEffectSuppressed = {"muzzle_lee_silenced"}
 
 local icon_merge_models = {
-	"models/gmod4phun/ins2/upgrades/a_standard_ak74.mdl",
+	SWEP.VElements.standard.model
 }
 
 SWEP.INS2_IconParams = {dist = 16, offset = 1.25, spin = false, mergemodels = icon_merge_models}

@@ -103,7 +103,7 @@ SWEP.VElements = {
 	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_rail.mdl", bonemerge = true, drawInRT = true},
 	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_sec.mdl", bonemerge = true, drawInRT = true},
 	
-	["pb_ins2_att_foregrip"] = {model = "models/gmod4phun/ins2/upgrades/a_foregrip_sec.mdl", attachment = "Foregrip", angle = Angle(0, -90, 0), size = Vector(0.5, 0.5, 0.5)},
+	["pb_ins2_att_foregrip"] = {model = "models/gmod4phun/ins2/upgrades/a_foregrip_sec.mdl", bonemerge = true},
 
 	["pb_ins2_att_gl_m203_he"] = {model = "models/gmod4phun/ins2/upgrades/a_gl_m203.mdl", bonemerge = true, drawInRT = true},
 	["pb_ins2_att_gl_m203_smoke"] = {model = "models/gmod4phun/ins2/upgrades/a_gl_m203.mdl", bonemerge = true, drawInRT = true, skin = 1},
@@ -126,7 +126,8 @@ SWEP.DisableVElements = {
 	["pb_ins2_att_optic_reddot"] = {"carry"},
 	["pb_ins2_att_optic_2xreddot"] = {"carry"},
 	["pb_ins2_att_optic_elcan"] = {"carry"},
-	["pb_ins2_att_gl_m203"] = {"cover_long_bottom", "cover_long_left", "cover_long_right"},
+	["pb_ins2_att_gl_m203_he"] = {"cover_long_bottom", "cover_long_left", "cover_long_right"},
+	["pb_ins2_att_gl_m203_smoke"] = {"cover_long_bottom", "cover_long_left", "cover_long_right"},
 }
 
 SWEP.ReplaceVElements = {
@@ -139,7 +140,10 @@ SWEP.ReplaceVElements = {
 	["pb_ins2_att_foregrip"] = {
 		["cover_long_bottom"] = "cover_short_bottom",
 	},
-	["pb_ins2_att_gl_m203"] = {
+	["pb_ins2_att_gl_m203_he"] = {
+		["cover_long_left"] = "cover_short_left",
+	},
+	["pb_ins2_att_gl_m203_smoke"] = {
 		["cover_long_left"] = "cover_short_left",
 	},
 }
@@ -179,8 +183,10 @@ SWEP.DeployTime_First = 2.25
 
 SWEP.HolsterTime = 0.5
 
-SWEP.ReloadTime = 3.85
-SWEP.ReloadTime_Empty = 4.55
+SWEP.ReloadTimes = {
+	Base = 3.75,
+	Base_Empty = 4.35,
+}
 
 SWEP.ViewModelMovementScale = 0.75
 

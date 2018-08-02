@@ -23,7 +23,7 @@ SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
 // weapon specific variables
 
-SWEP.Primary.Ammo = "phunbase_9mm"
+SWEP.Primary.Ammo = "grenade"
 SWEP.Primary.ClipSize = -1
 SWEP.Primary.DefaultClip = 1
 SWEP.Primary.Automatic = true

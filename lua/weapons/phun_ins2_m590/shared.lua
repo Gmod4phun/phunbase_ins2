@@ -89,11 +89,11 @@ SWEP.VElements = {
 	["standard_1"] = {model = "models/gmod4phun/ins2/upgrades/a_standard_m590.mdl", default = true, bonemerge = true},
 	["rail"] = {model = "models/gmod4phun/ins2/upgrades/a_modkit_05.mdl", bonemerge = true},
     
-	["pb_ins2_att_flashlight"] = {model = "models/gmod4phun/ins2/upgrades/a_flashlight_band.mdl", bonemerge = true, drawInRT = true},
-	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_band.mdl", bonemerge = true, drawInRT = true},
+	["pb_ins2_att_flashlight"] = {model = "models/gmod4phun/ins2/upgrades/a_flashlight_sec_shotgun.mdl", bonemerge = true, drawInRT = true},
+	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_sec_shotgun.mdl", bonemerge = true, drawInRT = true},
 	
 	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_12ga.mdl", bonemerge = true, drawInRT = true},
-	["pb_ins2_att_foregrip"] = {model = "models/weapons/upgrades/a_foregrip_ins2.mdl", attachment = "Foregrip", angle = Angle(0,-90,0), size = Vector(0.5, 0.5, 0.5)},
+	["pb_ins2_att_foregrip"] = {model = "models/gmod4phun/ins2/upgrades/a_foregrip_ins2.mdl", bonemerge = true},
 	
 	["pb_ins2_att_optic_holo"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech_m.mdl", bonemerge = true},
 	["pb_ins2_att_optic_holo_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech_m.mdl", bonemerge = true, stencilmaterials = {1}},
@@ -148,9 +148,6 @@ SWEP.DeployTime_First = 2.1
 
 SWEP.HolsterTime = 0.55
 
-SWEP.ReloadTime = 2.6
-SWEP.ReloadTime_Empty = 2.85
-
 SWEP.Chamberable = false
 SWEP.CockAfterShot = true
 SWEP.CockAfterShotTime = 0.6
@@ -158,23 +155,25 @@ SWEP.MakeShellOnCock = false
 SWEP.DontCockWhenEmpty = true
 
 SWEP.ShotgunReload = true
-SWEP.ShotgunReload_InsertOnStart = false
-SWEP.ShotgunReload_InsertOnStartEmpty = true
-SWEP.ShotgunReload_InsertOnEnd = false
-SWEP.ShotgunReload_InsertOnEndEmpty = false
 
-SWEP.ShotgunReloadTime_Start = 0.7
-SWEP.ShotgunReloadTime_Start_Empty = 2.9
-SWEP.ShotgunReloadTime_Start_EmptyOneAndOnly = 0.25
-SWEP.ShotgunReloadTime_Insert = 0.7
-SWEP.ShotgunReloadTime_End = 0.6
-SWEP.ShotgunReloadTime_End_Empty = 0.6
+SWEP.ShotgunReloadActions = {
+	InsertOnStart = false,
+	InsertOnStartEmpty = true,
+	InsertOnEnd = false,
+	InsertOnEndEmpty = false,
+}
 
-SWEP.ShotgunReloadTime_InsertAmmoWait = 0.35
-//SWEP.ShotgunReloadTime_InsertOnStartAmmoWait = 0.25
-SWEP.ShotgunReloadTime_InsertOnStartEmptyAmmoWait = 2.2
-//SWEP.ShotgunReloadTime_InsertOnEndAmmoWait = 0.25
-//SWEP.ShotgunReloadTime_InsertOnEndEmptyAmmoWait = 0.25
+SWEP.ShotgunReloadTimes = {
+	Start = 0.7,
+	Start_Empty = 2.9,
+	Start_EmptyOneAndOnly = 0.25,
+	Insert = 0.7,
+	End = 0.6,
+	End_Empty = 0.6,
+
+	InsertAmmoWait = 0.35,
+	InsertOnStartEmptyAmmoWait = 2.2,
+}
 
 SWEP.ViewModelMovementScale = 0.75
 

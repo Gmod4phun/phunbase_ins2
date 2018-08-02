@@ -90,8 +90,8 @@ SWEP.VElements = {
 	["standard_1"] = {model = "models/gmod4phun/ins2/upgrades/a_standard_m40.mdl", default = true, bonemerge = true},
 	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_sec.mdl", bonemerge = true, drawInRT = true},
 	
-	["pb_ins2_att_flashlight"] = {model = "models/gmod4phun/ins2/upgrades/a_flashlight_band.mdl", bonemerge = true, drawInRT = true},
-	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_band.mdl", bonemerge = true, drawInRT = true},
+	["pb_ins2_att_flashlight"] = {model = "models/gmod4phun/ins2/upgrades/a_flashlight_sec_shotgun.mdl", bonemerge = true, drawInRT = true},
+	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_sec_shotgun.mdl", bonemerge = true, drawInRT = true},
 	
 	["pb_ins2_att_optic_holo"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech_l.mdl", bonemerge = true},
 	["pb_ins2_att_optic_holo_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech_l.mdl", bonemerge = true, stencilmaterials = {1}},
@@ -135,9 +135,6 @@ SWEP.DeployTime_First = 3
 
 SWEP.HolsterTime = 0.55
 
-SWEP.ReloadTime = 2.6
-SWEP.ReloadTime_Empty = 2.85
-
 SWEP.Chamberable = false
 SWEP.CockAfterShot = true
 SWEP.CockAfterShotTime = 1.55
@@ -145,16 +142,21 @@ SWEP.MakeShellOnCock = false
 SWEP.DontCockWhenEmpty = true
 
 SWEP.ShotgunReload = true
-SWEP.ShotgunReload_EjectOnStart = true
-SWEP.ShotgunReloadTime_EjectOnStart = 0.45
 
-SWEP.ShotgunReloadTime_Start = 0.85
-SWEP.ShotgunReloadTime_Start_Empty = 0.85
-SWEP.ShotgunReloadTime_Insert = 0.8
-SWEP.ShotgunReloadTime_End = 1
-SWEP.ShotgunReloadTime_End_Empty = 1
+SWEP.ShotgunReloadActions = {
+	EjectOnStart = true,
+}
 
-SWEP.ShotgunReloadTime_InsertAmmoWait = 0.4
+SWEP.ShotgunReloadTimes = {
+	Start = 0.85,
+	Start_Empty = 0.85,
+	Insert = 0.8,
+	End = 1,
+	End_Empty = 1,
+
+	InsertAmmoWait = 0.4,
+	EjectOnStart = 0.45,
+}
 
 SWEP.ViewModelMovementScale = 0.75
 

@@ -99,11 +99,11 @@ SWEP.VElements = {
 	["pb_ins2_att_optic_kobra"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_kobra_l.mdl", bonemerge = true},
 	["pb_ins2_att_optic_kobra_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_kobra_l.mdl", bonemerge = true, stencilmaterials = {2}},
 	
-	["pb_ins2_att_optic_2xreddot"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimp2x.mdl", bonemerge = true},
+	["pb_ins2_att_optic_2xreddot"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimp2x.mdl", bonemerge = true, materials = {[1] = "phunbase/rt_scope/invis"}},
     
-	["pb_ins2_att_optic_elcan"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_elcan.mdl", bonemerge = true},
+	["pb_ins2_att_optic_elcan"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_elcan.mdl", bonemerge = true, materials = {[2] = "phunbase/rt_scope/invis"}},
 	
-	["pb_ins2_att_optic_po4"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_po4x24.mdl", bonemerge = true},
+	["pb_ins2_att_optic_po4"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_po4x24.mdl", bonemerge = true, materials = {[3] = "phunbase/rt_scope/invis"}},
 }
 
 local ang0 = Vector()
@@ -140,8 +140,12 @@ SWEP.DeployTime_First = 2.4
 
 SWEP.HolsterTime = 0.5
 
-SWEP.ReloadTime = 9
-SWEP.ReloadTime_Empty = 11
+SWEP.ReloadTimes = {
+	Base = 9,
+	Base_Empty = 11,
+	Bipod = 8.75,
+	Bipod_Empty = 10.5,
+}
 
 SWEP.ViewModelMovementScale = 0.75
 
@@ -177,6 +181,6 @@ function SWEP:ReloadAnimLogic()
 
 	local anim = empty and "reloadempty" or (clip < 16 and "reload_half" or "reload")
 	
-	local speed = (anim == "reload_half" and 1.1 or 1)
+	local speed = (anim == "reload_half" and 1.09 or 1)
 	self:_playINS2Anim(anim, speed)
 end

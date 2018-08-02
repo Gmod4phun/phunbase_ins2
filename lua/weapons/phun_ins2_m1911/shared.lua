@@ -44,6 +44,7 @@ SWEP.Primary.Spread = 0
 SWEP.Primary.Cone = 0.01
 
 SWEP.FireModes = {"semi"}
+SWEP.FireActionDelay = 0.025
 
 SWEP.BasePos = Vector(-0.2, 0.75, -0.15)
 SWEP.BaseAng = Vector(0, 0, 0)
@@ -74,6 +75,12 @@ SWEP.VElements = {
 	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_pistol.mdl", bonemerge = true},
 }
 
+SWEP.ReplaceVElements = {
+	["pb_ins2_att_mag_extended_15"] = {
+		["default_mag"] = "pb_ins2_att_mag_extended_15",
+	}
+}
+
 SWEP.Attachments = {
 	[1] = {name = "Barrel", attachments = {"pb_ins2_att_suppressor"}},
 	[2] = {name = "Siderail", attachments = {"pb_ins2_att_flashlight", "pb_ins2_att_laser"}},
@@ -94,8 +101,12 @@ SWEP.DeployTime_First = 1.3
 
 SWEP.HolsterTime = 0.5
 
-SWEP.ReloadTime = 2.6
-SWEP.ReloadTime_Empty = 2.85
+SWEP.ReloadTimes = {
+	Base = 2.6,
+	Base_Empty = 2.8,
+	Base_Ext = 2.6,
+	Base_Empty_Ext = 2.8,
+}
 
 SWEP.ViewModelMovementScale = 0.75
 
@@ -125,7 +136,7 @@ local icon_merge_models = {
 	"models/gmod4phun/ins2/upgrades/a_magazine_1911_8.mdl"
 }
 
-SWEP.INS2_IconParams = {dist = 7, offset = 3.75, spin = false, mergemodels = icon_merge_models}
+SWEP.INS2_IconParams = {dist = 6, offset = 3.75, spin = false, mergemodels = icon_merge_models}
 
 function SWEP:CustomizeAnimLogic()
 	if self:GetIsCustomizing() then

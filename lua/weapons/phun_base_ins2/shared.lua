@@ -86,9 +86,6 @@ SWEP.Sounds = {}
 
 SWEP.DeployTime = 0.5
 SWEP.HolsterTime = 0.5
-SWEP.ReloadTime = 0.5
-
-SWEP.UseHands = true
 
 SWEP.IsDual = false
 SWEP.NormalFlashlight = false
@@ -150,6 +147,8 @@ SWEP.FireMoveMod_Iron = 0
 SWEP.LuaViewmodelRecoil = false
 SWEP.FullAimViewmodelRecoil = true
 
+SWEP.UsesEmptyReloadTimes = true
+
 // anims override
 /* // commented out cos it does weird shit when it is set in the base
 SWEP.Sequences = {
@@ -194,6 +193,7 @@ local anims_pref_empty = {
 	["in"] = true,
 	["out"] = true,
 	["down"] = true,
+	["fireselect"] = true,
 }
 
 local anims_pref_iron = {
