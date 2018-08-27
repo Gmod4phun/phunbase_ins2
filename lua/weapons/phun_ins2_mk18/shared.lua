@@ -7,7 +7,7 @@ PHUNBASE.LoadLua("sounds.lua")
 
 SWEP.PrintName = "MK18"
 SWEP.Category = "PHUNBASE | Insurgency"
-SWEP.Slot = 1
+SWEP.Slot = 2
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
@@ -29,6 +29,10 @@ SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_mk18")
+end
+
 // weapon specific variables
 
 SWEP.Primary.Ammo = "phunbase_556x45"
@@ -37,7 +41,7 @@ SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 //SWEP.Primary.Automatic = true
 SWEP.Primary.Delay = 60/740
 SWEP.Primary.Damage = 20
-SWEP.Primary.Force = 10
+SWEP.Primary.Force = 1.5
 SWEP.Primary.Bullets = 1
 SWEP.Primary.Tracer = 0
 
@@ -128,14 +132,13 @@ SWEP.ReplaceVElements = {
 	},
 }
 
-local opticPos = Vector(-2.546, -2.000, 0.559)
 local opticAng = Vector()
 
 SWEP.AttachmentIronsights = {
-	["pb_ins2_att_optic_holo"] = {pos = opticPos, ang = opticAng},
-	["pb_ins2_att_optic_reddot"] = {pos = opticPos - Vector(0,0,0.1), ang = opticAng},
-	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.537, -2.25, 0.472), ang = opticAng},
-	["pb_ins2_att_optic_elcan"] = {pos = opticPos - Vector(0,0,0.12), ang = opticAng}
+	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.5456, -2, 0.5236), ang = opticAng},
+	["pb_ins2_att_optic_reddot"] = {pos = Vector(-2.5356, -1, 0.47), ang = opticAng},
+	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.5356, -1, 0.47), ang = opticAng},
+	["pb_ins2_att_optic_elcan"] = {pos = Vector(-2.5356, -1, 0.4252), ang = opticAng}
 }
 
 SWEP.Attachments = {
@@ -198,4 +201,4 @@ local icon_merge_models = {
 	SWEP.VElements.standard2.model,
 }
 
-SWEP.INS2_IconParams = {dist = 13, offset = 0.1, spin = false, mergemodels = icon_merge_models}
+SWEP.INS2_IconParams = {dist = 13.5, offset = 0.2, spin = false, mergemodels = icon_merge_models}

@@ -6,7 +6,8 @@ vertexlitgeneric
 	"$lightwarptexture" 		"gmod4phun\ins2\arms\skin_gradient"
 
 	$envmap env_cubemap
-	$basealphaenvmapmask 1	
+	$normalmapalphaenvmapmask 1
+	$envmaptint "[.01 .01 .01]"	
 	
  	$phong 1
 	$phongboost 2

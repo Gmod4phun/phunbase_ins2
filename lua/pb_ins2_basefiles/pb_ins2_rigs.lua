@@ -121,6 +121,7 @@ function SWEP:_CreateHands()
 	local gmod_hands = LocalPlayer():GetHands()
 	local gmod_hands_scale = self.INS2_Rig_GMod_Scale
 	local currig = GetConVar("pb_ins2_rig"):GetInt()
+	local currigsleeve = GetConVar("pb_ins2_rig_sleeve"):GetInt()
 
     // csgo rig
 	local curglove = GetConVar("pb_ins2_csgo_rig_glove"):GetInt()
@@ -231,6 +232,16 @@ function SWEP:_CreateHands()
             self.Hands:AddEffects(EF_BONEMERGE_FASTCULL)
         end
 	end
+	
+	if !self.Sleeves then
+		self.Sleeves = self:CreateClientModel( PHUNBASE.INS2.RIGS_SLEEVE[currigsleeve].model )
+	end
+	
+	self.Sleeves:SetNoDraw(true)
+	self.Sleeves:SetupBones()
+	self.Sleeves:SetParent(self.VM)
+	self.Sleeves:AddEffects(EF_BONEMERGE)
+	self.Sleeves:AddEffects(EF_BONEMERGE_FASTCULL)
 end
 
 function SWEP:_UpdateHands()
@@ -240,6 +251,10 @@ function SWEP:_UpdateHands()
 		local gmod_hands = LocalPlayer():GetHands()
 		local gmod_hands_scale = self.INS2_Rig_GMod_Scale
 		local currig = GetConVar("pb_ins2_rig"):GetInt()
+		local currigsleeve = GetConVar("pb_ins2_rig_sleeve"):GetInt()
+		
+		local currigskin = GetConVar("pb_ins2_rig_skin"):GetInt()
+		local currigskinsleeve = GetConVar("pb_ins2_rig_skin_sleeve"):GetInt()
 
         // csgo rig related stuff
         local curglove = GetConVar("pb_ins2_csgo_rig_glove"):GetInt()
@@ -362,6 +377,8 @@ function SWEP:_UpdateHands()
                 self.Hands:SetupBones()
                 self.Hands:SetParent(self.VM)
                 ResetEntityToDefault(self.Hands)
+				
+				self.Hands:SetSkin(currigskin)
 
                 for k, v in pairs(PHUNBASE.INS2.RIGS[currig].bg) do
                     self.Hands:SetBodygroup(k, v)
@@ -372,6 +389,26 @@ function SWEP:_UpdateHands()
                 end
             end
 		end
+		
+		if !self.Sleeves then
+			self:_CreateHands()
+		end
+
+		self.Sleeves:SetModel(PHUNBASE.INS2.RIGS_SLEEVE[currigsleeve].model)
+		self.Sleeves:SetupBones()
+		self.Sleeves:SetParent(self.VM)
+		ResetEntityToDefault(self.Sleeves)
+		
+		self.Sleeves:SetSkin(currigskinsleeve)
+
+		for k, v in pairs(PHUNBASE.INS2.RIGS_SLEEVE[currigsleeve].bg) do
+			self.Sleeves:SetBodygroup(k, v)
+		end
+
+		for k, v in pairs(PHUNBASE.INS2.RIGS_SLEEVE[currigsleeve].submats) do
+			self.Sleeves:SetSubMaterial(k, v)
+		end
+		
 	end
 end
 
@@ -385,11 +422,18 @@ function SWEP:_drawHands()
 				self.CSGO_Sleeve:DrawModel()
 			end
 		else
-			if self.Hands then
-				if GetConVar("pb_ins2_rig_use_gmod_hands"):GetInt() == 1 then // gmod hands
+			if GetConVar("pb_ins2_rig_use_gmod_hands"):GetInt() == 1 then // gmod hands
+				if self.Hands then
 					self.Hands.GetPlayerColor = self._GetPlayerColor
+					self.Hands:DrawModel()
 				end
-				self.Hands:DrawModel()
+			else
+				if self.Hands then
+					self.Hands:DrawModel()
+				end
+				if self.Sleeves then
+					self.Sleeves:DrawModel()
+				end
 			end
 		end
 	end

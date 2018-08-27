@@ -7,7 +7,7 @@ PHUNBASE.LoadLua("sounds.lua")
 
 SWEP.PrintName = "M249"
 SWEP.Category = "PHUNBASE | Insurgency"
-SWEP.Slot = 1
+SWEP.Slot = 5
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
@@ -28,6 +28,10 @@ SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
+
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_m249")
+end
 
 // weapon specific variables
 
@@ -106,14 +110,14 @@ SWEP.VElements = {
 	["pb_ins2_att_optic_po4"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_po4x24.mdl", bonemerge = true, materials = {[3] = "phunbase/rt_scope/invis"}},
 }
 
-local ang0 = Vector()
+local opticAng = Vector()
 
 SWEP.AttachmentIronsights = {
-	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.016, -2.000, 0.030), ang = ang0},
-	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.025, -1.500, -0.040), ang = ang0},
-	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.005, -2.500, 0.005), ang = ang0},
-	["pb_ins2_att_optic_po4"] = {pos = Vector(-1.949, -2.500, 0.111), ang = ang0},
-	["pb_ins2_att_optic_elcan"] = {pos = Vector(-2.010, -2.034, -0.317), ang = ang0}
+	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.016, -2.000, 0.030), ang = opticAng},
+	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.025, -1.500, -0.040), ang = opticAng},
+	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.005, -2.500, 0.005), ang = opticAng},
+	["pb_ins2_att_optic_po4"] = {pos = Vector(-1.949, -2.500, 0.111), ang = opticAng},
+	["pb_ins2_att_optic_elcan"] = {pos = Vector(-2.010, -2.034, -0.317), ang = opticAng}
 }
 
 SWEP.Attachments = {
@@ -163,9 +167,10 @@ SWEP.MuzzleAttachmentName = "muzzle"
 
 SWEP.MuzzleEffect = {
     "pb_ins2_muzzleflash_sparks_variant_1",
-    "pb_ins2_muzzleflash_akm_1p_core",
-    "pb_ins2_muzzleflash_akm_1p_glow",
-    "pb_ins2_muzzleflash_m16_1p_splits",
+    "pb_ins2_muzzleflash_m249_1p_core",
+    "pb_ins2_muzzleflash_m249_1p_core_2",
+    "pb_ins2_muzzleflash_m249_1p_glow",
+    "pb_ins2_muzzleflash_m249_1p_splits",
     "muzzle_lee_rifle",
     "muzzle_smoke_trail",
     "smoke_trail",

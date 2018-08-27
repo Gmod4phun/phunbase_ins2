@@ -29,6 +29,10 @@ SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_model10")
+end
+
 // weapon specific variables
 
 SWEP.Primary.Ammo = "phunbase_38special"
@@ -37,7 +41,7 @@ SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 SWEP.Primary.Automatic = false
 SWEP.Primary.Delay = 60/380
 SWEP.Primary.Damage = 22
-SWEP.Primary.Force = 10
+SWEP.Primary.Force = 1.5
 SWEP.Primary.Bullets = 1
 SWEP.Primary.Tracer = 0
 
@@ -86,7 +90,7 @@ SWEP.MouseSensitivityHip = 1
 SWEP.MouseSensitivityIron = 0.5
 
 SWEP.VElements = {
-	["pb_ins2_att_speedloader"] = {model = "models/gmod4phun/ins2/upgrades/a_speedloader_rev.mdl", default = true, bonemerge = true},
+	["pb_ins2_att_speedloader"] = {model = "models/gmod4phun/ins2/upgrades/a_speedloader_rev.mdl", bonemerge = true},
 }
 
 SWEP.Attachments = {
@@ -137,14 +141,15 @@ SWEP.ShellDelay = 0.15
 SWEP.ShellScale = 1
 SWEP.ShellModel = "models/gmod4phun/ins2/shells/9x19.mdl"
 SWEP.NoShells = true
+SWEP.ShellSound = "PB_INS2_SHELL_38"
 
 SWEP.MuzzleAttachmentName = "muzzle"
 
 SWEP.MuzzleEffect = {
     "pb_ins2_muzzleflash_sparks_variant_1",
-    "pb_ins2_muzzleflash_m590_1p_glow",
-    "pb_ins2_muzzleflash_toz_1p_core",
-    "PistolGlow",
+    "pb_ins2_muzzleflash_m9_1p_core",
+    "pb_ins2_muzzleflash_m9_1p_flame",
+    -- "PistolGlow",
     "muzzle_smoke_trail",
     "smoke_trail",
 }

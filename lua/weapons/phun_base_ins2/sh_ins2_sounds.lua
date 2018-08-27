@@ -18,6 +18,9 @@ PHUNBASE:addRegularSound("PB_INS2_UNIVERSAL_LEANIN", { "weapons/universal/uni_le
 PHUNBASE:addRegularSound("PB_INS2_UNIVERSAL_LEANOUT", { "weapons/universal/uni_lean_out_01.wav", "weapons/universal/uni_lean_out_02.wav", "weapons/universal/uni_lean_out_03.wav", "weapons/universal/uni_lean_out_04.wav"})
 PHUNBASE:addRegularSound("PB_INS2_UNIVERSAL_WEAPONLOWER", "weapons/universal/uni_weapon_lower_01.wav")
 
+PHUNBASE:addRegularSound("PB_INS2_UNIVERSAL_ADS_IN", {"weapons/universal/uni_ads_in_01.wav", "weapons/universal/uni_ads_in_02.wav", "weapons/universal/uni_ads_in_03.wav", "weapons/universal/uni_ads_in_04.wav", "weapons/universal/uni_ads_in_05.wav", "weapons/universal/uni_ads_in_06.wav"})
+PHUNBASE:addRegularSound("PB_INS2_UNIVERSAL_ADS_OUT", "weapons/universal/uni_ads_out_01.wav")
+
 PHUNBASE:addReloadSound("PB_INS2_GL_BEGINRELOAD", {"weapons/universal/uni_gl_beginreload_01.wav", "weapons/universal/uni_gl_beginreload_02.wav", "weapons/universal/uni_gl_beginreload_03.wav"})
 
 // M203

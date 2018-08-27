@@ -29,15 +29,19 @@ SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_makarov")
+end
+
 // weapon specific variables
 
 SWEP.Primary.Ammo = "phunbase_9x18mm"
-SWEP.Primary.ClipSize = 15
+SWEP.Primary.ClipSize = 8
 SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 SWEP.Primary.Automatic = false
 SWEP.Primary.Delay = 0.15
 SWEP.Primary.Damage = 20
-SWEP.Primary.Force = 10
+SWEP.Primary.Force = 1.5
 SWEP.Primary.Bullets = 1
 SWEP.Primary.Tracer = 0
 SWEP.Primary.Spread = 0
@@ -123,10 +127,8 @@ SWEP.ShellModel = "models/phunbase/shells/9x18mm.mdl"
 SWEP.MuzzleAttachmentName = "muzzle"
 
 SWEP.MuzzleEffect = {
-    "pb_ins2_muzzleflash_m9_1p_core",
-    "pb_ins2_muzzleflash_m9_1p_glow",
-    "pb_ins2_muzzleflash_m9_1p_sparks",
-    "muzzle_lee_pistol",
+    "pb_ins2_muzzleflash_makarov_1p_core",
+    "pb_ins2_muzzleflash_makarov_1p_flame",
     "muzzle_smoke_trail",
     "smoke_trail",
 }

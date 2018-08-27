@@ -48,7 +48,7 @@ SWEP.Primary.DefaultClip = 30
 SWEP.Primary.Automatic = false
 SWEP.Primary.Delay = 0.1
 SWEP.Primary.Damage = 20
-SWEP.Primary.Force = 10
+SWEP.Primary.Force = 1.5
 SWEP.Primary.Bullets = 0
 SWEP.Primary.Tracer = 0
 SWEP.Primary.Spread = 0.02
@@ -106,6 +106,7 @@ SWEP.ShellAttachmentName_R = "shelleject_right"
 SWEP.ShellDelay = 0.03
 SWEP.ShellScale = 0.5
 SWEP.ShellModel = "models/weapons/shell.mdl"
+SWEP.ShellSound = "PB_INS2_SHELL_38"
 
 SWEP.FireSound = {} -- can be a string, or a table of sounds
 
@@ -118,6 +119,9 @@ SWEP.UseIronTransitionAnims = true
 SWEP.EmptySoundPrimary = ""
 SWEP.EmptySoundSecondary = ""
 SWEP.DryFireSound = ""
+
+SWEP.IronInSound = "PB_INS2_UNIVERSAL_ADS_IN"
+SWEP.IronOutSound = "PB_INS2_UNIVERSAL_ADS_OUT"
 
 SWEP.FlashlightAttachmentName = "laser"
 SWEP.InstantFlashlight = true
@@ -265,7 +269,7 @@ function SWEP:_getMagSuffixes(anim)
 	end
 end
 
-function SWEP:_playINS2Anim(anim, speed, cycle)
+function SWEP:_playINS2Anim(anim, speed, cycle, nosound)
 	local prefix, suffix, magsuffixes = self:_getAnimPrefixes(anim), self:_getAnimSuffixes(anim), self:_getMagSuffixes(anim)
 	
 	if prefix == "empty_" and !self.Sequences[prefix..anim..suffix..magsuffixes] and self.Sequences["base_"..anim..suffix..magsuffixes] then // some guns use base_ for empty_ anims
@@ -288,8 +292,9 @@ function SWEP:_playINS2Anim(anim, speed, cycle)
 	
 	speed = speed or 1
 	cycle = cycle or 0
+	nosound = nosound or false
 	
-	self:PlayVMSequence(a, speed, cycle)
+	self:PlayVMSequence(a, speed, cycle, nosound)
 end
 
 net.Receive("PB_INS2_CURANIM_NAME", function()
@@ -313,7 +318,9 @@ end
 
 function SWEP:DeployAnimLogic()
 	local anim = !self._wasFirstTimeDeployed and "ready" or "draw"
-	self:_playINS2Anim(anim)
+	self:DelayedEvent(anim == "ready" and 0 or 0.001, function()
+		self:_playINS2Anim(anim)
+	end)
 end
 
 function SWEP:HolsterAnimLogic()

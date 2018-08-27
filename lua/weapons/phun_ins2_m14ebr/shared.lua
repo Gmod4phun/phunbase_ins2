@@ -7,7 +7,7 @@ PHUNBASE.LoadLua("sounds.lua")
 
 SWEP.PrintName = "M14 EBR"
 SWEP.Category = "PHUNBASE | Insurgency"
-SWEP.Slot = 1
+SWEP.Slot = 3
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
@@ -29,6 +29,10 @@ SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_m14")
+end
+
 // weapon specific variables
 
 SWEP.Primary.Ammo = "phunbase_762x51"
@@ -37,7 +41,7 @@ SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 SWEP.Primary.Automatic = false
 SWEP.Primary.Delay = 60/710
 SWEP.Primary.Damage = 32
-SWEP.Primary.Force = 10
+SWEP.Primary.Force = 1.5
 SWEP.Primary.Bullets = 1
 SWEP.Primary.Tracer = 0
 
@@ -112,16 +116,16 @@ SWEP.VElements = {
 	["pb_ins2_att_bipod"] = {model = "models/gmod4phun/ins2/upgrades/a_bipod_m14.mdl", bonemerge = true},
 }
 
-local ang0 = Vector()
+local opticAng = Vector()
 
 SWEP.AttachmentIronsights = {
-	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.495, -4.750, -0.320), ang = ang0},
-	["pb_ins2_att_optic_reddot"] = {pos = Vector(-2.495, -5.000, -0.425), ang = ang0},
-	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.486, -5.500, -0.441), ang = ang0},
-	["pb_ins2_att_optic_elcan"] = {pos = Vector(-2.490, -5.850, -0.482), ang = ang0},
-	["pb_ins2_att_optic_mk4"] = {pos = Vector(-2.497, -6.000, -0.271), ang = ang0},
-	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.500, -4.000, -0.230), ang = ang0},
-	["pb_ins2_att_optic_po4"] = {pos = Vector(-2.439, -7.500, 0.107), ang = ang0},
+	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.495, -4.750, -0.320), ang = opticAng},
+	["pb_ins2_att_optic_reddot"] = {pos = Vector(-2.495, -5.000, -0.425), ang = opticAng},
+	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.486, -5.500, -0.441), ang = opticAng},
+	["pb_ins2_att_optic_elcan"] = {pos = Vector(-2.490, -5.850, -0.482), ang = opticAng},
+	["pb_ins2_att_optic_mk4"] = {pos = Vector(-2.497, -6.000, -0.271), ang = opticAng},
+	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.500, -4.000, -0.230), ang = opticAng},
+	["pb_ins2_att_optic_po4"] = {pos = Vector(-2.439, -7.500, 0.107), ang = opticAng},
 }
 
 SWEP.Attachments = {

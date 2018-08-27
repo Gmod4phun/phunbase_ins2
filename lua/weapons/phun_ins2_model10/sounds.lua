@@ -146,7 +146,7 @@ SWEP.Sounds = {
 		{time = 65/33.5, sound = "", callback = shellsToReserve},
 		{time = 66/33.5, sound = "", callback = beltToReserve},
 		{time = 81/33.5, sound = "PB_INS2_REVOLVER_SPEEDLOADERINSERT"},
-		{time = 94/33.5, sound = "", callback = speed_drop},
+		{time = 98/33.5, sound = "", callback = speed_drop},
 		{time = 113/33.5, sound = "PB_INS2_REVOLVER_CLOSECHAMBER"},
 	},
 

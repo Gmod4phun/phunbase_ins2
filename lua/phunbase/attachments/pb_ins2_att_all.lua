@@ -361,10 +361,12 @@ att.menuName = "Flashlight"
 
 function att:attachCallback()
 	self.CustomFlashlight = true
+	self.FlashlightVElement = self:getVElementByName(att.name)
 end
 
 function att:detachCallback()
 	self.CustomFlashlight = false
+	self.FlashlightVElement = NULL
 end
 PHUNBASE:registerAttachment(att)
 

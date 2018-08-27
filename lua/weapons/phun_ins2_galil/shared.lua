@@ -7,7 +7,7 @@ PHUNBASE.LoadLua("sounds.lua")
 
 SWEP.PrintName = "Galil"
 SWEP.Category = "PHUNBASE | Insurgency"
-SWEP.Slot = 1
+SWEP.Slot = 2
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
@@ -29,6 +29,10 @@ SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_galil")
+end
+
 // weapon specific variables
 
 SWEP.Primary.Ammo = "phunbase_556x45"
@@ -37,7 +41,7 @@ SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 //SWEP.Primary.Automatic = true
 SWEP.Primary.Delay = 60/650
 SWEP.Primary.Damage = 22
-SWEP.Primary.Force = 10
+SWEP.Primary.Force = 1.5
 SWEP.Primary.Bullets = 1
 SWEP.Primary.Tracer = 0
 
@@ -120,13 +124,13 @@ SWEP.DisableVElements = {
 	["pb_ins2_att_bipod"] = {"standard"},
 }
 
-local ang0 = Vector()
+local opticAng = Vector()
 local offsetPos = Vector(0.02,0,-0.35)
 
 SWEP.AttachmentIronsights = {
-	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.25, -1, -0.2) + offsetPos, ang = ang0},
-	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.245, -2.500, -0.152) + offsetPos, ang = ang0},
-	["pb_ins2_att_optic_po4"] = {pos = Vector(-2.195, -2.850, 0.115) + offsetPos, ang = ang0}
+	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.25, -1, -0.2) + offsetPos, ang = opticAng},
+	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.245, -2.500, -0.152) + offsetPos, ang = opticAng},
+	["pb_ins2_att_optic_po4"] = {pos = Vector(-2.195, -2.850, 0.115) + offsetPos, ang = opticAng}
 }
 
 SWEP.Attachments = {

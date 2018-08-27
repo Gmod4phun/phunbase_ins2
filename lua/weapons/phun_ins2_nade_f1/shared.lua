@@ -4,7 +4,7 @@ PHUNBASE.LoadLua("sounds.lua")
 
 SWEP.PrintName = "F1 Grenade"
 SWEP.Category = "PHUNBASE | Insurgency"
-SWEP.Slot = 1
+SWEP.Slot = 4
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
@@ -20,6 +20,10 @@ SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
+
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_f1")
+end
 
 // weapon specific variables
 
@@ -77,7 +81,7 @@ SWEP.CustomFlashlight = false
 SWEP.FlashlightAttachmentName = "1"
 SWEP.InstantFlashlight = false
 
-SWEP.INS2_IconParams = {dist = 2.75, offset = 0, spin = false}
+SWEP.INS2_IconParams = {dist = 4, offset = 0, spin = false}
 
 SWEP.NadeClass = "pb_ins2_throwable_f1"
 SWEP.NadeFuseTime = 4

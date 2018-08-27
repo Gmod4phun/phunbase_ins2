@@ -1,0 +1,10 @@
+"UnlitGeneric"
+{
+	"$translucent" 1
+	"$basetexture" "gmod4phun/ins2/icons/icon_gear"
+	"$vertexcolor" 1
+	"$vertexalpha" 1
+	"$no_fullbright" 1
+	"$ignorez" 1
+}
+

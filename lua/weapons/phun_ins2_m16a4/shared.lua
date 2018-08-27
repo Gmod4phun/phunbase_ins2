@@ -7,7 +7,7 @@ PHUNBASE.LoadLua("sounds.lua")
 
 SWEP.PrintName = "M16A4"
 SWEP.Category = "PHUNBASE | Insurgency"
-SWEP.Slot = 1
+SWEP.Slot = 3
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
@@ -29,6 +29,10 @@ SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_m16a4")
+end
+
 // weapon specific variables
 
 SWEP.Primary.Ammo = "phunbase_556x45"
@@ -37,7 +41,7 @@ SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 //SWEP.Primary.Automatic = true
 SWEP.Primary.Delay = 60/780
 SWEP.Primary.Damage = 20
-SWEP.Primary.Force = 10
+SWEP.Primary.Force = 1.5
 SWEP.Primary.Bullets = 1
 SWEP.Primary.Tracer = 0
 
@@ -118,6 +122,13 @@ SWEP.VElements = {
 	
 	["pb_ins2_att_optic_elcan"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_elcan.mdl", bonemerge = true},
 	
+	["pb_ins2_att_optic_kobra"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_kobra_xl.mdl", bonemerge = true},
+	["pb_ins2_att_optic_kobra_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_kobra_xl.mdl", bonemerge = true, stencilmaterials = {2}},
+	
+	["pb_ins2_att_optic_po4"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_po4x24_l.mdl", bonemerge = true},
+	
+	["pb_ins2_att_optic_mk4"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_m40_l.mdl", bonemerge = true},
+	
 	//["fas2_watch_realtime"] = {model = "models/phunbase/fas2_watch_realtime.mdl", bone = "L ForeTwist5", pos = Vector(0.614, -0.105, -0.875), angle = Angle(-177.5, 1.83, -9.721), size = Vector(1.1, 1.1, 1.1), bodygroups = "00"},
 }
 
@@ -126,6 +137,9 @@ SWEP.DisableVElements = {
 	["pb_ins2_att_optic_reddot"] = {"carry"},
 	["pb_ins2_att_optic_2xreddot"] = {"carry"},
 	["pb_ins2_att_optic_elcan"] = {"carry"},
+	["pb_ins2_att_optic_kobra"] = {"carry"},
+	["pb_ins2_att_optic_po4"] = {"carry"},
+	["pb_ins2_att_optic_mk4"] = {"carry"},
 	["pb_ins2_att_gl_m203_he"] = {"standard", "standard2"},
 	["pb_ins2_att_gl_m203_smoke"] = {"standard", "standard2"},
 }
@@ -136,18 +150,20 @@ SWEP.ReplaceVElements = {
 	},
 }
 
-local opticPos = Vector(-2.492, -3.650, 0.534)
 local opticAng = Vector()
 
 SWEP.AttachmentIronsights = {
-	["pb_ins2_att_optic_holo"] = {pos = opticPos + Vector(0,0,0.05), ang = opticAng},
-	["pb_ins2_att_optic_reddot"] = {pos = opticPos, ang = opticAng},
-	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.495, -3.000, 0.575), ang = opticAng},
-	["pb_ins2_att_optic_elcan"] = {pos = opticPos, ang = opticAng}
+	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.4952, -2, 0.5576), ang = opticAng},
+	["pb_ins2_att_optic_reddot"] = {pos = Vector(-2.4968, -2, 0.5831), ang = opticAng},
+	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.4914, -1, 0.5701), ang = opticAng},
+	["pb_ins2_att_optic_elcan"] = {pos = Vector(-2.4906, -2, 0.5367), ang = opticAng},
+	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.4973, -2, 0.3775), ang = opticAng},
+	["pb_ins2_att_optic_po4"] = {pos = Vector(-2.42, -2, 0.7497), ang = opticAng},
+	["pb_ins2_att_optic_mk4"] = {pos = Vector(-2.4932, 0, 0.6571), ang = opticAng}
 }
 
 SWEP.Attachments = {
-	[1] = {name = "Optics", attachments = {"pb_ins2_att_optic_holo", "pb_ins2_att_optic_reddot", "pb_ins2_att_optic_2xreddot", "pb_ins2_att_optic_elcan"}},
+	[1] = {name = "Optics", attachments = {"pb_ins2_att_optic_holo", "pb_ins2_att_optic_reddot", "pb_ins2_att_optic_2xreddot", "pb_ins2_att_optic_elcan", "pb_ins2_att_optic_kobra", "pb_ins2_att_optic_po4", "pb_ins2_att_optic_mk4"}},
 	[2] = {name = "Barrel", attachments = {"pb_ins2_att_heavybarrel", "pb_ins2_att_suppressor"}},
 	[3] = {name = "Siderail", attachments = {"pb_ins2_att_flashlight", "pb_ins2_att_laser"}},
 	[4] = {name = "Underbarrel", attachments = {"pb_ins2_att_foregrip", "pb_ins2_att_bipod", /*"pb_ins2_att_gl_m203_smoke",*/ "pb_ins2_att_gl_m203_he"}},

@@ -7,7 +7,7 @@ PHUNBASE.LoadLua("sounds.lua")
 
 SWEP.PrintName = "SKS"
 SWEP.Category = "PHUNBASE | Insurgency"
-SWEP.Slot = 1
+SWEP.Slot = 2
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
@@ -29,6 +29,10 @@ SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_sks")
+end
+
 // weapon specific variables
 
 SWEP.Primary.Ammo = "phunbase_762x39"
@@ -37,7 +41,7 @@ SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 SWEP.Primary.Automatic = false
 SWEP.Primary.Delay = 60/600
 SWEP.Primary.Damage = 32
-SWEP.Primary.Force = 10
+SWEP.Primary.Force = 1.5
 SWEP.Primary.Bullets = 1
 SWEP.Primary.Tracer = 0
 
@@ -109,12 +113,12 @@ SWEP.EnableVElements = {
 	["pb_ins2_att_optic_po4"] = {"modkit"},
 }
 
-local ang0 = Vector()
+local opticAng = Vector()
 
 SWEP.AttachmentIronsights = {
-	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.682, -1.250, 0.675), ang = ang0},
-	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.679, -2, 0.505), ang = ang0},
-	["pb_ins2_att_optic_po4"] = {pos = Vector(-2.632, -2.8, 0.766), ang = ang0}
+	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.682, -1.250, 0.675), ang = opticAng},
+	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.679, -2, 0.505), ang = opticAng},
+	["pb_ins2_att_optic_po4"] = {pos = Vector(-2.632, -2.8, 0.766), ang = opticAng}
 }
 
 SWEP.Attachments = {
@@ -156,7 +160,7 @@ SWEP.MuzzleAttachmentName = "muzzle"
 
 SWEP.MuzzleEffect = {
     "pb_ins2_muzzleflash_sparks_variant_1",
-    "pb_ins2_muzzleflash_m14_1p_core",
+    "pb_ins2_muzzleflash_sks_1p_core",
     -- "weapon_muzzle_flash_smoke_small2",
     "PistolGlow",
     "muzzle_smoke_trail",

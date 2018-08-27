@@ -3,7 +3,7 @@
 //
 
 if CLIENT then
-    local desiredAng, Ang0, can = Angle(), Angle(), false
+    local desiredAng, Ang0, can, rotateOffset = Angle(), Angle(), false, 0
     
     local allowedSequences = {
         ["reload_start"] = true,
@@ -22,6 +22,9 @@ if CLIENT then
         ["draw"] = true,
         ["holster"] = true,
     }
+	
+	SWEP.VMCameraRotateOffset = 0
+	SWEP.VMCameraRotateOffsetIron = 0
     
 	function SWEP:HandleExtraCalcView(ply, pos, ang, fov)
         local vm = self.VM
@@ -33,8 +36,10 @@ if CLIENT then
         if !att then return end
         
         local vmA, vmP = att.Ang, att.Pos
+		
+		rotateOffset = PHUNBASE_Lerp(FrameTime()*16, rotateOffset , self:GetIron() and self.VMCameraRotateOffsetIron or self.VMCameraRotateOffset)
         
-        vmA:RotateAroundAxis(vmA:Forward(), -90)
+        vmA:RotateAroundAxis(vmA:Forward(), -90 + rotateOffset)
         
         local diffA = ang - vmA
         

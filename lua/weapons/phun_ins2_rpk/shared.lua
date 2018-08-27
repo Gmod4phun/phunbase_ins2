@@ -7,7 +7,7 @@ PHUNBASE.LoadLua("sounds.lua")
 
 SWEP.PrintName = "RPK"
 SWEP.Category = "PHUNBASE | Insurgency"
-SWEP.Slot = 1
+SWEP.Slot = 5
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
@@ -28,6 +28,10 @@ SWEP.Spawnable = true
 SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
+
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_rpk")
+end
 
 // weapon specific variables
 
@@ -116,15 +120,15 @@ SWEP.EnableVElements = {
 	["pb_ins2_att_optic_elcan"] = {"rail"},
 }
 
-local ang0 = Vector()
+local opticAng = Vector()
 local offP = Vector(-0.3, 0.85, -0.45)
 
 SWEP.AttachmentIronsights = {
-	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.016, -2.000, 0.030) + offP, ang = ang0},
-	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.025, -1.500, -0.040) + offP, ang = ang0},
-	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.005, -2.500, 0.005) + offP, ang = ang0},
-	["pb_ins2_att_optic_po4"] = {pos = Vector(-1.949, -2.500, 0.111) + offP, ang = ang0},
-	["pb_ins2_att_optic_elcan"] = {pos = Vector(-2.010, -2.034, -0.317) + offP, ang = ang0}
+	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.016, -2.000, 0.030) + offP, ang = opticAng},
+	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.025, -1.500, -0.040) + offP, ang = opticAng},
+	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.005, -2.500, 0.005) + offP, ang = opticAng},
+	["pb_ins2_att_optic_po4"] = {pos = Vector(-1.949, -2.500, 0.111) + offP, ang = opticAng},
+	["pb_ins2_att_optic_elcan"] = {pos = Vector(-2.010, -2.034, -0.317) + offP, ang = opticAng}
 }
 
 SWEP.Attachments = {

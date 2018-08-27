@@ -1,5 +1,5 @@
 if CLIENT then
-	spawnmenu.AddContentType("phunbase_weapon_ins2", function(container, obj) // spawn icons for insurgency weapons
+	spawnmenu.AddContentType("phunbase_weapon_ins2", function(container, obj) // 3d model spawn icons for insurgency weapons
 	
 		if ( !obj.material ) then return end
 		if ( !obj.nicename ) then return end
@@ -129,7 +129,7 @@ if CLIENT then
 				ang = ( self.vLookatPos - self.vCamPos ):Angle()
 			end
 
-			cam.Start3D( self.vCamPos, ang, self.fFOV, x, y, w, h, 5, self.FarZ )
+			cam.Start3D( self.vCamPos, ang, self.fFOV, x, y, w, h, 1, self.FarZ )
 				render.SuppressEngineLighting( true )
 				render.SetLightingOrigin( self.Entity:GetPos() )
 				render.ResetModelLighting( self.colAmbientLight.r / 255, self.colAmbientLight.g / 255, self.colAmbientLight.b / 255 )
@@ -211,5 +211,4 @@ if CLIENT then
 		return icon
 
 	end)
-
 end

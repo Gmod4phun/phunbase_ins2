@@ -7,7 +7,7 @@ PHUNBASE.LoadLua("sounds.lua")
 
 SWEP.PrintName = "M590"
 SWEP.Category = "PHUNBASE | Insurgency"
-SWEP.Slot = 1
+SWEP.Slot = 3
 SWEP.SlotPos = 0
 
 SWEP.ViewModelFOV = 60
@@ -29,6 +29,10 @@ SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
+if CLIENT then
+	SWEP.WepSelectIcon = surface.GetTextureID("gmod4phun/ins2/icons/weapon_m590")
+end
+
 // weapon specific variables
 
 SWEP.Primary.Ammo = "phunbase_12gauge"
@@ -37,7 +41,7 @@ SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 SWEP.Primary.Automatic = false
 SWEP.Primary.Delay = 0.25
 SWEP.Primary.Damage = 18
-SWEP.Primary.Force = 10
+SWEP.Primary.Force = 2
 SWEP.Primary.Bullets = 8
 SWEP.Primary.Tracer = 0
 
@@ -85,55 +89,54 @@ SWEP.MouseSensitivityHip = 1
 SWEP.MouseSensitivityIron = 0.5
 
 SWEP.VElements = {
-
-	["standard_1"] = {model = "models/gmod4phun/ins2/upgrades/a_standard_m590.mdl", default = true, bonemerge = true},
+	["standard"] = {model = "models/gmod4phun/ins2/upgrades/a_standard_m590.mdl", default = true, bonemerge = true},
 	["rail"] = {model = "models/gmod4phun/ins2/upgrades/a_modkit_05.mdl", bonemerge = true},
     
 	["pb_ins2_att_flashlight"] = {model = "models/gmod4phun/ins2/upgrades/a_flashlight_sec_shotgun.mdl", bonemerge = true, drawInRT = true},
 	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_sec_shotgun.mdl", bonemerge = true, drawInRT = true},
 	
 	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_12ga.mdl", bonemerge = true, drawInRT = true},
-	["pb_ins2_att_foregrip"] = {model = "models/gmod4phun/ins2/upgrades/a_foregrip_ins2.mdl", bonemerge = true},
+	["pb_ins2_att_foregrip"] = {model = "models/gmod4phun/ins2/upgrades/a_foregrip_sec2.mdl", bonemerge = true},
 	
-	["pb_ins2_att_optic_holo"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech_m.mdl", bonemerge = true},
-	["pb_ins2_att_optic_holo_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech_m.mdl", bonemerge = true, stencilmaterials = {1}},
+	["pb_ins2_att_optic_holo"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech.mdl", bonemerge = true},
+	["pb_ins2_att_optic_holo_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_eotech.mdl", bonemerge = true, stencilmaterials = {1}},
 	
-	["pb_ins2_att_optic_reddot"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimpoint_m.mdl", bonemerge = true},
-	["pb_ins2_att_optic_reddot_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimpoint_m.mdl", bonemerge = true, stencilmaterials = {1}},
+	["pb_ins2_att_optic_reddot"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimpoint.mdl", bonemerge = true},
+	["pb_ins2_att_optic_reddot_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimpoint.mdl", bonemerge = true, stencilmaterials = {1}},
 	
-	["pb_ins2_att_optic_2xreddot"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimp2x_m.mdl", bonemerge = true},
+	["pb_ins2_att_optic_2xreddot"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_aimp2x.mdl", bonemerge = true},
+	
+	["pb_ins2_att_optic_kobra"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_kobra_l.mdl", bonemerge = true},
+	["pb_ins2_att_optic_kobra_stencil"] = {model = "models/gmod4phun/ins2/upgrades/a_optic_kobra_l.mdl", bonemerge = true, stencilmaterials = {2}},
+	
 }
-
--- SWEP.DisableVElements = {
-	-- ["pb_ins2_att_optic_holo"] = {"carry"},
-	-- ["pb_ins2_att_optic_reddot"] = {"carry"},
-	-- ["pb_ins2_att_optic_2xreddot"] = {"carry"},
-	-- ["pb_ins2_att_optic_elcan"] = {"carry"},
--- }
 
 SWEP.ReplaceVElements = {
 	["pb_ins2_att_optic_holo"] = {
-		["standard_1"] = "rail",
+		["standard"] = "rail",
 	},
 	["pb_ins2_att_optic_reddot"] = {
-		["standard_1"] = "rail",
+		["standard"] = "rail",
 	},
 	["pb_ins2_att_optic_2xreddot"] = {
-		["standard_1"] = "rail",
+		["standard"] = "rail",
+	},
+	["pb_ins2_att_optic_kobra"] = {
+		["standard"] = "rail",
 	},
 }
 
-local opticPos = Vector(-2.020, -3.500, 0.050)
-local opticAng = Vector(0.000, 0.017, 0.000)
+local opticAng = Vector()
 
 SWEP.AttachmentIronsights = {
-	["pb_ins2_att_optic_holo"] = {pos = opticPos, ang = opticAng},
-	["pb_ins2_att_optic_reddot"] = {pos = opticPos, ang = opticAng},
-	["pb_ins2_att_optic_2xreddot"] = {pos = opticPos, ang = opticAng},
+	["pb_ins2_att_optic_holo"] = {pos = Vector(-2.0188, -2, -0.147), ang = opticAng},
+	["pb_ins2_att_optic_reddot"] = {pos = Vector(-2.004, -2, -0.125), ang = opticAng},
+	["pb_ins2_att_optic_2xreddot"] = {pos = Vector(-2.004, -1, -0.125), ang = opticAng},
+	["pb_ins2_att_optic_kobra"] = {pos = Vector(-2.0135, -2, -0.2049), ang = opticAng},
 }
 
 SWEP.Attachments = {
-	[1] = {name = "Optics", attachments = {"pb_ins2_att_optic_holo", "pb_ins2_att_optic_reddot", "pb_ins2_att_optic_2xreddot"}},
+	[1] = {name = "Optics", attachments = {"pb_ins2_att_optic_holo", "pb_ins2_att_optic_reddot", "pb_ins2_att_optic_2xreddot", "pb_ins2_att_optic_kobra"}},
 	[2] = {name = "Barrel", attachments = {"pb_ins2_att_suppressor"}},
 	[3] = {name = "Siderail", attachments = {"pb_ins2_att_flashlight", "pb_ins2_att_laser"}},
 	[4] = {name = "Underbarrel", attachments = {"pb_ins2_att_foregrip"}},
@@ -186,13 +189,15 @@ SWEP.ShellDelay = 0.15
 SWEP.ShellScale = 0.66
 SWEP.ShellModel = "models/gmod4phun/ins2/shells/12gauge.mdl"
 SWEP.NoShells = true
+SWEP.ShellSound = "PB_INS2_SHELL_12G"
 
 SWEP.MuzzleAttachmentName = "muzzle"
 
 SWEP.MuzzleEffect = {
     "pb_ins2_muzzleflash_sparks_variant_1",
     "pb_ins2_muzzleflash_m590_1p_glow",
-    "pb_ins2_muzzleflash_toz_1p_core",
+    "pb_ins2_muzzleflash_m590_1p_core",
+	"pb_ins2_muzzleflash_m590_1p_sparks",
     "PistolGlow",
     "muzzle_smoke_trail",
     "smoke_trail",
@@ -201,7 +206,7 @@ SWEP.MuzzleEffect = {
 SWEP.MuzzleEffectSuppressed = {"muzzle_lee_silenced"}
 
 local icon_merge_models = {
-	"models/weapons/upgrades/a_standard_m590.mdl"
+	SWEP.VElements.standard.model
 }
 
 SWEP.INS2_IconParams = {dist = 18, offset = 0.5, spin = false, mergemodels = icon_merge_models}
