@@ -1,4 +1,3 @@
-
 SWEP.Base = "phun_base_ins2"
 
 AddCSLuaFile()
@@ -25,8 +24,8 @@ SWEP.SprintHoldType = "normal"
 SWEP.CrouchHoldType = "revolver"
 SWEP.ReloadHoldType = "pistol"
 
-SWEP.Spawnable = false
-SWEP.AdminSpawnable = false
+SWEP.Spawnable = true
+SWEP.AdminSpawnable = true
 
 SWEP.ScriptedEntityType = "phunbase_weapon_ins2"
 
@@ -40,12 +39,14 @@ SWEP.Primary.Ammo = "phunbase_rocket"
 SWEP.Primary.ClipSize = 1
 SWEP.Primary.DefaultClip = SWEP.Primary.ClipSize
 SWEP.Primary.Automatic = false
-SWEP.Primary.Delay = 0.15
+SWEP.Primary.Delay = 1
 SWEP.Primary.Damage = 200
 SWEP.Primary.Force = 1.5
 SWEP.Primary.Bullets = 1
 SWEP.Primary.Tracer = 0
 SWEP.Primary.Spread = 0
+
+SWEP.LastShotFireDelay = 1.1
 
 SWEP.FireModes = {"semi"}
 SWEP.FireActionDelay = 0.25
@@ -66,28 +67,18 @@ SWEP.HolsterAng = Vector(0,0,0)
 SWEP.NearWallPos = Vector(0,0,0)
 SWEP.NearWallAng = Vector(0,0,0)
 
-SWEP.CustomizePos = Vector(5.423, -1.269, -3.034)
-SWEP.CustomizeAng = Vector(16.000, 30.000, 5.000)
+SWEP.CustomizePos = Vector(2.000, -1.500, -4.600)
+SWEP.CustomizeAng = Vector(25.000, 20.000, 0.000)
 
 SWEP.PistolSprintSway = true
 SWEP.UseIronTransitionAnims = false
 
 SWEP.VElements = {
-	["pb_ins2_att_flashlight"] = {model = "models/gmod4phun/ins2/upgrades/a_flashlight_mak.mdl", bonemerge = true},
-	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_mak.mdl", bonemerge = true},
-	["pb_ins2_att_suppressor"] = {model = "models/gmod4phun/ins2/upgrades/a_suppressor_pistol.mdl", bonemerge = true},
-}
-
-SWEP.ReplaceVElements = {
-	["pb_ins2_att_mag_extended_15"] = {
-		["default_mag"] = "pb_ins2_att_mag_extended_15",
-	}
+	["pb_ins2_att_laser"] = {model = "models/gmod4phun/ins2/upgrades/a_laser_sterling.mdl", bone = "RPG_Body", pos = Vector(1.781, -11.601, 1.996), angle = Angle(0, -90, 0), size = Vector(0.899, 0.899, 0.899) },
 }
 
 SWEP.Attachments = {
-	[1] = {name = "Barrel", attachments = {"pb_ins2_att_suppressor"}},
-	[2] = {name = "Siderail", attachments = {"pb_ins2_att_flashlight", "pb_ins2_att_laser"}},
-	[3] = {name = "Magazines", attachments = {"pb_ins2_att_mag_extended_15"}},
+	[1] = {name = "Siderail", attachments = {"pb_ins2_att_laser"}},
 }
 
 SWEP.EnableCustomization = false
@@ -121,44 +112,39 @@ SWEP.NoShells = true
 SWEP.MuzzleAttachmentName = "muzzle"
 
 SWEP.MuzzleEffect = {
-    "pb_ins2_muzzleflash_m9_1p_core",
-    "pb_ins2_muzzleflash_m9_1p_glow",
-    "pb_ins2_muzzleflash_m9_1p_sparks",
-    "muzzle_lee_pistol",
+    "pb_ins2_ins_weapon_rpg_muzzleflash",
+    "pb_ins2_ins_weapon_rpg_flame",
+    "pb_ins2_ins_weapon_rpg_smoketrail",
+    "pb_ins2_ins_weapon_rpg_spark",
     "muzzle_smoke_trail",
-    "smoke_trail",
 }
 
 SWEP.MuzzleEffectSuppressed = {"muzzle_lee_silenced"}
 
-local icon_merge_models = {
-	-- "models/gmod4phun/ins2/upgrades/a_magazine_1911_8.mdl"
-}
+SWEP.INS2_IconParams = {dist = 16, offset = 1.2, spin = false}
 
-SWEP.INS2_IconParams = {dist = 16, offset = 1.25, spin = false, mergemodels = icon_merge_models}
-
--- function SWEP:CustomizeAnimLogic()
-	-- if self:GetIsCustomizing() then
-        -- self:_playINS2Anim("idle")
-	-- end
--- end
+function SWEP:CustomizeAnimLogic()
+	if self:GetIsCustomizing() then
+        self:_playINS2Anim("idle")
+	end
+end
 
 function SWEP:PrimaryAttackOverride()
-	local ply = self.Owner
-	local pos = ply:GetShootPos()
-	local eyeAng = ply:EyeAngles()
-	local forward = eyeAng:Forward()
-	local offset = forward * 30 + eyeAng:Right() * 4 - eyeAng:Up() * 3
-	
-	local nade = ents.Create("grenade_ar2")
-	nade:SetPos(pos + offset)
-	nade:SetAngles(eyeAng)
-	nade:Spawn()
-	nade:Activate()
-	nade:SetOwner(ply)
-	nade.IsPBGL_AR2Projectile = true
-	
-	nade:SetModel("models/gmod4phun/ins2/weapons/w_rpg7_projectile.mdl")
-	nade:SetVelocity(forward * 2000)
-	nade:SetSaveValue("m_flDamage", 150)
+	if SERVER then
+		local ply = self.Owner
+		local pos = ply:GetShootPos()
+		local eyeAng = ply:EyeAngles()
+		local offset = eyeAng:Forward() * 24
+		
+		if !self:GetIron() then
+			offset = offset + eyeAng:Right() * 6
+		end
+		
+		local nade = ents.Create("pb_ins2_projectile_rpg")
+		nade:SetPos(pos + offset)
+		nade:SetAngles(eyeAng)
+		nade:Spawn()
+		nade:Activate()
+		nade:SetOwner(ply)
+	end
 end
