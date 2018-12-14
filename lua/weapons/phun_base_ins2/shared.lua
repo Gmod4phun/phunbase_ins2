@@ -187,7 +187,7 @@ SWEP.Sequences = {
 }
 */
 
-local anims_pref_empty = {
+SWEP.anims_pref_empty = {
 	["idle"] = true,
 	["draw"] = true,
 	["holster"] = true,
@@ -200,7 +200,7 @@ local anims_pref_empty = {
 	["fireselect"] = true,
 }
 
-local anims_pref_iron = {
+SWEP.anims_pref_iron = {
 	["idle"] = true,
 	["fire"] = true,
 	["firelast"] = true,
@@ -209,15 +209,15 @@ local anims_pref_iron = {
 	["fire_cock"] = true,
 }
 
-local anims_pref_nobase = {
+SWEP.anims_pref_nobase = {
 	["iron_down"] = true,
 	["in"] = true,
 	["out"] = true,
 }
 
 function SWEP:_getAnimPrefixes(anim)
-	local empty = self:Clip1() == 0 and anims_pref_empty[anim] and self.UsesEmptyAnims
-	local iron = self:GetIron() and anims_pref_iron[anim]
+	local empty = self:Clip1() == 0 and self.anims_pref_empty[anim] and self.UsesEmptyAnims
+	local iron = self:GetIron() and self.anims_pref_iron[anim]
 	local fore = self.UsesForegrip
 	local gl = self.UsesGrenadeLauncher and self:GetWeaponMode() != PB_WEAPONMODE_GL_ACTIVE
 	
@@ -232,20 +232,20 @@ function SWEP:_getAnimPrefixes(anim)
 	if glactive then prefix = "glsetup_"..prefix end
 	if deployed then prefix = "deployed_"..prefix end
 	
-	local base = (prefix == "" and !anims_pref_nobase[anim]) and true or false
+	local base = (prefix == "" and !self.anims_pref_nobase[anim]) and true or false
 	
 	prefix = base and "base_" or prefix
 	
 	return prefix
 end
 
-local anims_suff_empty = {
+SWEP.anims_suff_empty = {
 	["reload_start"] = true,
 	["reload_end"] = true,
 }
 
 function SWEP:_getAnimSuffixes(anim)
-	local validanim, empty = anims_suff_empty[anim], false
+	local validanim, empty = self.anims_suff_empty[anim], false
 	
 	if self:GetIsReloading() and self.ShotgunReloadingState != 1 and self.WasEmpty and validanim then
 		empty = true
@@ -318,9 +318,7 @@ end
 
 function SWEP:DeployAnimLogic()
 	local anim = !self._wasFirstTimeDeployed and "ready" or "draw"
-	self:DelayedEvent(anim == "ready" and 0 or 0.001, function()
-		self:_playINS2Anim(anim)
-	end)
+	self:_playINS2Anim(anim)
 end
 
 function SWEP:HolsterAnimLogic()

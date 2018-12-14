@@ -27,6 +27,8 @@ if CLIENT then
 	SWEP.VMCameraRotateOffsetIron = 0
     
 	function SWEP:HandleExtraCalcView(ply, pos, ang, fov)
+		if ply:ShouldDrawLocalPlayer() then return end
+	
         local vm = self.VM
         
         local attIndex = vm:LookupAttachment("Muzzle")
