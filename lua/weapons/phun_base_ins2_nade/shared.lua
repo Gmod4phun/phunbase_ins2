@@ -114,7 +114,7 @@ SWEP.UseIronTransitionAnims = true
 
 SWEP.NoSprintVMMovement = false
 
-SWEP.INS2_IconParams = {dist = 10, spin = false, bodygroups = {}}
+SWEP.INS2_IconParams = {dist = 10, offset = 0, spin = false}
 
 // anims override
 /* // commented out cos it does weird shit when it is set in the base
